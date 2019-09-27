@@ -71,3 +71,6 @@ class ObstacleField:
 if __name__ == "__main__":
     testField = ObstacleField(72, 96, 1, 0, 1, 0, [Point(3,3), Point(3,4)])
     testField.toString()
+
+
+    #!!LKJH:LIJ:LKJ
