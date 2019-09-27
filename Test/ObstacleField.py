@@ -9,7 +9,7 @@ class ObstacleField:
         self.exitWidth_ = exitWidth
         self.exitOffset_ = exitOffset
 
-        # if the occupied points list is empty 
+        # if the occupied points list is empty
         assert type(occupiedPoints) is list, "occupiedPoints argument is not a list. Send an empty list if necessary."
         if len(occupiedPoints) != 0:
             self.isPopulated = True
@@ -20,14 +20,14 @@ class ObstacleField:
 
     def checkPointOccupied(self):
         # return true if the point is not occupied
-        
+        pass
 
     def toString(self):
         # Print out each coordinate in nested for loops
         rowString = ''
         # For the y axis
         for y in range(self.heightInches_ + 2): # Note, the + 2 here is for the boundaries
-            
+
             # For the x axis
             for x in range(self.widthInches_ + 2): # Note, the + 2 here is for the boundaries
 
@@ -62,7 +62,7 @@ class ObstacleField:
 
                     if not pointIsOccupiedFlag and not edgeColumnFlag: # if point is not occupied
                         rowString += ' '
-            
+
             print(rowString)
             rowString = ''
 
