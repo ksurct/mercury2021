@@ -17,9 +17,6 @@ class ObstacleField:
         else:
             self.isPopulated = False
             self.occupiedPoints_ = []
-
-#    def checkPointOccupied(self):
-        # return true if the point is not occupied
         
 
     def toString(self):
