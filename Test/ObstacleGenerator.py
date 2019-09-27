@@ -12,18 +12,26 @@ class ObstacleGenerator:
         self.points = []
         self.pointobjects = []
 
-    def checkCollisions(self, obstaclepoints):
+    def checkCollisions(self, obstaclepoints, points):
 
         for obstaclepoint in obstaclepoints:
-            if ((obstaclepoint[0] < 0) or (obstaclepoint[0] > self.maxx)):
-                return True
-            if ((obstaclepoint[1] < 0) or (obstaclepoint[1] > self.maxy)):
-                return True
-            for point in self.points:
+            print(obstaclepoint)
+            for point in points:
                 if (point == obstaclepoint):
+                    #print('Fail Collision')
                     return True
+            if ((obstaclepoint[0] < 0) or (obstaclepoint[0] > self.maxx)):
+                #print('Fail x-bound')
+                return True
+            elif ((obstaclepoint[1] < 0) or (obstaclepoint[1] > self.maxy)):
+                #print('Fail y-bound')
+                return True
 
-            return False
+            #else:
+                #print('Success')
+        return False
+
+
 
     def generate(self):
 
@@ -36,32 +44,28 @@ class ObstacleGenerator:
                 while (collision == True):
                     initpoint = (random.randint(0,self.maxx-1),random.randint(0,self.maxy-1))
                     direction = random.randint(0,3) # 0,1,2,3  ::  E,N,W,S
-                    obstaclepoints = [initpoint]
 
+                    obstaclepoints = []
 
                     if (direction == 0): #East
-                        obstaclepoints.append( (initpoint[0], initpoint[1] + 1) )
 
                         for i in range(length):
                             obstaclepoints.append( (initpoint[0] + i, initpoint[1]) )
                             obstaclepoints.append( (initpoint[0] + i, initpoint[1] + 1) )
 
                     elif (direction == 1): #North
-                        obstaclepoints.append( (initpoint[0] + 1, initpoint[1]) )
 
                         for i in range(length):
                             obstaclepoints.append( (initpoint[0], initpoint[1] + i) )
                             obstaclepoints.append( (initpoint[0] + 1, initpoint[1] + i) )
 
                     elif (direction == 2): #West
-                        obstaclepoints.append( (initpoint[0], initpoint[1] + 1) )
 
                         for i in range(length):
                             obstaclepoints.append( (initpoint[0] - i, initpoint[1]) )
                             obstaclepoints.append( (initpoint[0] - i, initpoint[1] + 1) )
 
                     elif (direction == 3): #South
-                        obstaclepoints.append( (initpoint[0] + 1, initpoint[1]) )
 
                         for i in range(length):
                             obstaclepoints.append( (initpoint[0], initpoint[1] - i) )
@@ -69,9 +73,11 @@ class ObstacleGenerator:
 
 
                     #Check if points collide with other obstacles or walls
-                    collision = self.checkCollisions(obstaclepoints)
+                    collision = self.checkCollisions(obstaclepoints, self.points)
 
-                    self.points = self.points + obstaclepoints
+                    if (collision == False):
+                        self.points = self.points + obstaclepoints
+
 
             pathcheck = False
 
