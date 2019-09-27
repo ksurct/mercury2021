@@ -5,7 +5,7 @@ class ObstacleField:
         self.heightInches_ = heightInches
         self.widthInches_ = widthInches
         self.entranceWidth_ = entranceWidth
-        self.entranceOffset = entranceOffset
+        self.entranceOffset_ = entranceOffset
         self.exitWidth_ = exitWidth
         self.exitOffset_ = exitOffset
 
@@ -18,7 +18,7 @@ class ObstacleField:
             self.isPopulated = False
             self.occupiedPoints_ = []
 
-    def checkPointOccupied(self):
+#    def checkPointOccupied(self):
         # return true if the point is not occupied
         
 
@@ -41,16 +41,21 @@ class ObstacleField:
 
                         # Now we need to check to see if we are at the entrance or exit, and leave those clear
                         # Choose to look for either the entrance or exit
-                        #if(y == 0):
+                        if(x == 0):
                             # exit
-                        #    if y == (exitOffset + 1): # The plus 1 is because this is an offset from the top wall
-
-                        #else:
+                            if y >= (self.exitOffset_ + 1) and y < (self.exitOffset_ + self.exitWidth_ + 1): # The plus 1 is because this is an offset from the top wall    
+                                rowString += ' '
+                            else:
+                                rowString += 'x'
+                        elif x == (self.widthInches_ + 1):
                             # entrance
-
-
-                        # if not entrance or exit
-                        rowString += 'x'
+                            if y >= (self.entranceOffset_ + 1) and y < (self.entranceOffset_ + self.entranceWidth_ + 1): # The plus 1 is because this is an offset from the top wall    
+                                rowString += ' '
+                            else:
+                                rowString += 'x'
+                        else:
+                            # if not entrance or exit
+                            rowString += 'x'
 
                     # Check each point in occupiedPoints
                     pointIsOccupiedFlag = 0
@@ -69,8 +74,5 @@ class ObstacleField:
 
 
 if __name__ == "__main__":
-    testField = ObstacleField(72, 96, 1, 0, 1, 0, [Point(3,3), Point(3,4)])
+    testField = ObstacleField(72, 96, 24, 34, 24, 6, [Point(3,3), Point(3,4)])
     testField.toString()
-
-
-    #!!LKJH:LIJ:LKJ
