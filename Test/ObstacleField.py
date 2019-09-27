@@ -1,7 +1,7 @@
 from Point import Point
 
 class ObstacleField:
-    def __init__(self, heightInches, widthInches, entranceWidth, entranceOffset, exitWidth, exitOffset, occupiedPoints):
+    def __init__(self, heightInches = 72, widthInches = 96, entranceWidth = 24, entranceOffset = 34, exitWidth = 24, exitOffset = 6, occupiedPoints = []):
         self.heightInches_ = heightInches
         self.widthInches_ = widthInches
         self.entranceWidth_ = entranceWidth
@@ -71,5 +71,15 @@ class ObstacleField:
 
 
 if __name__ == "__main__":
+    # Obstacle field constructors
+    
+    # You can choose to specify all arguments (these are the real life values of the wall lengths.)
     testField = ObstacleField(72, 96, 24, 34, 24, 6, [Point(3,3), Point(3,4)])
+
+    # You can choose to only specify the points this way, and keep the default arguments
+    testField = ObstacleField(occupiedPoints=[Point(3,3), Point(3,4)])
+    
+    # You can choose to specify no arguments for a default size, no point field.
+    testField = ObstacleField()
+
     testField.toString()
