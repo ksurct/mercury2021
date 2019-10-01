@@ -11,11 +11,13 @@ class ObstacleGenerator:
         self.maxy = 72
         self.points = []
         self.pointobjects = []
+        #self.array = [[0] * self.maxx] * self.maxy
+        self.array = []
 
     def checkCollisions(self, obstaclepoints, points):
 
         for obstaclepoint in obstaclepoints:
-            print(obstaclepoint)
+            #print(obstaclepoint)
             for point in points:
                 if (point == obstaclepoint):
                     #print('Fail Collision')
@@ -31,6 +33,22 @@ class ObstacleGenerator:
                 #print('Success')
         return False
 
+
+    def convertToArray(self):
+
+
+        self.array.append([])
+        for j in range(self.maxy): #y
+            self.array.append([])
+            for i in range(self.maxx): #x
+                self.array[j].append(0)
+        self.array.pop()
+
+        for point in self.points:
+            self.array[point[1]][point[0]] = 1
+
+        for i in self.array:
+            print(i)
 
 
     def generate(self):
@@ -78,6 +96,8 @@ class ObstacleGenerator:
                     if (collision == False):
                         self.points = self.points + obstaclepoints
 
+
+            self.convertToArray()
 
             pathcheck = False
 
