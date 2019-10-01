@@ -1,0 +1,8 @@
+# Gitignore file
+# Everything in the folder here will not be committed to the repository
+# It will instead just be saved locally to the computer the repo is on
+
+__pycache__/
+.vscode/
+*.pyc
+*.sqlite3
