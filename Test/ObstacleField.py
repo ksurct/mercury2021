@@ -19,6 +19,25 @@ class ObstacleField:
             self.occupiedPoints_ = []
         
 
+    def parseForCsv(self):
+        # This function returns a list of the input parameters and occupied points for use in a csv aggregator. 
+
+        output = [
+            self.heightInches_,
+            self.widthInches_,
+            self.entranceWidth_,
+            self.entranceOffset_,
+            self.exitWidth_,
+            self.exitOffset_
+        ] # Add the easy input arguments
+
+        for point in self.occupiedPoints_:
+            output.append(point.xVal_)
+            output.append(point.yVal_)
+
+        return output
+
+
     def toString(self):
         # Print out each coordinate in nested for loops
         rowString = ''
@@ -69,7 +88,6 @@ class ObstacleField:
             rowString = ''
 
 
-
 if __name__ == "__main__":
     # Obstacle field constructors
     
@@ -80,6 +98,7 @@ if __name__ == "__main__":
     testField = ObstacleField(occupiedPoints=[Point(3,3), Point(3,4)])
     
     # You can choose to specify no arguments for a default size, no point field.
-    testField = ObstacleField()
+    #testField = ObstacleField()
 
     testField.toString()
+    print(testField.parseForCsv())
