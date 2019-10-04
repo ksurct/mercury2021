@@ -95,9 +95,9 @@ class PathFinder(object):
                 return False;
 
     def protectedCheckPoint(x, y):
-        if (x > self.xMax: # we will allow points outside the x direction to be valid
+        if (x > self.xMax): # we will allow points outside the x direction to be valid
             return True;
-        else if (y > self.yMax or y < 0): # we will not allow points outside the y zone to be valid
+        elif (y > self.yMax or y < 0): # we will not allow points outside the y zone to be valid
             return False;
         return self.field[x][y]; # just check the point now
 
