@@ -92,7 +92,7 @@ if __name__ == "__main__":
     # Obstacle field constructors
     
     # You can choose to specify all arguments (these are the real life values of the wall lengths.)
-    testField = ObstacleField(72, 96, 24, 34, 24, 6, [Point(3,3), Point(3,4), Point(3,5)])
+    testField = ObstacleField(72, 96, 24, 34, 24, 6, [Point(3,3), Point(3,4), Point(3,5), Point (3,6)])
 
     # You can choose to only specify the points this way, and keep the default arguments
     #testField = ObstacleField(occupiedPoints=[Point(3,3), Point(3,4)])
