@@ -11,7 +11,7 @@ class PathFinder(object):
 
     def checkField():
         self.point = findStart()
-        if (!self.point):
+        if (not self.point):
             return False # it didnt even find a findStart
         # do the 'algo rythem' now
         return moveForeward()
