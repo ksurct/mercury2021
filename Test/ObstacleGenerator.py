@@ -13,6 +13,7 @@ class ObstacleGenerator:
         self.points = []        #[[x1,y1],[x2,y2]....] set of occupied points
         self.pointobjects = []  #List of occupied point objects
         self.array = []         # 0 1 array describing course
+        self.invertarray = []
 
         self.exitoffset = 6
         self.entranceoffset = 34
@@ -30,9 +31,9 @@ class ObstacleGenerator:
                     return True
 
         #check if any point is out of bounds
-            if ((obstaclepoint[0] < 0) or (obstaclepoint[0] > self.maxx)):
+            if ((obstaclepoint[0] < 0) or (obstaclepoint[0] >= self.maxx)):
                 return True
-            elif ((obstaclepoint[1] < 0) or (obstaclepoint[1] > self.maxy)):
+            elif ((obstaclepoint[1] < 0) or (obstaclepoint[1] >= self.maxy)):
                 return True
 
         #if there are no problems, return False, no collisions
@@ -51,7 +52,15 @@ class ObstacleGenerator:
 
         #populate obstaclepoints in array as 1
         for point in self.points:
-            self.array[point[1]][point[0]] = 1
+            try:
+                self.array[point[1]][point[0]] = 1
+            except Exception as e:
+                print(e.__doc__)
+                #print(e.message)
+                print("Failed Point: " , point)
+                raise Exception("Failure")
+
+
 
         for row in range(self.maxy):
             if ((row < self.exitoffset) or row >= (self.exitoffset + self.exitwidth)):
@@ -66,16 +75,31 @@ class ObstacleGenerator:
             else:
                 self.array[row].append(0)
 
-
         #print array for testing
         for i in self.array:
             print(i)
+
+        self.invertarray.append([])
+        for j in range(self.maxx + 2):
+            self.invertarray.append([])
+            for i in range(self.maxy):
+                self.invertarray[j].append(0)
+        self.array.pop()
+
+        for row in range(len(self.array)):
+            for col in range(len(self.array[row])):
+                self.invertarray[col][row] = self.array[row][col]
+
+        print()
+        for i in self.invertarray:
+            print(i)
+
 
     #Generate Obstacles
     def generate(self):
 
         pathcheck = False
-        pathfinder = PathFinder.PathFinder()
+        #pathfinder = PathFinder.PathFinder()
 
         #Continue until a valid path is found
         while (not pathcheck):
@@ -127,16 +151,17 @@ class ObstacleGenerator:
             #convert to array for the pathchecker
             self.convertToArray()
 
-            pathfinder.setField(self.array)
+            #pathfinder.setField(self.array)
 
-            pathcheck = pathfinder.checkField()
+            #pathcheck = pathfinder.checkField()
+            pathcheck = True
 
             self.points.sort()
-            print(self.points)
+            #print(self.points)
 
             #Convert points list into a list of point objects for obstacle field
             for point in self.points:
-                self.pointobjects.append(Point(point[0],point[1]))
+                self.pointobjects.append(Point((point[0]+1),(point[1]+1)))
 
 
 course = ObstacleGenerator()
