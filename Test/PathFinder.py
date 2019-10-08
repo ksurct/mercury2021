@@ -9,6 +9,12 @@ class PathFinder(object):
 
     def setField(self, field):
         self.field = field
+        betterField =  [[0 for i in range(len(field))] for j in range(len(field[0]))]
+
+        for x in range(0, len(field[0])):
+            for y in range(0, len(field)):
+                betterField[x][y] = field[y][x]
+        field = betterField
         self.xMax = len(self.field) - 1
         self.yMax = len(self.field[0]) - 1
 
@@ -43,63 +49,86 @@ class PathFinder(object):
                     elif (len(stack) > 0):
                         self.point = stack.pop() # if can't move up foreward and we have a stack make the self.point equal the last valid foreward point
                         overideDown = True # the only reason we
-                else:
+                elif (overideDown):
                     if (not self.upForward() and len(stack) == 0):
                         return False
-                    elif (len(sFalsetack) > 0):
+                    elif (len(stack) > 0):
                         self.point = stack.pop()
                     overideDown = False
             self.setPoint([self.point[0] + 1, self.point[1]]) # just keep going
+            print("Moved forWard")
             if (self.isComplete(self.point)):
                 return True
 
     def downForward(self):
+        if (self.moveDownIsValid(self.point)):
+            self.setPoint([self.point[0], self.point[1] + 1])
+            u = 9
+
         while True:
             if (self.moveForwardIsValid(self.point)):
+                print("Down forward is the returned true")
                 return True
             if (not self.moveDownIsValid(self.point)):
                 return self.backDown()
             self.setPoint([self.point[0], self.point[1] + 1])
+            print("Moved downForward")
+
 
     def backDown(self):
+        if (self.moveBackwardIsValid(self.point)):
+            self.setPoint([self.point[0] - 1, self.point[1]])
         while True:
             if (self.moveDownIsValid(self.point)):
                 return self.downForward()
             if (not self.moveBackwardIsValid(self.point)):
                 return self.upBack()
             self.setPoint([self.point[0] - 1, self.point[1]])
+            print("Moved BackDown")
 
     def upBack(self):
+        if (self.moveUpIsValid(self.point)):
+            self.setPoint([self.point[0], self.point[1] - 1])
         while True:
             if (not self.moveUpIsValid(self.point)):
                 return False
             if (self.moveBackwardIsValid(self.point)):
                 return self.backDown()
             self.setPoint([self.point[0], self.point[1] - 1])
+            print("Moved upBack")
 
     def upForward(self):
+        if (self.moveUpIsValid(self.point)):
+            self.setPoint([self.point[0], self.point[1] - 1])
         while True:
             if (self.moveForwardIsValid(self.point)):
                 return True
             if (not self.moveUpIsValid(self.point)):
                 return self.backUp()
             self.setPoint([self.point[0], self.point[1] - 1])
+            print("Moved upForward")
 
     def backUp(self):
+        if (self.moveBackwardIsValid(self.point)):
+            self.setPoint([self.point[0] - 1, self.point[1]])
         while True:
             if (self.moveUpIsValid(self.point)):
                 return self.upForward()
             if (not self.moveBackwardIsValid(self.point)):
                 return self.downBack()
             self.setPoint([self.point[0] - 1, self.point[1]])
+            print("Moved backUp")
 
     def downBack(self):
+        if (self.moveDownIsValid(self.point)):
+            self.setPoint([self.point[0], self.point[1] + 1])
         while True:
             if (self.moveBackwardIsValid(self.point)):
-                return backUp()
+                return self.backUp()
             if (not self.moveDownIsValid(self.point)):
                 return False
             self.setPoint([self.point[0], self.point[1] + 1])
+            print("Moved downBack")
     """
     Might need to implement forwardUp and forwardDown
     """
