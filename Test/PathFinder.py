@@ -39,7 +39,7 @@ class PathFinder(object):
                 stack.append(self.point)
                 overideDown = False
                 if (not overideDown and not self.downForward()):
-                    self.point = curPoint # get the last valid foreward value
+                    self.point = stack.pop() # get the last valid foreward value
                     if (not self.upForward() and len(stack) == 0):
                         return False
                     elif (len(stack) > 0):
@@ -53,6 +53,8 @@ class PathFinder(object):
                     overideDown = False
             print("Went Forward")
             self.setPoint([self.point[0] + 1, self.point[1]]) # just keep going
+            if (self.isComplete(self.point)):
+                return True
 
     def downForward(self):
         print('down FORWARD')
@@ -85,7 +87,7 @@ class PathFinder(object):
                 return True
             if (not self.moveUpIsValid(self.point)):
                 return self.backUp()
-        self.setPoint([self.point[0], self.point[1] - 1])
+            self.setPoint([self.point[0], self.point[1] - 1])
 
     def backUp(self):
         while True:
@@ -111,8 +113,6 @@ class PathFinder(object):
     def isValid(self, point): # i have defined the field to be field[x][y] not field[y][x]
         for x in range(0, self.width):
             if (self.protectedCheckPoint(point[0] + x, point[1]) or self.protectedCheckPoint(point[0] + x, point[1] + self.width - 1) or self.protectedCheckPoint(point[0], point[1] + x) or self.protectedCheckPoint(point[0] + self.width - 1, point[1] + x)):
-                if (point[0] < 0):
-                    print("its negative")
                 return False;
         return True
 
@@ -151,7 +151,7 @@ class PathFinder(object):
             for y in range(0, self.yMax):
                 print("")
                 for x in range(0, self.xMax):
-                    if (x > point[0] and x < point[0] + 24 and y > point[1] and y < point[1] + 24):
+                    if (x >= point[0] and x <= point[0] + 23 and y >= point[1] and y <= point[1] + 23):
                         print(" *", end = "")
                     elif (self.field[x][y]):
                         print(" x", end = "")
@@ -162,14 +162,19 @@ class PathFinder(object):
         field = [[0 for i in range(72)] for j in range(94)]
         for x in range(0, len(field)):
             for y in range(0, len(field[0])):
-                if (x == 67 or y == 56):
+                if (x == 673 or y == 536):
                     field[x][y] = 1
                 else:
                     field[x][y] = 0
         return field
 
+    def isComplete(self, point):
+        if (self.point[0] == self.xMax - 24):
+            return True
+        return False
+
 finder = PathFinder(1)
 finder.printField(finder.createDummyField())
 finder.setField(finder.createDummyField())
 # print(finder.protectedCheckPoint(-1, 0))
-field = finder.checkField()
+print(finder.checkField())
