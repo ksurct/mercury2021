@@ -168,7 +168,7 @@ class PathFinder(object):
             return True
         return False
 
-finder = PathFinder()
-finder.setField(finder.createDummyField())
+#finder = PathFinder()
+#finder.setField(finder.createDummyField())
 # print(finder.protectedCheckPoint(-1, 0))
-print(finder.checkField())
+#print(finder.checkField())

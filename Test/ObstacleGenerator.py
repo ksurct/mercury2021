@@ -1,6 +1,7 @@
 import random
 from Point import Point
 from ObstacleField import *
+import PathFinder
 
 class ObstacleGenerator:
 
@@ -73,10 +74,11 @@ class ObstacleGenerator:
     #Generate Obstacles
     def generate(self):
 
-        pathcheck = True
+        pathcheck = False
+        pathfinder = PathFinder.PathFinder()
 
         #Continue until a valid path is found
-        while (pathcheck):
+        while (not pathcheck):
 
             #For each obstacle in lengths
             for length in self.lengths:
@@ -125,8 +127,9 @@ class ObstacleGenerator:
             #convert to array for the pathchecker
             self.convertToArray()
 
+            pathfinder.setField(self.array)
 
-            pathcheck = False
+            pathcheck = pathfinder.checkField()
 
             self.points.sort()
             print(self.points)
@@ -138,6 +141,7 @@ class ObstacleGenerator:
 
 course = ObstacleGenerator()
 course.generate()
+
 
 field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
 #field.toString()
