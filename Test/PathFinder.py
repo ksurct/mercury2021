@@ -2,8 +2,7 @@ from time import sleep
 class PathFinder(object):
     """docstring for PathFinder."""
 
-    def __init__(self, ObstacleField):
-        self.field = ObstacleField # expects big array with all valid points 0 and not valid 1 or True False
+    def __init__(self):
         self.point = False # its false not a point
         self.width = 24
         self.debug = True
@@ -34,7 +33,6 @@ class PathFinder(object):
         while True:
 
             if (not self.moveForwardIsValid(self.point)):
-                print(self.point)
                 curPoint = self.point
                 stack.append(self.point)
                 overideDown = False
@@ -51,13 +49,11 @@ class PathFinder(object):
                     elif (len(sFalsetack) > 0):
                         self.point = stack.pop()
                     overideDown = False
-            print("Went Forward")
             self.setPoint([self.point[0] + 1, self.point[1]]) # just keep going
             if (self.isComplete(self.point)):
                 return True
 
     def downForward(self):
-        print('down FORWARD')
         while True:
             if (self.moveForwardIsValid(self.point)):
                 return True
@@ -135,7 +131,6 @@ class PathFinder(object):
 
     def printField(self, field):
         for y in range(0, 72):
-            print('end')
             for x in range(0, 94):
                 if (field[x][y]):
                     print(' x', end ="")
@@ -173,8 +168,7 @@ class PathFinder(object):
             return True
         return False
 
-finder = PathFinder(1)
-finder.printField(finder.createDummyField())
+finder = PathFinder()
 finder.setField(finder.createDummyField())
 # print(finder.protectedCheckPoint(-1, 0))
 print(finder.checkField())
