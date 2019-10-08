@@ -157,7 +157,7 @@ class PathFinder(object):
         field = [[0 for i in range(72)] for j in range(94)]
         for x in range(0, len(field)):
             for y in range(0, len(field[0])):
-                if (x == 673 or y == 536):
+                if (x == 67 or y == 535):
                     field[x][y] = 1
                 else:
                     field[x][y] = 0
