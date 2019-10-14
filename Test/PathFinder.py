@@ -6,6 +6,11 @@ class PathFinder(object):
         self.point = False # its false not a point
         self.width = 24
         self.debug = True
+        self.sleep = 0.01
+        self.message = -1
+
+    def setSleep(self, new):
+        self.sleep = new
 
     def setField(self, field):
         self.field = field
@@ -34,12 +39,9 @@ class PathFinder(object):
         return self.moveForeward()
 
     def moveForeward(self):
-        print('check field')
         stack = [];
         while True:
-
             if (not self.moveForwardIsValid(self.point)):
-                curPoint = self.point
                 stack.append(self.point)
                 overideDown = False
                 if (not overideDown and not self.downForward()):
@@ -50,13 +52,13 @@ class PathFinder(object):
                         self.point = stack.pop() # if can't move up foreward and we have a stack make the self.point equal the last valid foreward point
                         overideDown = True # the only reason we
                 elif (overideDown):
+                    overideDown = False
                     if (not self.upForward() and len(stack) == 0):
                         return False
                     elif (len(stack) > 0):
                         self.point = stack.pop()
-                    overideDown = False
+                        overideDown = True
             self.setPoint([self.point[0] + 1, self.point[1]]) # just keep going
-            print("Moved forWard")
             if (self.isComplete(self.point)):
                 return True
 
@@ -153,6 +155,7 @@ class PathFinder(object):
         return self.isValid([point[0], point[1] - 1])
 
     def moveForwardIsValid(self, point):
+        self.message = "isValid = {}, point: ( {}, {} )".format(self.isValid([point[0] + 1, point[1]]), point[0], point[1])
         return self.isValid([point[0] + 1, point[1]])
 
     def moveBackwardIsValid(self, point):
@@ -181,7 +184,10 @@ class PathFinder(object):
                         print(" x", end = "")
                     else:
                         print(" 0", end = "")
-            sleep(0.01)
+            print("\n{}".format(self.message))
+            self.message = 'No Updates'
+            sleep(self.sleep)
+            print(self.message, end = '')
     def createDummyField(self):
         field = [[0 for i in range(72)] for j in range(94)]
         for x in range(0, len(field)):

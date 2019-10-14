@@ -18,7 +18,7 @@ class ObstacleGenerator:
         self.entranceoffset = 34
         self.entrancewidth = 24
         self.exitwidth = 24
-
+        self.message = -1
 
     #Check if obstacles overlap eachother or outer walls
     def checkCollisions(self, obstaclepoints, points):
@@ -130,9 +130,10 @@ class ObstacleGenerator:
             pathfinder.setField(self.array)
 
             pathcheck = pathfinder.checkField()
-
+            pathfinder.setSleep(1)
+            pathfinder.checkField()
             self.points.sort()
-            print(self.points)
+            #print(self.points)
 
             #Convert points list into a list of point objects for obstacle field
             for point in self.points:
