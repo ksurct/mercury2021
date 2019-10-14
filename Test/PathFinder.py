@@ -1,4 +1,5 @@
 from time import sleep
+import os
 class PathFinder(object):
     """docstring for PathFinder."""
 
@@ -9,12 +10,12 @@ class PathFinder(object):
 
     def setField(self, field):
         self.field = field
-        betterField =  [[0 for i in range(len(field))] for j in range(len(field[0]))]
+        '''betterField =  [[0 for i in range(len(field))] for j in range(len(field[0]))]
 
         for x in range(0, len(field[0])):
             for y in range(0, len(field)):
                 betterField[x][y] = field[y][x]
-        field = betterField
+        field = betterField'''
         self.xMax = len(self.field) - 1
         self.yMax = len(self.field[0]) - 1
 
@@ -170,7 +171,7 @@ class PathFinder(object):
     def setPoint(self, point):
         self.point = [point[0], point[1]]
         if (self.debug):
-            print('\n\n\n\n\n\n\n')
+            print('\n\n\n\n\n\n\n\n\n\n\n\n')
             print(self.point)
             for y in range(0, self.yMax):
                 print("")
@@ -181,7 +182,9 @@ class PathFinder(object):
                         print(" x", end = "")
                     else:
                         print(" 0", end = "")
-            sleep(0.01)
+            sleep(0.001)
+            os.system('cls')
+
     def createDummyField(self):
         field = [[0 for i in range(72)] for j in range(94)]
         for x in range(0, len(field)):
@@ -199,5 +202,5 @@ class PathFinder(object):
 
 #finder = PathFinder()
 #finder.setField(finder.createDummyField())
-# print(finder.protectedCheckPoint(-1, 0))
+#print(finder.protectedCheckPoint(-1, 0))
 #print(finder.checkField())

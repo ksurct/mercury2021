@@ -43,24 +43,11 @@ class ObstacleGenerator:
     def convertToArray(self):
 
         #populate empty course array with 0
-        self.array.append([])
-        for j in range(self.maxy): #y
-            self.array.append([])
-            for i in range(self.maxx): #x
-                self.array[j].append(0)
-        self.array.pop()
+        self.array = [[0 for x in range(self.maxx)] for y in range(self.maxy)]
 
         #populate obstaclepoints in array as 1
         for point in self.points:
-            try:
-                self.array[point[1]][point[0]] = 1
-            except Exception as e:
-                print(e.__doc__)
-                #print(e.message)
-                print("Failed Point: " , point)
-                raise Exception("Failure")
-
-
+            self.array[point[1]][point[0]] = 1
 
         for row in range(self.maxy):
             if ((row < self.exitoffset) or row >= (self.exitoffset + self.exitwidth)):
@@ -75,35 +62,29 @@ class ObstacleGenerator:
             else:
                 self.array[row].append(0)
 
-        #print array for testing
-        for i in self.array:
+        self.invertarray = [[0 for a in range(len(self.array))] for b in range(len(self.array[0]))]
+
+        for y in range(len(self.array)):
+            for x in range(len(self.array[0])):
+                self.invertarray[x][y] = self.array[y][x]
+
+        '''for i in self.array:
             print(i)
-
-        self.invertarray.append([])
-        for j in range(self.maxx + 2):
-            self.invertarray.append([])
-            for i in range(self.maxy):
-                self.invertarray[j].append(0)
-        self.array.pop()
-
-        for row in range(len(self.array)):
-            for col in range(len(self.array[row])):
-                self.invertarray[col][row] = self.array[row][col]
 
         print()
         for i in self.invertarray:
-            print(i)
+            print(i)'''
 
 
     #Generate Obstacles
     def generate(self):
 
         pathcheck = False
-        #pathfinder = PathFinder.PathFinder()
+        pathfinder = PathFinder.PathFinder()
 
         #Continue until a valid path is found
         while (not pathcheck):
-
+            self.points = []
             #For each obstacle in lengths
             for length in self.lengths:
 
@@ -151,17 +132,17 @@ class ObstacleGenerator:
             #convert to array for the pathchecker
             self.convertToArray()
 
-            #pathfinder.setField(self.array)
+            pathfinder.setField(self.invertarray)
 
-            #pathcheck = pathfinder.checkField()
-            pathcheck = True
+            pathcheck = pathfinder.checkField()
+            #pathcheck = True
 
             self.points.sort()
             #print(self.points)
 
             #Convert points list into a list of point objects for obstacle field
-            for point in self.points:
-                self.pointobjects.append(Point((point[0]+1),(point[1]+1)))
+        for point in self.points:
+            self.pointobjects.append(Point((point[0]+1),(point[1]+1)))
 
 
 course = ObstacleGenerator()
@@ -169,4 +150,4 @@ course.generate()
 
 
 field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
-#field.toString()
+field.toString()
