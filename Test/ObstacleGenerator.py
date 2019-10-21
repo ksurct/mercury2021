@@ -133,13 +133,15 @@ class ObstacleGenerator:
             self.convertToArray()
 
             pathfinder.setField(self.invertarray)
-
+            pathfinder.debug = False
+            pathfinder.setSleep(0.02)
             pathcheck = pathfinder.checkField()
 
             #pathcheck = True
 
             #pathfinder.setSleep(1)
-            pathfinder.checkField()
+            #pathfinder.checkField()
+
             self.points.sort()
             #print(self.points)
 
