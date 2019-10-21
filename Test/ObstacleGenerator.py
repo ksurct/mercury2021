@@ -138,7 +138,7 @@ class ObstacleGenerator:
 
             #pathcheck = True
 
-            pathfinder.setSleep(1)
+            #pathfinder.setSleep(1)
             pathfinder.checkField()
             self.points.sort()
             #print(self.points)

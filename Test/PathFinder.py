@@ -21,8 +21,8 @@ class PathFinder(object):
             for y in range(0, len(field)):
                 betterField[x][y] = field[y][x]
         field = betterField'''
-        self.xMax = len(self.field) - 1
-        self.yMax = len(self.field[0]) - 1
+        self.xMax = len(self.field)
+        self.yMax = len(self.field[0])
 
     def findStart(self):
         for x in range(0, len(self.field[0])):
@@ -145,7 +145,7 @@ class PathFinder(object):
         return True
 
     def protectedCheckPoint(self, x, y):
-        if (y > self.yMax or y < 0 or x < 0 or x > self.xMax): # we will not allow points outside the y zone to be valid
+        if (y >= self.yMax or y < 0 or x < 0 or x >= self.xMax): # we will not allow points outside the y zone to be valid
             return True;
         return self.field[x][y] # just check the point now
 
@@ -191,7 +191,7 @@ class PathFinder(object):
             self.message = 'No Updates'
             sleep(self.sleep)
             print(self.message, end = '')
-            
+
     def createDummyField(self):
         field = [[0 for i in range(72)] for j in range(94)]
         for x in range(0, len(field)):
