@@ -19,5 +19,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='tempIndex')
+    path('', views.c_index, name='controllerIndex'),
+    path('controller/update', views.c_updateController, name='controllerUpdate'),
+    path('controller/get', views.c_getController, name='controllerGet'),
 ]

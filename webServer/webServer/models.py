@@ -32,3 +32,28 @@ class ControllerInformation():
             'lsx': self.lsx, 'lsy': self.lsy, 'rsx': self.rsx, 'rsy': self.rsy,
             'st': self.st, 'se': self.se
         }
+
+    def updateController(self, updateDict):
+        try:
+            self.a = updateDict['a']
+            self.b = updateDict['b']
+            self.x = updateDict['x']
+            self.y = updateDict['y']
+            self.lt = updateDict['lt']
+            self.rt = updateDict['rt']
+            self.lb = updateDict['lb']
+            self.rb = updateDict['rb']
+            self.u = updateDict['u']
+            self.d = updateDict['d']
+            self.l = updateDict['l']
+            self.r = updateDict['r']
+            self.lsx = updateDict['lsx']
+            self.lsy = updateDict['lsy']
+            self.rsx = updateDict['rsx']
+            self.rsy = updateDict['rsy']
+            self.st = updateDict['st']
+            self.se = updateDict['se']
+        except Exception as e:
+            print("ERROR updating controller...")
+            return e
+        return ''
