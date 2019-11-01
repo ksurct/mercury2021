@@ -1,0 +1,6 @@
+Starting here: https://www.pygame.org/wiki/GettingStarted
+This error: https://stackoverflow.com/questions/51161913/pygame-error-video-system-not-initialized-when-trying-to-run-examples
+Running this: https://virtualizationreview.com/articles/2017/02/08/graphical-programs-on-windows-subsystem-on-linux.aspx (Run Graphical Programs and Trying Out Graphics Applications)
+
+this got pygame.examples.aliens to work
+
