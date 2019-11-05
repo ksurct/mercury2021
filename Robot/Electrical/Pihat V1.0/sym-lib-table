@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name Mercury_Parts)(type Legacy)(uri ${KIPRJMOD}/Mercury_Parts.lib)(options "")(descr ""))
+)

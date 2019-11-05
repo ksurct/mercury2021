@@ -85,6 +85,7 @@ class ObstacleGenerator:
         #Continue until a valid path is found
         while (not pathcheck):
             self.points = []
+            self.pointobjects = []
             #For each obstacle in lengths
             for length in self.lengths:
 
@@ -151,8 +152,8 @@ class ObstacleGenerator:
 
 
 course = ObstacleGenerator()
-course.generate()
-
-
-field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
-field.toString()
+for i in range(1000):
+    course.generate()
+    field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
+    print(i)
+    # field.toString()

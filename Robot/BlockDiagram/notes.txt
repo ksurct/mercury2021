@@ -1,0 +1,26 @@
+We used fritzing to create the block diagram, and mark connections between boards.
+
+1st time installation and setup (windows):
+
+1. Go to http://fritzing.org/download/
+
+2. Create an account (near the top right).
+
+3. Download fritzing from http://fritzing.org/download/
+
+4. Open the fritzing application. 
+
+5. Allow the program to update its libraries, if necessary. 
+
+6. Go to 'MainSketch.fzz' in git repo "*\mercury2020\Robot\BlockDiagram\MainSketch.fzz"
+
+7. Open this file. If necessary, set your pc to always open fzz files using Fritzing.
+
+8. ?
+
+9. Profit
+
+
+Normal use
+
+1. Remember to always go the "schematic" tab near the top. 
