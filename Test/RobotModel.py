@@ -1,6 +1,6 @@
 from math import cos, sin, pi
 import numpy as np
-
+import random
 
 
 
@@ -9,9 +9,10 @@ import numpy as np
 
 class RobotModel:
 
-    def __init__(self, type):
+    def __init__(self, type, errorPercent):
         self.type = type
         self.length = .01
+        self.errorPercent = errorPercent
         self.x = 0
         self.y = 0
         self.theta = 0
@@ -61,12 +62,15 @@ class RobotModel:
         print("theta = ", self.theta)
         print("moved")
 
+    def giveError(self, number):
+        return number * (1 + ((random() % (self.errorPercent + 1)) * (random() % 2 == 0 ? -1 : 1)) / 100)
+
     def moveTheta(self, radians):
-        self.theta = theta + radians
+        self.theta = giveError(self.theta + radians)
 
     def moveDistance(self, meters):
-        self.x = cos(self.theta)*meters
-        self.y = sin(self.theta)*meters
+        self.x = giveError(cos(self.theta)*meters + self.x)
+        self.y = giveError(sin(self.theta)*meters + self.y)
 
 model = RobotModel("type")
 model.moveFK(1,-1,10)
