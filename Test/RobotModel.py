@@ -64,7 +64,7 @@ class RobotModel:
         print("moved")
 
     def giveError(self, number):
-        return number * (1 + ((random() % (self.errorPercent + 1)) * (random() % 2 == 0 ? -1 : 1)) / 100)
+        return number * (1 + ((random() % (self.errorPercent + 1)) * (-1 if random() % 2 == 0 else 1)) / 100)
 
     # for the algos to run
     def moveDistance(self, meters):
@@ -87,5 +87,5 @@ class RobotModel:
         return ((self.theta) / (2 * metersPerSecond)) * self.l
     def timeAtAVelocityToGoMeters(self, meters, metersPerSecond):
         return (meters / metersPerSecond)
-model = RobotModel("type")
+model = RobotModel("type", 0, 1)
 model.moveFK(1,-1,10)
