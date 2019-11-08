@@ -61,11 +61,12 @@ class RobotModel:
         print("theta = ", self.theta)
         print("moved")
 
-    def moveTheta(radians):
-        print("Did the rotation")
+    def moveTheta(self, radians):
+        self.theta = theta + radians
 
-    def moveDistance(meters):
-        print("meters have been moved")
+    def moveDistance(self, meters):
+        self.x = cos(self.theta)*meters
+        self.y = sin(self.theta)*meters
 
 model = RobotModel("type")
 model.moveFK(1,-1,10)
