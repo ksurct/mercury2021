@@ -11,23 +11,27 @@ class RobotModel:
 
     def __init__(self, type):
         self.type = type
-        self.length = .01
+        self.length = 1
         self.x = 0
         self.y = 0
         self.theta = 0
-        self.dt = .01
+        self.dt = .001
 
     def moveFK(self, vR, vL, t):
 
-        w = (vR-vL)/self.length
-        steps = t/self.dt
+        steps = t/self.dt   #calculate number of steps to execute
 
-        if (vR != vL):
-            R = (self.length/2) * (vR+vL) / (vR-vL)
-            print(R)
+        if (vR != vL):      #if vR and vL are different
+                                #calculate radius of curvature of the robots path
+                                #calculate angular velocity of robot
+                                #calculate instantaneous center of rotation
+            R = (self.length/2) * ((vR+vL) / (vR-vL))
+            w = (vR-vL)/self.length
+            ICC = [(self.x-R*sin(self.theta)) , (self.y+R*cos(self.theta))]
 
-            for i in range(int(steps)):
-                ICC = [(self.x-R*cos(w*self.dt)) , (self.y+R*sin(w*self.dt))]
+            for i in range(int(steps)):     #for each step
+                                                #calculate new x, y, theta
+                #ICC = [(self.x-R*cos(self.theta)) , (self.y+R*sin(self.theta))]
 
                 A = [[cos(w*self.dt) , -sin(w*self.dt) , 0],
                      [sin(w*self.dt) ,  cos(w*self.dt) , 0],
@@ -45,7 +49,7 @@ class RobotModel:
                 mB = np.array(B)
                 mC = np.array(C)
 
-                mX = np.dot(mA,mB) + mC
+                mX = mA.dot(mB) + mC
 
                 self.x = float(mX[0])
                 self.y = float(mX[1])
@@ -54,11 +58,12 @@ class RobotModel:
         else:
             for i in range(int(steps)):
                 self.x += vR * self.dt * cos(self.theta)
-                self.y += vL * self.dt * sin(self.theta)
+                self.y += vR * self.dt * sin(self.theta)
 
-        print("x = ", self.x)
-        print("y = ", self.y)
-        print("theta = ", self.theta)
+        print("Moving Robot")
+        print("new x = ", self.x)
+        print("new y = ", self.y)
+        print("new theta = ", self.theta)
         print("moved")
 
     def moveTheta(radians):
@@ -68,4 +73,4 @@ class RobotModel:
         print("meters have been moved")
 
 model = RobotModel("type")
-model.moveFK(1,-1,10)
+model.moveFK(2,1,1)
