@@ -1,6 +1,6 @@
 from math import cos, sin, pi
 import numpy as np
-
+import random
 
 
 
@@ -9,9 +9,11 @@ import numpy as np
 
 class RobotModel:
 
-    def __init__(self, type):
+    def __init__(self, type, errorPercent, l):
+        self.l = l
         self.type = type
         self.length = 1
+        self.errorPercent = errorPercent
         self.x = 0
         self.y = 0
         self.theta = 0
@@ -66,11 +68,31 @@ class RobotModel:
         print("new theta = ", self.theta)
         print("moved")
 
-    def moveTheta(radians):
-        print("Did the rotation")
+    def giveError(self, number):
+        return number * (1 + ((random() % (self.errorPercent + 1)) * [-1,1][random.randint(0,1)] / 100))
 
-    def moveDistance(meters):
-        print("meters have been moved")
+    # for the algos to run
+    def moveDistance(self, meters):
+        self.x = giveError(cos(self.theta)*meters + self.x)
+        self.y = giveError(sin(self.theta)*meters + self.y)
 
-model = RobotModel("type")
-model.moveFK(2,1,1)
+    # for the algos to run
+    def moveTheta(self, radians):
+        self.theta = giveError(self.theta + radians)
+
+    # this is to be used by the robot
+    def wheelSpeedToMoveInCircleOfRadiusAndInWhatTime(self, radius, period):
+        omega = period / (2 * pi)
+        vRight = omega * (radius + self.l / 2)
+        vLeft = omega * (radius - self.l / 2)
+        return {"rightVelocity": vRight, "leftVelocity": vLeft}
+
+    # for the actual robot to run
+    def timeAtAVelocityToTurnTheta(self, radians, metersPerSecond):
+        return ((self.theta) / (2 * metersPerSecond)) * self.l
+    def timeAtAVelocityToGoMeters(self, meters, metersPerSecond):
+        return (meters / metersPerSecond)
+
+
+model = RobotModel("type",1,1)
+model.moveFK(1,1,1)
