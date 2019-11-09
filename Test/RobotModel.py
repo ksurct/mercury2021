@@ -10,9 +10,8 @@ import random
 class RobotModel:
 
     def __init__(self, type, errorPercent, l):
-        self.l = l
         self.type = type
-        self.length = 1
+        self.length = l
         self.errorPercent = errorPercent
         self.x = 0
         self.y = 0
@@ -83,13 +82,13 @@ class RobotModel:
     # this is to be used by the robot
     def wheelSpeedToMoveInCircleOfRadiusAndInWhatTime(self, radius, period):
         omega = period / (2 * pi)
-        vRight = omega * (radius + self.l / 2)
-        vLeft = omega * (radius - self.l / 2)
+        vRight = omega * (radius + self.length / 2)
+        vLeft = omega * (radius - self.length / 2)
         return {"rightVelocity": vRight, "leftVelocity": vLeft}
 
     # for the actual robot to run
     def timeAtAVelocityToTurnTheta(self, radians, metersPerSecond):
-        return ((self.theta) / (2 * metersPerSecond)) * self.l
+        return ((self.theta) / (2 * metersPerSecond)) * self.length
     def timeAtAVelocityToGoMeters(self, meters, metersPerSecond):
         return (meters / metersPerSecond)
 model = RobotModel("type", 0, 1)
