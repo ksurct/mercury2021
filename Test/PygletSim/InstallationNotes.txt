@@ -1,0 +1,1 @@
+Started here: https://pyglet.readthedocs.io/en/stable/programming_guide/installation.html
