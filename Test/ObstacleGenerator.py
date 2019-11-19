@@ -85,6 +85,7 @@ class ObstacleGenerator:
         #Continue until a valid path is found
         while (not pathcheck):
             self.points = []
+            self.pointobjects = []
             #For each obstacle in lengths
             for length in self.lengths:
 
@@ -133,11 +134,15 @@ class ObstacleGenerator:
             self.convertToArray()
 
             pathfinder.setField(self.invertarray)
-            pathfinder.debug = False;
+            pathfinder.debug = False
             pathfinder.setSleep(0.02)
             pathcheck = pathfinder.checkField()
 
             #pathcheck = True
+
+            #pathfinder.setSleep(1)
+            #pathfinder.checkField()
+
             self.points.sort()
             #print(self.points)
 
@@ -147,8 +152,8 @@ class ObstacleGenerator:
 
 
 course = ObstacleGenerator()
-course.generate()
-
-
-field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
-field.toString()
+for i in range(1000):
+    course.generate()
+    field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
+    print(i)
+    # field.toString()

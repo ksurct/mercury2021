@@ -15,6 +15,13 @@ class PathFinder(object):
 
     def setField(self, field):
         self.field = field
+        '''betterField =  [[0 for i in range(len(field))] for j in range(len(field[0]))]
+
+        for x in range(0, len(field[0])):
+            for y in range(0, len(field)):
+                betterField[x][y] = field[y][x]
+        field = betterField'''
+
         self.xMax = len(self.field)
         self.yMax = len(self.field[0])
 
