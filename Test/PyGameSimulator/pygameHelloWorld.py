@@ -3,7 +3,7 @@ import pygame
 
 def main():
 
-    
+
     (nPass, nFail) = pygame.init()
     print(nPass)
     print(nFail)
@@ -15,10 +15,10 @@ def main():
      
     # create a surface on screen that has the size of 240 x 180
     screen = pygame.display.set_mode((240,180))
-     
+
     # define a variable to control the main loop
     running = True
-     
+
     # main loop
     while running:
         # event handling, gets all event from the event queue

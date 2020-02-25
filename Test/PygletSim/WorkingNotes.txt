@@ -1,0 +1,4 @@
+Starting my development here: https://pyglet.readthedocs.io/en/stable/programming_guide/quickstart.html
+
+got error: "ImportError: Library "GL" not found."
+After installing the package through cmd instead of bash it worked for me. YMMV
