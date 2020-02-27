@@ -92,4 +92,4 @@ class RobotModel:
     def timeAtAVelocityToGoMeters(self, meters, metersPerSecond):
         return (meters / metersPerSecond)
 model = RobotModel("type", 0, 1)
-model.moveFK(1,1,10)
+model.moveFK(1,2,10)
