@@ -14,6 +14,7 @@ class ObstacleGenerator:
         self.pointobjects = []  #List of occupied point objects
         self.array = []         # 0 1 array describing course
         self.invertarray = []
+        self.cornerarray = []
 
         self.exitoffset = 6
         self.entranceoffset = 34
@@ -128,6 +129,7 @@ class ObstacleGenerator:
 
                     if (collision == False):                                                    #If no collision add the obstacle to master list
                         self.points = self.points + obstaclepoints
+                        self.cornerarray.append([obstaclepoints[0],obstaclepoints[len(obstaclepoints)-1]])
 
 
             #convert to array for the pathchecker
@@ -152,8 +154,13 @@ class ObstacleGenerator:
 
 
 course = ObstacleGenerator()
-for i in range(1000):
-    course.generate()
-    field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
-    print(i)
+course.generate()
+field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
+field.toString()
+print(course.cornerarray)
+
+# for i in range(1000):
+#     course.generate()
+#     field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
+    #print(i)
     # field.toString()
