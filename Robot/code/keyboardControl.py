@@ -1,53 +1,33 @@
-import keyboard
+from pynput import keyboard
+import os
 
 motorSpeed = 50
 lockySpeed = 5
 
-def leftMotorForward(event):
-    pass
+def on_press(key):
+    try:
+        print('alphanumeric key {0} pressed'.format(
+            key.char))
+        if (key.char == 'w'):
+            print("Character is w")
+    except AttributeError:
+        print('special key {0} pressed'.format(
+            key))
 
-def rightMotorForward(event):
-    pass
-
-def leftMotorStop(event):
-    pass
-
-def rightMotorStop(event):
-    pass
-
-def leftMotorReverse(event):
-    pass
-
-def rightMotorReverse(event):
-    pass
-
-def lockyDown(event):
-    pass
-
-def lockyUp(event):
-    pass
-
-def lockyStop(event):
-    pass
-
-keyboard.on_press_key('w', leftMotorForward)
-keyboard.on_press_key('u', rightMotorForward)
-keyboard.on_press_key('s', leftMotorReverse)
-keyboard.on_press_key('j', rightMotorReverse)
-keyboard.on_release_key('w', leftMotorStop)
-keyboard.on_release_key('u', rightMotorStop)
-keyboard.on_release_key('s', leftMotorReverse)
-keyboard.on_release_key('j', rightMotorStop)
-
-keyboard.on_press_key('t', lockyDown)
-keyboard.on_press_key('g', lockyUp)
-keyboard.on_release_key('t', lockyStop)
-keyboard.on_release_key('g', lockyStop)
+def on_release(key):
+    print('{0} released'.format(
+        key))
+    if key == keyboard.Key.esc:
+        # Stop listener
+        os.system('clear')
+        return False
 
 try:
-    while True:
-        pass
+    # Collect events until released
+    with keyboard.Listener(
+            on_press=on_press,
+            on_release=on_release) as listener:
+        listener.join()
 except KeyboardInterrupt:
-    keyboard.unhook_all()
-    print("Everything unhooked")
+    print("Exiting program")
 
