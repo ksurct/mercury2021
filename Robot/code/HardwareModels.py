@@ -43,7 +43,7 @@ class MotorModel:
 
     def move(self, controllerInputValue: int) -> int:
         #TODO Move the motor
-        print("Name is {} and value is {}".format(self.name, controllerInputValue))
+        #print("Name is {} and value is {}".format(self.name, controllerInputValue))
         if (controllerInputValue < 0):
             if not self.isReverse:
                 #We want to be reverse but currently are not

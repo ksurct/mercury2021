@@ -20,21 +20,21 @@ rrMotor = MotorModel(s.rearRightInitDict)
 
 def on_press(key):
     try:
-        print('alphanumeric key {0} pressed'.format(key.char))
+        #print('alphanumeric key {0} pressed'.format(key.char))
         if (key.char == rightForward):
-            print("Move right forward")
+            #print("Move right forward")
             frMotor.move(motorSpeed)
             rrMotor.move(motorSpeed)
         elif (key.char == rightBackward):
-            print("Move right backward")
+            #print("Move right backward")
             frMotor.move(motorSpeed * -1)
             rrMotor.move(motorSpeed * -1)
         elif (key.char == leftForward):
-            print("Move left forward")
+            #print("Move left forward")
             flMotor.move(motorSpeed)
             rlMotor.move(motorSpeed)
         elif (key.char == leftBackward):
-            print("Move left backward")
+            #print("Move left backward")
             flMotor.move(motorSpeed * -1)
             rlMotor.move(motorSpeed * -1)
         elif (key.char == lockerUp):
@@ -47,7 +47,7 @@ def on_press(key):
         print('special key {0} pressed'.format(key))
 
 def on_release(key):
-    print('{0} released'.format(key))
+    #print('{0} released'.format(key))
     print("STOP ALL MOVEMENT")
     flMotor.move(0)
     rlMotor.move(0)
