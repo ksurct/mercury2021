@@ -54,23 +54,35 @@ class MotorModel:
             #Want to go forward but currently going backward
             GPIO.output(self.directionPin, 0 if self.initReverse == True else 1)
             self.isReverse = False
-        if (self.motorSpeed / 10 != controllerInputValue):
+        if (self.motorSpeed / 10 != controllerInputValue): #if we are not currently going the speed we want to be going
             self.motorSpeed = controllerInputValue * 10 #update current speed
             self.motorPWM.ChangeDutyCycle(self.motorSpeed) #actually change PWM value to motor board
-        return self.motorSpeed
+        return self.motorSpeed #probably don't need to return anything, but here it is just in case
 
     def getControlInput(self) -> str:
         return self.controllerInput
 
+"""
+    This model represents one of the motor driver boards we have on the robot
+    Using this model assumes that the two motors it is controlling are on the same side of the robot
+        (Two left wheels connected to a board, two right wheels connected to a board)
+    This also assumes that we want the two motors on the same side of the robot to move at the same speed in the same direction, which should always be true
+    The main purpose of this class is to cut the number of calls to change motor positions in half
+    By using this, we only need to tell the motor board to change the motor positions instead of telling each of the two motors to change positions
+"""
 class MotorDriverModel:
-    def __init__(self):
-        pass
+    def __init__(self, motorsList, controllerInput):
+        self.motors = []
+        self.controllerInput = controllerInput
+        for i in motorsList:
+            self.motors.append(MotorModel(i))
 
-    def moveMotors(self):
-        pass
+    def moveMotors(self, controllerValue):
+        for motor in self.motors:
+            motor.move(controllerValue)
 
     def getControlInput(self):
-        pass
+        return self.controllerInput
 
 class ServoModel:
     """
@@ -105,5 +117,4 @@ class SensorModel:
 
 
 if __name__ == '__main__':
-    x = MotorModel({'controllerInput':'a', 'outputPWMPin':1})
-    y = ServoModel({'controllerInput':'a', 'minValue':0, 'maxValue':100, 'outputPWMPin':1})
+    print("No need to call this class as main, it just holds other classes")
