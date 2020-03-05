@@ -27,6 +27,7 @@ class MotorModel:
             self.directionPin = initiationDict['directionPin']
             self.isReverse = False
             self.initReverse = initiationDict['initReverse']
+            self.name = initiationDict['name']
             self.motorSpeed = 0
             GPIO.setup(self.outputPWMPin, GPIO.OUT) #initialize PWM pin
             GPIO.setup(self.directionPin, GPIO.OUT) #initialize direction pin
@@ -42,6 +43,7 @@ class MotorModel:
 
     def move(self, controllerInputValue: int) -> int:
         #TODO Move the motor
+        print("Name is {} and value is {}".format(self.name, controllerInputValue))
         if (controllerInputValue < 0):
             if not self.isReverse:
                 #We want to be reverse but currently are not
@@ -52,8 +54,9 @@ class MotorModel:
             #Want to go forward but currently going backward
             GPIO.output(self.directionPin, 0 if self.initReverse == True else 1)
             self.isReverse = False
-        self.motorSpeed = controllerInputValue * 10 #update current speed
-        self.motorPWM.ChangeDutyCycle(self.motorSpeed) #actually change PWM value to motor board
+        if (self.motorSpeed / 10 != controllerInputValue):
+            self.motorSpeed = controllerInputValue * 10 #update current speed
+            self.motorPWM.ChangeDutyCycle(self.motorSpeed) #actually change PWM value to motor board
         return self.motorSpeed
 
     def getControlInput(self) -> str:
