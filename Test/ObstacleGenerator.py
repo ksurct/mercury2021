@@ -157,7 +157,7 @@ course = ObstacleGenerator()
 course.generate()
 field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
 field.toString()
-print(course.cornerarray)
+#print(course.cornerarray)
 
 # for i in range(1000):
 #     course.generate()

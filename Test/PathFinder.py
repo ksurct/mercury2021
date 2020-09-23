@@ -71,7 +71,7 @@ class PathFinder(object):
                 print(self.point)
                 if (not self.isValid(self.point)):
                     self.debug = True;
-                    self.setSleep = 0.5
+                    self.sleep = 0.5
                     self.checkField();
 
                 return True
