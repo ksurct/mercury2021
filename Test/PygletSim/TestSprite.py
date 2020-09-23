@@ -6,17 +6,21 @@ sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + "/../")
 from RobotModel import RobotModel
 from ObstacleGenerator import ObstacleGenerator
 PI = pi
-main_batch = pyglet.graphics.Batch()
+main_batch = pyglet.graphics.Batch() # collects all drawings to display
+
+
 class Visualizer():
     def __init__(self, boxes):
         self.boxes = boxes
-        self.scale = 10
-        self.robit = RobotModel("type", 0, 13 * self.scale, 15 * self.scale)
+        self.scale = 10 # scales the generated field to create more detail
+        self.robit = RobotModel("type", 0.02, 13 * self.scale, 15 * self.scale)
 
         self.window = pyglet.window.Window(width=96 * self.scale, height=72 * self.scale)
         self.PsuedoRayCast = PsuedoRayCast(self.window, self.boxes, self.scale)
         self.Θ1 = atan(self.robit.length / self.robit.height)
         self.d = sqrt((self.robit.length/2)**2 + (self.robit.height/2)**2)
+
+        # this is just to calculate 
         self.sensors = [
             (sqrt((self.robit.length/2)**2 + (1*self.robit.height/4)**2), atan((2 * self.robit.length) / (self.robit.height)), PI / 2, "Right Top"), # right top
             (sqrt((self.robit.length/2)**2 + (1*self.robit.height/4)**2), -atan((2 * self.robit.length) / (self.robit.height)), -PI / 2, "Left Top"), # Left top
@@ -44,13 +48,13 @@ class Visualizer():
     |________________|
   (e, f)            (c, d)
     """
-    def drawBoxAtAngle(self, x, y, r, Θ, Θ1):
+    def drawBoxAtAngle(self, x, y, r, Θ, Θ1): # simply draws a box at an angle acording to above diagram
         global main_batch
-        (a, b) = self.getPointOnBox(x, y, r, Θ, Θ1, 1)
+        (a, b) = self.getPointOnBox(x, y, r, Θ, Θ1, 1) # use all corners to generate box
         (c, d) = self.getPointOnBox(x, y, r, Θ, Θ1, 2)
         (e, f) = self.getPointOnBox(x, y, r, Θ, Θ1, 3)
         (g, h) = self.getPointOnBox(x, y, r, Θ, Θ1, 4)
-        main_batch.add(8, pyglet.gl.GL_LINES, None, ("v2f", (
+        main_batch.add(8, pyglet.gl.GL_LINES, None, ("v2f", ( # generate box
             e, f, c, d, # e, f -> c, d
             e, f, g, h, # e. f -> g, h
             g, h, a, b, # g, h -> a, b
@@ -64,7 +68,7 @@ class Visualizer():
     Θ1: the angle the crossline makes with the square's relative perpendicular y axis see above diagram
     quadrent: The quadrent
     """
-    def getPointOnBox(self, x, y, d, Θ, Θ1, quadrent):
+    def getPointOnBox(self, x, y, d, Θ, Θ1, quadrent): # gets a corner of the box based on above
         if (quadrent == 1):
             return ((d*sin(Θ + Θ1) + x), (d*cos(Θ + Θ1) + y))
         if (quadrent == 2):
@@ -109,6 +113,7 @@ class Visualizer():
 
     def getSenorPoint(self, sensor):
         return (self.robit.x + sensor[0] * sin(sensor[1] + self.robit.theta), self.robit.y + sensor[0] * cos(sensor[1] + self.robit.theta))
+    
     def setXYAbsolute(self, x, y):
         self.robit.x = x
         self.robit.y = y
@@ -127,6 +132,10 @@ class Visualizer():
         self.robit.theta = self.robit.theta + Θ
         self.redraw()
 
+    def moveForward(self, x):
+        self.robit.moveDistance(x)
+        self.redraw()
+
     def radToDeg(self, Θ):
         return (180 / PI) * Θ
     def degToRad(self, Θ):
@@ -140,9 +149,10 @@ class Visualizer():
 class PsuedoRayCast():
     def __init__(self, window, boxes, minDistance): # takes in a pyglet window objectalison
         self.scale = 0.25
-        self.debug = True
+        self.debug = False
         self.minDistance = minDistance * self.scale
         self.window = window
+        self.maxDistance = 100
         self.boxes = boxes
 
     def getLineFunction(self, a, b, Θ):
@@ -156,6 +166,8 @@ class PsuedoRayCast():
         i = a if withRespectTo == "x" else b
         while(i < (self.window.width if withRespectTo == "x" else self.window.height) and i > 0 and f(i) > 0 and f(i) < (self.window.height if withRespectTo == "x" else self.window.width)):
             i = i + self.minDistance * mod
+            if (sqrt((i - a)**2 + (f(i) - b)**2) > self.maxDistance if withRespectTo == "x" else sqrt((f(i) - a)**2 + (i - b)**2) > self.maxDistance):
+                return 0
             if (self.checkPoint(i, f(i)) if withRespectTo == "x" else self.checkPoint(f(i), i)):
                 return sqrt((i - a)**2 + (f(i) - b)**2) if withRespectTo == "x" else sqrt((f(i) - a)**2 + (i - b)**2)
             
@@ -188,9 +200,15 @@ def on_key_press(key, mod):
         vis.setXYRelative(10, 0)
     if (key == 'w'):
         vis.setXYRelative(0, 10)
-    if (key == 'p'):
+    if (key == 'p' or key == 'ｓ'):
         vis.setΘReltive(PI/24) 
-    if (key == 'o'):
+    if (key == 'o' or key == 'ｑ'):
         vis.setΘReltive(-PI/24) 
+    if (key == 'ｔ'):
+        vis.moveForward(-10)
+    if (key == 'ｒ'):
+        vis.moveForward(10)
+    
+    print(key)
     # print(vis.getFrontSensorData())
 pyglet.app.run()
