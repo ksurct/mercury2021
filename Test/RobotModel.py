@@ -9,9 +9,10 @@ import random
 
 class RobotModel:
 
-    def __init__(self, type, errorPercent, l):
+    def __init__(self, type, errorPercent, l, h = 0):
         self.type = type
         self.length = l
+        self.height = h
         self.errorPercent = errorPercent
         self.x = 0
         self.y = 0
@@ -68,16 +69,16 @@ class RobotModel:
         print("moved")
 
     def giveError(self, number):
-        return number * (1 + ((random() % (self.errorPercent + 1)) * (-1 if random() % 2 == 0 else 1)) / 100)
+        return number * (1 + random.uniform(-self.errorPercent, self.errorPercent))
 
     # for the algos to run
     def moveDistance(self, meters):
-        self.x = giveError(cos(self.theta)*meters + self.x)
-        self.y = giveError(sin(self.theta)*meters + self.y)
+        self.x = self.giveError(sin(self.theta)*meters + self.x)
+        self.y = self.giveError(cos(self.theta)*meters + self.y)
 
     # for the algos to run
     def moveTheta(self, radians):
-        self.theta = giveError(self.theta + radians)
+        self.theta = self.giveError(self.theta + radians)
 
     # this is to be used by the robot
     def wheelSpeedToMoveInCircleOfRadiusAndInWhatTime(self, radius, period):
