@@ -22,6 +22,14 @@ class ObstacleGenerator:
         self.exitwidth = 24
         self.message = -1
 
+    def insertBorders(self):
+        self.cornerarray.append([(0, self.maxy), (self.maxx, self.maxy - 1)]) # top wall
+        self.cornerarray.append([(0, 0), (self.maxx, 1)]) # bottom wall
+        self.cornerarray.append([(0, 0), (1, self.entranceoffset)]) # bottom entrance
+        self.cornerarray.append([(0, self.maxy), (1, self.entranceoffset + self.entrancewidth)]) # top entrance
+        self.cornerarray.append([(self.maxx, 0), (self.maxx - 1, self.exitoffset)]) #
+        self.cornerarray.append([(self.maxx, self.maxy), (self.maxx - 1, self.exitoffset + self.exitwidth)])
+
     #Check if obstacles overlap eachother or outer walls
     def checkCollisions(self, obstaclepoints, points):
 
@@ -87,6 +95,7 @@ class ObstacleGenerator:
         while (not pathcheck):
             self.points = []
             self.pointobjects = []
+            self.cornerarray = []
             #For each obstacle in lengths
             for length in self.lengths:
 
@@ -129,7 +138,10 @@ class ObstacleGenerator:
 
                     if (collision == False):                                                    #If no collision add the obstacle to master list
                         self.points = self.points + obstaclepoints
-                        self.cornerarray.append([obstaclepoints[0],obstaclepoints[len(obstaclepoints)-1]])
+                        (a,b) = (obstaclepoints[0], obstaclepoints[len(obstaclepoints)-1])
+                        a = (a[0], self.maxy - a[1]) # make the bottom left be 0,0 for pyglet
+                        b = (b[0], self.maxy - b[1])
+                        self.cornerarray.append([a, b])
 
 
             #convert to array for the pathchecker
@@ -137,7 +149,7 @@ class ObstacleGenerator:
 
             pathfinder.setField(self.invertarray)
             pathfinder.debug = False
-            pathfinder.setSleep(0.02)
+            pathfinder.setSleep(0)
             pathcheck = pathfinder.checkField()
 
             #pathcheck = True
@@ -147,18 +159,14 @@ class ObstacleGenerator:
 
             self.points.sort()
             #print(self.points)
+        self.insertBorders()
 
             #Convert points list into a list of point objects for obstacle field
         for point in self.points:
             self.pointobjects.append(Point((point[0]+1),(point[1]+1)))
 
 
-course = ObstacleGenerator()
-course.generate()
-field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
-field.toString()
-#print(course.cornerarray)
-
+print(course.cornerarray)
 # for i in range(1000):
 #     course.generate()
 #     field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)
