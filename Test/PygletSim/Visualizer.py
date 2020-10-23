@@ -10,11 +10,10 @@ main_batch = pyglet.graphics.Batch() # collects all drawings to display
 
 
 class Visualizer():
-    def __init__(self, boxes):
+    def __init__(self, boxes, error):
         self.boxes = boxes
         self.scale = 10 # scales the generated field to create more detail
-        self.robit = RobotModel("type", 0.02, 13 * self.scale, 15 * self.scale)
-
+        self.robit = RobotModel("type", error, 13 * self.scale, 15 * self.scale)
         self.window = pyglet.window.Window(width=96 * self.scale, height=72 * self.scale)
         self.PsuedoRayCast = PsuedoRayCast(self.window, self.boxes, self.scale)
         self.Θ1 = atan(self.robit.length / self.robit.height)
@@ -29,6 +28,8 @@ class Visualizer():
             (sqrt((self.robit.length/3)**2 + (1*self.robit.height/2)**2), atan((self.robit.length/3) / (self.robit.height/2)), 0, "Front Right"),
             (sqrt((self.robit.length/3)**2 + (1*self.robit.height/2)**2), -atan((self.robit.length/3) / (self.robit.height/2)), 0, "Front Left"),
         ]
+        self.setXYAbsolute(0, 462)
+        self.setΘAbsolute(PI/2)
 
     """
   (g, h)     |Θ    (a,b)
@@ -99,8 +100,17 @@ class Visualizer():
         main_batch = pyglet.graphics.Batch()
         self.drawAllBoxes()
         self.drawBoxAtAngle(self.robit.x, self.robit.y, self.d, self.robit.theta, self.Θ1)
-        self.runAllSensors()
+        if (__name__ == '__main__'):
+            self.runAllSensors()
         main_batch.draw()
+
+    def getSensorData(self):
+        data = []
+        for sensor in self.sensors:
+            (a, b) = self.getSenorPoint(sensor)
+            distance = self.PsuedoRayCast.rayCast(a, b, self.robit.theta + sensor[2])
+            data.append((distance / self.scale, sensor[3]))
+        return data
 
     def runAllSensors(self):
         for sensor in self.sensors:
@@ -140,10 +150,12 @@ class Visualizer():
         return (180 / PI) * Θ
     def degToRad(self, Θ):
         return (PI / 180) * Θ
+
     def getFrontSensorPoint(self):
         return (sin(self.robit.theta)*self.robit.height // 2 + self.robit.x, cos(self.robit.theta)*self.robit.height // 2 + self.robit.y)
+
     def getFrontSensorData(self):
-        return self.getFrontSensorPoint();
+        return self.getFrontSensorPoint()
 
 
 class PsuedoRayCast():
@@ -184,31 +196,33 @@ class PsuedoRayCast():
                 return True
         
         return False
-ob = ObstacleGenerator();
-ob.generate()
-vis = Visualizer(ob.cornerarray)
-
-@vis.window.event
-def on_key_press(key, mod):
-    # print("point: ", vis.robot.position)
-    key = chr(key)
-    if (key == 'a'):
-        vis.setXYRelative(-10, 0);
-    if (key == 's'):
-        vis.setXYRelative(0, -10)
-    if (key == 'd'):
-        vis.setXYRelative(10, 0)
-    if (key == 'w'):
-        vis.setXYRelative(0, 10)
-    if (key == 'p' or key == 'ｓ'):
-        vis.setΘReltive(PI/24) 
-    if (key == 'o' or key == 'ｑ'):
-        vis.setΘReltive(-PI/24) 
-    if (key == 'ｔ'):
-        vis.moveForward(-10)
-    if (key == 'ｒ'):
-        vis.moveForward(10)
-    
-    print(key)
-    # print(vis.getFrontSensorData())
-pyglet.app.run()
+ob = None
+vis = None
+if (__name__ == '__main__'):
+    ob = ObstacleGenerator()
+    ob.generate()
+    vis = Visualizer(ob.cornerarray, 0)
+    @vis.window.event
+    def on_key_press(key, mod):
+        # print("point: ", vis.robot.position)
+        key = chr(key)
+        if (key == 'a'):
+            vis.setXYRelative(-10, 0)
+        if (key == 's'):
+            vis.setXYRelative(0, -10)
+        if (key == 'd'):
+            vis.setXYRelative(10, 0)
+        if (key == 'w'):
+            vis.setXYRelative(0, 10)
+        if (key == 'p' or key == 'ｓ'):
+            vis.setΘReltive(PI/24) 
+        if (key == 'o' or key == 'ｑ'):
+            vis.setΘReltive(-PI/24) 
+        if (key == 'ｔ'):
+            vis.moveForward(-10)
+        if (key == 'ｒ'):
+            vis.moveForward(10)
+        print(vis.robit.x, vis.robit.y)
+        print(key)
+        # print(vis.getFrontSensorData())
+    pyglet.app.run()
