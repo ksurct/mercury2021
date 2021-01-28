@@ -1,0 +1,1 @@
+This module shall contain all non common code neccessary for the driving of the robot externally. i.e not with a local keyboard but over the internet.
