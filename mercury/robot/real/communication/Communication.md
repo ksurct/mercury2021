@@ -1,0 +1,1 @@
+The communication module will contain any files that have to do with protocol communication. Mainly Pi to arduino. Possibly some internet code, but likely not.

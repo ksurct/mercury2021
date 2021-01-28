@@ -1,0 +1,1 @@
+The robot module contains all non common modules needed to handle the robot. This includes autonomous, real, and simulations.
