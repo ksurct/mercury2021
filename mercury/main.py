@@ -1,8 +1,16 @@
 from mercury.settings.settings import settings
 import sys
-print("This module is working.")
-
+from time import sleep
 settings.takeArgs(sys.argv)
 
-for setting in settings.getAll():
-    print(setting.value)
+if (settings['instance'].value == 'realbot'):
+    print('Running actual robot')
+elif (settings['instance'].value == 'simbot'):
+    print('Running simulation')
+elif (settings['instance'].value == 'driver'):
+    print('Running driving software')
+else:
+    print('Unknown setting')
+while (True):
+    print(".")
+    sleep(0.5)

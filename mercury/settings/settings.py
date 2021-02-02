@@ -2,7 +2,6 @@
 
 import sys
 
-
 class AllSettings():
     def __init__(self, settings):
         self.settings = settings
@@ -11,7 +10,6 @@ class AllSettings():
         return self.settings
 
     def __getitem__(self, name):
-        print("it works")
         return self.get(name)
 
     def __setitem__(self, name, val):
@@ -43,7 +41,8 @@ class Setting():
             print("Invalid value '{}' for '{}'".format(newVal, self.name))
             print("Keeping original value: '{}'".format(self.value))
 
-
 settings = AllSettings([
     Setting("instance", 'realbot', ['realbot', 'simbot', 'driver']),
 ])
+
+settings.takeArgs(sys.argv)
