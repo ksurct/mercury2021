@@ -8,6 +8,8 @@ print("Hello")
 
 # comment
 
+# comment
+
 if (settings['instance'].value == 'realbot'):
     print('Running actual robot')
 elif (settings['instance'].value == 'simbot'):
