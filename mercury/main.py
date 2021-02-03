@@ -3,6 +3,9 @@ import sys
 from time import sleep
 settings.takeArgs(sys.argv)
 
+
+print("Hello")
+
 if (settings['instance'].value == 'realbot'):
     print('Running actual robot')
 elif (settings['instance'].value == 'simbot'):
