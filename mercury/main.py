@@ -7,9 +7,13 @@ settings.takeArgs(sys.argv)
 print("Hello")
 
 # comment
+<<<<<<< HEAD
 
 # Quen made a change
 
+=======
+print("I've made a change!!!")
+>>>>>>> 854741cc3431419ed2aa2bd2b4145e6ab18a2567
 # comment
 # dev branch
 
