@@ -6,6 +6,8 @@ settings.takeArgs(sys.argv)
 
 print("Hello")
 
+# comment
+
 if (settings['instance'].value == 'realbot'):
     print('Running actual robot')
 elif (settings['instance'].value == 'simbot'):
