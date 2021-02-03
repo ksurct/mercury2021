@@ -7,7 +7,7 @@ settings.takeArgs(sys.argv)
 print("Hello")
 
 # comment
-
+# Create conflict
 # comment
 # dev branch
 
