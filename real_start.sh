@@ -1,1 +1,1 @@
-python3 -m mercury
+python3 -m mercury -instance realbot
