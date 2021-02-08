@@ -1,1 +1,0 @@
-The visualizer is a module that allows us to visualize what our simulated robot is doing in realtime.
