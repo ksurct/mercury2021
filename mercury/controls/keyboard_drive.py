@@ -1,6 +1,6 @@
 from pynput import keyboard
 import pyglet
-from motor_test import motor
+from mercury.motors.motor import motor
 M1 = motor(18, 20)
 M2 = motor(12, 21)
 M3 = motor(13, 5)
