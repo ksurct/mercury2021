@@ -16,26 +16,26 @@ def on_key_press(key, mod):
 
     if (key == "w"):
         for mot in motors:
-            mot.setDirection(1, 0)
+            mot.setDirection(1)
             mot.setSpeed(50)
     elif (key == "s"):
         for mot in motors:
-            mot.setDirection(0, 1)
+            mot.setDirection(-1)
             mot.setSpeed(50)
     elif (key == "d"):
         for mot in motors:
             mot.setSpeed(50)
-        motors[0].setDirection(1,0)
-        motors[1].setDirection(1,0)
-        motors[2].setDirection(0,1)
-        motors[3].setDirection(0,1)
+        motors[0].setDirection(1)
+        motors[1].setDirection(1)
+        motors[2].setDirection(-1)
+        motors[3].setDirection(-1)
     elif (key == "a"):
         for mot in motors:
             mot.setSpeed(50)
-        motors[0].setDirection(0,1)
-        motors[1].setDirection(0,1)
-        motors[2].setDirection(1,0)
-        motors[3].setDirection(1,0)
+        motors[0].setDirection(-1)
+        motors[1].setDirection(-1)
+        motors[2].setDirection(1)
+        motors[3].setDirection(1)
     elif (key == "q"):
         for mot in motors:
             mot.setSpeed(0)
