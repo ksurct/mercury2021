@@ -1,40 +1,55 @@
 import RPi.GPIO as GPIO
 
-class motor():
+class Motor():
     @staticmethod
-    def getmotors():
-        return [motor(18, 20),
-        motor(12, 21),
-        motor(13, 5),
-        motor(19, 6)]
-        
-    def __init__(self, PWMpin, DIRpin):
+    def getDefaultMotors():
+        return [Motor(18, 20, "LEFT", 1),
+        Motor(12, 21, "LEFT", 1),
+        Motor(13, 5, "RIGHT", 1),
+        Motor(19, 6, "RIGHT", 1)]
+    
+    # The modifier can be used to correct a motor, 
+    # if it is too fast compared to others
+    # NOTE: We may need to implement a modifier function
+    # if the motor behavior is not linear.
+    def __init__(self, pwmPin, dirPin, modifier):
+        self.modifier = modifier
         self.speed = 0
         self.dir = 1
-        GPIO.setup(PWMpin, GPIO.OUT)
-        GPIO.setup(DIRpin, GPIO.OUT)
-        self.PWMpin1 = GPIO.PWM(PWMpin, 1000)
-        self.PWMpin1.ChangeDutyCycle(100)
-        self.PWMpin1.start(0)
-        self.DIRpin = DIRpin
-    
+        GPIO.setup(pwmPin, GPIO.OUT)
+        GPIO.setup(dirPin, GPIO.OUT)
+        self.pwmPin = GPIO.PWM(pwmPin, 1000)
+        self.pwmPin.ChangeDutyCycle(100)
+        self.pwmPin.start(0)
+        self.dirPin = dirPin
+
+    # TODO: This function will set the speed of the motors, but will do so
+    # in a non-blocking fashion. This is needed so that all motors can be 
+    # set at once.    
+    def setSpeedSmooth(self, speed, other):
+        pass
+
     def setSpeed(self, speed):
         self.speed = speed
-        self.PWMpin1.ChangeDutyCycle(speed)
+        if (speed < 0):
+            self.setDirection(-1)
+        else:
+            self.setDirection(1)
+        self.pwmPin.ChangeDutyCycle(abs(speed * self.modifier))
     
     def setDirection(self, dir):
         self.dir = dir
         # 1 is F -1 is back
-        GPIO.output(self.DIRpin, GPIO.LOW if self.dir == 1 else GPIO.HIGH)
+        GPIO.output(self.dirPin, GPIO.LOW if self.dir == 1 else GPIO.HIGH)
             
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
 if (__name__ == "__main__"):
-    M1 = motor(18, 24)
-    M2 = motor(12, 7)
-    M3 = motor(13, 5)
-    M4 = motor(26, 6)
+    M1 = Motor(18, 24)
+    M2 = Motor(12, 7)
+    M3 = Motor(13, 5)
+    M4 = Motor(26, 6)
 
     M1.setSpeed(0)
     M2.setSpeed(0)

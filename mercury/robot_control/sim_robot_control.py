@@ -1,11 +1,10 @@
 import pyglet
 import sys
 import os
-#TODO: add module systax here
-sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + "/../../Test/PygletSim/")
-from Visualizer import Visualizer
-sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + "/../../Test/")
-from ObstacleGenerator import ObstacleGenerator
+
+from mercury.simulation.visualizer import Visualizer
+from mercury.simulation.ObstacleGenerator import ObstacleGenerator
+
 class SimRobotControl():
     def __init__(self, callback, rate, errorPercent):
         pyglet.clock.schedule_interval(callback, rate)

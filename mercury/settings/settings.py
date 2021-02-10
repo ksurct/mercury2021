@@ -42,7 +42,7 @@ class Setting():
             print("Keeping original value: '{}'".format(self.value))
 
 settings = AllSettings([
-    Setting("instance", 'realbot', ['realbot', 'simbot', 'driver']),
+    Setting("instance", 'realbot', ['realbot', 'simbot', 'driver', 'playground']),
 ])
 
 settings.takeArgs(sys.argv)
