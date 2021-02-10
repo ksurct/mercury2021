@@ -1,4 +1,4 @@
-from Point import Point
+from mercury.common.point import Point
 
 class ObstacleField:
     def __init__(self, heightInches = 72, widthInches = 96, entranceWidth = 24, entranceOffset = 34, exitWidth = 24, exitOffset = 6, occupiedPoints = []):

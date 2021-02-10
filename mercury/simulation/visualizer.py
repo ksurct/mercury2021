@@ -4,11 +4,10 @@ import sys
 import os
 
 #TODO: This is the code that must be updated to the new module system
-sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + "/../")
-
 #TODO: Replace this robot model with the brand new one, be careful to update accordingly
-from RobotModel import RobotModel
-from ObstacleGenerator import ObstacleGenerator
+
+from mercury.simulation.RobotModel import RobotModel
+from mercury.simulation.ObstacleGenerator import ObstacleGenerator
 PI = pi
 main_batch = pyglet.graphics.Batch() # collects all drawings to display
 

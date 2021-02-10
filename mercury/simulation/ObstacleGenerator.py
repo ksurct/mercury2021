@@ -1,7 +1,7 @@
 import random
-from Point import Point
-from ObstacleField import *
-import PathFinder
+from mercury.common.point import Point
+from mercury.simulation.ObstacleField import *
+from mercury.simulation.PathFinder import PathFinder
 
 class ObstacleGenerator:
 
@@ -89,7 +89,7 @@ class ObstacleGenerator:
     def generate(self):
 
         pathcheck = False
-        pathfinder = PathFinder.PathFinder()
+        pathfinder = PathFinder()
 
         #Continue until a valid path is found
         while (not pathcheck):
@@ -166,7 +166,6 @@ class ObstacleGenerator:
             self.pointobjects.append(Point((point[0]+1),(point[1]+1)))
 
 
-print(course.cornerarray)
 # for i in range(1000):
 #     course.generate()
 #     field = ObstacleField(72, 96, 24, 34, 24, 6, course.pointobjects)

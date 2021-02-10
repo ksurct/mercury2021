@@ -1,6 +1,6 @@
 print("Running as simulation")
 from mercury.robot_control.sim_robot_control import SimRobotControl
-
+import pyglet
 # simple temp demonstration of simulated robot moving
 
 r = None

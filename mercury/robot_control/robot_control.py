@@ -1,8 +1,6 @@
 import math
-class Motor():
-    def __init__(self):
-        self.speed = 0
-class Sensor( ):
+
+class Sensor():
     def __init__(self):
         self.speed = 0
 
