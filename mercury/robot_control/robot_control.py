@@ -37,3 +37,6 @@ class RobotControl(object):
 
     def getSensorData(self):
         pass
+
+    def runCommand(self, string):
+        pass
