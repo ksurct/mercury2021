@@ -18,6 +18,9 @@ class RobotControl(object):
     #Sets all the speeds of all the motors
     def setAllMotorSpeeds(self, motor0, motor1, motor2, motor3):
         pass
+    #A manual function to set the direction of the motor
+    def setMotorDirection(self, motorIndex, direction):
+        pass
 
     #Gets the probable point
     def getProbablePoint(self):
@@ -38,5 +41,18 @@ class RobotControl(object):
     def getSensorData(self):
         pass
 
+    #Reads a command string and operates motors and servos from that
     def runCommand(self, string):
-        pass
+        #String Template: {LEFT SPEED},{LEFT DIR},{RIGHT SPEED},{RIGHT DIR},{ARM SERVO PWM},{CLAW SERVO PWM}
+        #example: string = 100,-1, 49, 1,
+        commands = string.strip().split(',')
+
+        self.setMotorSpeed(0,int(commands[0].strip()))
+        self.setMotorSpeed(1,int(commands[0].strip()))
+        self.setMotorSpeed(2,int(commands[2].strip()))
+        self.setMotorSpeed(3,int(commands[2].strip()))
+
+        self.setMotorDirection(0,int(commands[1].strip()))
+        self.setMotorDirection(1,int(commands[1].strip()))
+        self.setMotorDirection(2,int(commands[3].strip()))
+        self.setMotorDirection(3,int(commands[3].strip()))
