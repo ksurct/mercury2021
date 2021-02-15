@@ -1,20 +1,16 @@
 import math
 
-class Sensor():
-    def __init__(self):
-        self.speed = 0
-
-class Point():
-    def __init__(self, x, y):
-        self.X = x
-        self.Y = y
-
 class RobotControl(object):
     def __init__(self):
         pass
     #A manual function for overriding the Model control
-    def setMotorSpeed(self, motorIndex, speed):
+    def setMotorSpeedByIndex(self, motorIndex, speed):
         pass
+
+    #Sets the motor with the given name to a speed
+    def setMotorSpeedByName(self, motorName, speed):
+        pass
+
     #Sets all the speeds of all the motors
     def setAllMotorSpeeds(self, motor0, motor1, motor2, motor3):
         pass
@@ -49,10 +45,10 @@ class RobotControl(object):
         commands = string.strip().split(',')
 
         if commands[0].strip() == 'CONTINUOUS':
-            self.setMotorSpeed(0,int(commands[1].strip()))
-            self.setMotorSpeed(1,int(commands[1].strip()))
-            self.setMotorSpeed(2,int(commands[3].strip()))
-            self.setMotorSpeed(3,int(commands[3].strip()))
+            self.setMotorSpeedByIndex(0,int(commands[1].strip()))
+            self.setMotorSpeedByIndex(1,int(commands[1].strip()))
+            self.setMotorSpeedByIndex(2,int(commands[3].strip()))
+            self.setMotorSpeedByIndex(3,int(commands[3].strip()))
         
         elif commands[0].strip() == 'DISCRETE':
             if commands[1].strip() == 'MOVE':
