@@ -37,7 +37,7 @@ class RealRobotControl(object):
         return mps / self.MAX_MPS 
 
     #A manual function for overriding the Model control
-    def setMotorSpeed(self, motorIndex, speed):
+    def setMotorSpeedByIndex(self, motorIndex, speed):
         self._motors[motorIndex].setSpeed(speed)
 
         # We can no longer predict our location
@@ -46,7 +46,7 @@ class RealRobotControl(object):
         self.resetLocation()
 
     #A manual function for overriding the Model control
-    def setMotorSpeed(self, motorName, speed):
+    def setMotorSpeedByName(self, motorName, speed):
         for m in self._motors:
             if (m.name == motorName):
                 m.setSpeed(speed)
