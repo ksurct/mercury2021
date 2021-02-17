@@ -9,7 +9,7 @@ for i in range(0,1):
 
     data_from_blob = r.split(" ")
 
-    data_from_blob.pop(1)
+    data_from_blob.pop(0)
     data_string = " "
     data_string = data_string.join(data_from_blob)
 
