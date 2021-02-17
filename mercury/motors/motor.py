@@ -12,9 +12,10 @@ class Motor():
     # if it is too fast compared to others
     # NOTE: We may need to implement a modifier function
     # if the motor behavior is not linear.
-    def __init__(self, pwmPin, dirPin, modifier):
+    def __init__(self, pwmPin, dirPin, name, modifier):
         self.modifier = modifier
         self.speed = 0
+        self.name = name
         self.dir = 1
         GPIO.setup(pwmPin, GPIO.OUT)
         GPIO.setup(dirPin, GPIO.OUT)

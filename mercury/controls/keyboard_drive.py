@@ -1,9 +1,10 @@
 from pynput import keyboard
 import pyglet
 from mercury.motors.motor import motor
-M1 = motor(18, 20)
+
+M1 = motor(13, 5)
 M2 = motor(12, 21)
-M3 = motor(13, 5)
+M3 = motor(18, 20)
 M4 = motor(19, 6)
 
 motors = [M1, M2, M3, M4]
