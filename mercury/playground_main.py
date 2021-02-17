@@ -13,7 +13,7 @@ i = 0
 w = webserver()
 while (True):
     # send("computer {}".format(i))
-    w.send("computer {}".format(i))
+    w.send("computer DISCRETE,   ROTATE, 90, 50{}".format(i))
     i = i + 1
     # time.sleep(3)
     
