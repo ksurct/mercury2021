@@ -2,7 +2,6 @@ import requests
 import time
 
 class webserver:
-   # list1 = ["", "", "", "", "", "", "", "", "", "", "", "", "","", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 
     def __init__(self, blob_to_send, list1):
         self.blob_to_send = blob_to_send
@@ -33,7 +32,7 @@ class webserver:
 
 
 if __name__ == "__main__":
-    d1 = webserver("computer arm", "")
+    d1 = webserver("computer ", "")
     data = d1.send()
     for d in range(len(data)):
         print(data)
