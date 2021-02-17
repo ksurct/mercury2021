@@ -2,7 +2,6 @@ import requests
 import time
 
 class webserver:
-   # list1 = ["", "", "", "", "", "", "", "", "", "", "", "", "","", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 
     def __init__(self):
         pass
@@ -35,4 +34,5 @@ class webserver:
 #     data = d1.send()
 #     for d in range(len(data)):
 #         print(data)
+
 
