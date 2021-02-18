@@ -46,9 +46,49 @@ if (__name__ == "__main__"):
     r = None
     PI = 3.14
     def callback(test):
-        print(test)
-        r.move(10, 0);    
+        #print(test)
+        #time.sleep(.25)
+        
+        empty = False
         r.rotate(0, 0)
-    r = SimRobotControl(callback, 0.1, 0.01)
+        x = r.getSensorData()
+        highRight = x[0]
+        highLeft = x[1]
+        lowLeft = x[2]
+        lowRight = x[3]
+        frontRight = x[4]
+        frontLeft = x[5]
+        frontMid = x[6]
+
+        #print out what the sensors are detecting for testing purposes
+        measures = str(highRight[0]) + highRight[1] + "   " + str(lowRight[0]) + lowRight[1]+ "   " + str(highLeft[0]) + highLeft[1] + "   " + str(lowLeft[0]) + lowLeft[1] + "   " + str(frontRight[0]) + frontRight[1] + "   " + str(frontMid[0]) + frontMid[1] + "   " + str(frontLeft[0]) + frontLeft[1]
+        #print(measures)
+        
+        #If nothing is detected in front of the robot
+        if (frontRight[0] == empty and frontLeft[0] == empty and frontMid[0] == empty):
+            
+            print("forward")
+            r.move(10,0)
+            print(r.getProbableTheta())
+        #something is in front a front facing sensors
+        else: 
+            #if there is nothing to the right, rotate right
+            if (highRight[0] == empty and lowRight[0] == empty):
+                print("right")
+                r.rotate(PI/2, 0)
+                print(r.getProbableTheta())
+            #if something is to the right, see if you can rotate left
+            elif (highLeft[0] == empty and lowLeft[0] == empty):
+                print("left")
+                r.rotate(-PI/2,0)
+                print(r.getProbableTheta())
+            #if there is something to both right and left, go backwards and then try to rotate 
+            else:
+                print("reverse")
+                r.rotate(PI, 0)
+                print(r.getProbableTheta())
+
+
+    r = SimRobotControl(callback, 0.1, 0)
 
     pyglet.app.run()
