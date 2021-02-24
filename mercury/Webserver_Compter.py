@@ -8,14 +8,22 @@ class webserver:
 
     def send(self, string):
 
+        i = 0
+
         start = time.time()
-        r = str(requests.get("https://script.google.com/macros/s/AKfycbyeRPqV1Z0vLX7ztAjCxlQ10JlUnFOmEw3ml2W7MuUaXyrOibkZSSDbjw/exec",{'blob': string} ).content)
+        r = str(requests.get("https://script.google.com/macros/s/AKfycbyeRPqV1Z0vLX7ztAjCxlQ10JlUnFOmEw3ml2W7MuUaXyrOibkZSSDbjw/exec",{'blob': i + string} ).content)
         print("Took: ", time.time() - start)
 
         # print(r)
 
         data_from_blob = r.split(" ")
         print("data being read in", data_from_blob)
+
+        i = i + 1
+
+        if i > 10:
+            i = 0
+
         return data_from_blob
         # for x in range(len(data_from_blob)):
         #     data_cell_strip1 = data_from_blob[x].strip("'")
