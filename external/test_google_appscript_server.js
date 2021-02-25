@@ -1,3 +1,5 @@
+
+
 const doGet = (event = {}) => {
     const { parameter } = event;
     const { blob = "" } = parameter;
@@ -16,12 +18,15 @@ const doGet = (event = {}) => {
       if(blob != ""){
         log_blob_r(blob);
       }
+
+      
     
       read_blob_r();
       return ContentService.createTextOutput(read_blob_r());
       
       return ContentService.createTextOutput("hi");
     }
+    return ContentService.createTextOutput("hi");
   }
 
 // This gets the main spreadsheet, use this function as it guarantees that the sheet is correct.
