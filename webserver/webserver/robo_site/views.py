@@ -14,9 +14,11 @@ def robo_site(request, blob):
     if (blob.split(',')[0] == 'computer'):
         computer = ret
         return HttpResponse(robot)
-    else:
+    elif (blob.split(',')[0] == 'robot'):
         robot = ret
         return HttpResponse(computer)
+    else:
+        return HttpResponse("Unknown entity")
 
 def test(request):
     return HttpResponse("This is a test")
