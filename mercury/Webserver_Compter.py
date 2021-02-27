@@ -9,7 +9,7 @@ class webserver:
     def send(self, string):
 
         start = time.time()
-        r = str(requests.get("https://script.google.com/macros/s/AKfycbyeRPqV1Z0vLX7ztAjCxlQ10JlUnFOmEw3ml2W7MuUaXyrOibkZSSDbjw/exec",{'blob': string} ).content)
+        r = str(requests.get("http://24.248.230.205:8000/server/computer,this,is,a,test/").content)
         print("Took: ", time.time() - start)
 
         # print(r)

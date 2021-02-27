@@ -37,7 +37,7 @@ class RobotControl(object):
     #Reads a command string and operates motors and servos from that
     def runCommand(self, string):
         #String Template: "CONTINUOUS",{LEFT SPEED},{RIGHT SPEED},{ARM SERVO PWM},{CLAW SERVO PWM}
-        #example: string = CONTINUOUS,  100,-1, 49, 1,
+        #example: string = CONTINUOUS,  100, 49
 
         #String Template: "DISCRETE", {"MOVE"/"ROTATE"}, {METERS/DEGREES}, {SPEED}
         #example: string = DISCRETE, MOVE, 0.5, 50
