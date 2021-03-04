@@ -15,7 +15,7 @@ class webserver:
         print("Data being sent computer " + str(self.i) + " " + string)
 
         start = time.time()
-        r = str(requests.get("http://24.248.230.205:8000/server/robot,This might work, how about now/").content)
+        r = str(requests.get("http://10.150.251.154:8000/server/computer,{}".format(string)).content)
         print("Took: ", time.time() - start)
 
         # print(r)
