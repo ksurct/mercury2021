@@ -33,6 +33,9 @@ class RobotControl(object):
 
     def getSensorData(self):
         pass
+    
+    def setServoAngle(self, degrees):
+        pass
 
     #Reads a command string and operates motors and servos from that
     def runCommand(self, string):

@@ -11,7 +11,9 @@ class ServoModel():
         self.maxPWM = maxPWM
     
     def updateAbsoluteAngle(self,angle):
-        self.servo.angle = angle
+        if (angle < 181 or angle > -1) {
+            self.servo.angle = angle
+        }
 
 if __name__ == "__main__":
     testServo = ServoModel('testServo',0,0,250)
