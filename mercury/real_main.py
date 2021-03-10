@@ -8,7 +8,8 @@ from mercury.Webserver_Compter import webserver
 
 w = webserver()
 
-# r = RealRobotControl()
+r = RealRobotControl()
+r.setServoAngle(100)
 import time
 #r.setAllMotorSpeeds(50)
 print("Run")
