@@ -3,7 +3,9 @@ import time
 import requests
 import time
 
-from Webserver_Compter import webserver
+from Webserver_Compter import computer_webserver
+from Webserver_Robot import robot_webserver
+import time
 
 
 #def send(string):
@@ -22,10 +24,14 @@ from Webserver_Compter import webserver
 #    print("Took: ", time.time() - start)
 
 i = 0
-w = webserver()
+c = computer_webserver()
+r = robot_webserver()
 while (True):
     # send("computer {}".format(i))
-    w.send("computer DISCRETE,   ROTATE, 90, 50{}".format(i))
-    i = i + 1
-    # time.sleep(3)
+    c.send("DISCRETE,   ROTATE, 90, 50{}")
+    # i = i + 1
 
+    r.send("this is a message from the robot")
+    # time.sleep(3)
+    # this is just for testing remove for trying to run on Pi
+    time.sleep(2)
