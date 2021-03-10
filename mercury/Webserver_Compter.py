@@ -15,7 +15,7 @@ class computer_webserver:
         print("Data being sent by computer: computer " + str(self.i) + " " + string)
 
         start = time.time()
-        r = str(requests.get("http://10.150.251.154:8000/server/computer",{'blob': "computer" + str(self.i) + " " + str(string)}).content)
+        r = str(requests.get("https://script.google.com/macros/s/AKfycbyeRPqV1Z0vLX7ztAjCxlQ10JlUnFOmEw3ml2W7MuUaXyrOibkZSSDbjw/exec", {'blob': "computer " + str(self.i) + " " + str(string)}).content)
         print("Took: ", time.time() - start)
 
         data_from_blob = r.split(" ")
@@ -27,6 +27,8 @@ class computer_webserver:
 
         if data_from_blob[1] == self.Same_data:
             print("Instructions did not change")
-            pass
+            return
 
-        return data_from_blob
+        print(r)
+
+        return r

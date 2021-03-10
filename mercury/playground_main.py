@@ -28,7 +28,7 @@ c = computer_webserver()
 r = robot_webserver()
 while (True):
     # send("computer {}".format(i))
-    c.send("DISCRETE,   ROTATE, 90, 50{}")
+    c.send("DISCRETE, ROTATE, 90, 50{}")
     # i = i + 1
 
     r.send("this is a message from the robot")

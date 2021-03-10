@@ -11,6 +11,8 @@ class robot_webserver:
     def send(self, blob_to_send):
         print("---------------ROBOT--------------")
 
+        print("Data being sent by robot: robot " + str(self.i) + " " + blob_to_send)
+
         start = time.time()
         r = str(requests.get("https://script.google.com/macros/s/AKfycbyeRPqV1Z0vLX7ztAjCxlQ10JlUnFOmEw3ml2W7MuUaXyrOibkZSSDbjw/exec", {'blob': "robot " + str(blob_to_send)}).content)
         print("Took: ", time.time() - start)
@@ -24,8 +26,9 @@ class robot_webserver:
 
         if data_from_blob[1] == self.Same_data:
             print("Instructions did not change")
-            pass
+            return
+
 
         self.Same_data = data_from_blob[1]
-
-        print("Data read from Computer: ", r)
+        print(r)
+        return r
