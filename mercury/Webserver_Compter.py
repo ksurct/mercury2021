@@ -15,11 +15,10 @@ class computer_webserver:
         print("Data being sent by computer: computer " + str(self.i) + " " + string)
 
         start = time.time()
-        r = str(requests.get("http://10.150.251.154:8000/server/computer,{}".format(string)).content)
+        r = str(requests.get("http://10.150.251.154:8000/server/computer",{'blob': "computer" + str(self.i) + " " + str(string)}).content)
         print("Took: ", time.time() - start)
 
         data_from_blob = r.split(" ")
-        print("Data read from Robot: ", data_from_blob)
 
         self.i = self.i + 1
 

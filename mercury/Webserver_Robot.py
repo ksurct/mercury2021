@@ -10,7 +10,7 @@ class robot_webserver:
 
     def send(self, blob_to_send):
         print("---------------ROBOT--------------")
-        list1 = []
+
         start = time.time()
         r = str(requests.get("https://script.google.com/macros/s/AKfycbyeRPqV1Z0vLX7ztAjCxlQ10JlUnFOmEw3ml2W7MuUaXyrOibkZSSDbjw/exec", {'blob': "robot " + str(blob_to_send)}).content)
         print("Took: ", time.time() - start)
