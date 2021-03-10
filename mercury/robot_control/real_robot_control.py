@@ -24,7 +24,8 @@ class RealRobotControl(RobotControl):
         self._probableTheta = 0
         self._sensors = [Sensor(), Sensor(), Sensor(), Sensor(), Sensor()] 
         # Created A servo motor from the ServoModel Class.
-        self._servoMotor = ServoModel('Servo1',0,0,250)
+        self._armServo = ServoModel('Arm',0,0,250)
+        self._clawServo = ServoModel('Claw',0,0,250)
         
         #TODO: This is a total guess
         self.MAX_MPS = 1
@@ -114,5 +115,8 @@ class RealRobotControl(RobotControl):
         return self._sensors
 
     #Sets the servo motor's angle to the given int degrees
-    def setServoAngle(self, degrees):
-        self._servoMotor.updateAbsoluteAngle(degrees)
+    def setArmServo(self, degrees):
+        self._armServo.updateAbsoluteAngle(degrees)
+
+    def setClawServo(self, degrees):
+        self._clawServo.updateAbsoluteAngle(degrees)
