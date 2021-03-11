@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name mercury)(type Legacy)(uri ${KIPRJMOD}/mercury.lib)(options "")(descr ""))
+  (lib (name power_board-rescue)(type Legacy)(uri ${KIPRJMOD}/power_board-rescue.lib)(options "")(descr ""))
+)
