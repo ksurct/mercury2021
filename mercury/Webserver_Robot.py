@@ -26,7 +26,7 @@ class robot_webserver:
 
         if data_from_blob[1] == self.Same_data:
             print("Instructions did not change")
-            return
+            return ""
 
 
         self.Same_data = data_from_blob[1]
