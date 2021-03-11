@@ -2,7 +2,8 @@ import math
 from mercury.settings.settings import settings
 from mercury.common.point import Point
 from time import sleep
-
+from mercury.robot_control.robot_control import RobotControl
+from mercury.motors.ServoModel import ServoModel
 # Simple setup to allow for playground usage of the real robot
 if (settings['instance'].value == 'realbot'):
     from mercury.motors.motor import Motor
@@ -15,16 +16,19 @@ class Sensor( ):
         self.speed = 0
 
 
-class RealRobotControl(object):
+class RealRobotControl(RobotControl):
     def __init__(self):
         self.NUM_MOTORS = 4
         self._motors = Motor.getDefaultMotors()
         self._probablePoint = Point(0, 0)
         self._probableTheta = 0
         self._sensors = [Sensor(), Sensor(), Sensor(), Sensor(), Sensor()] 
+        # Created A servo motor from the ServoModel Class.
+        self._armServo = ServoModel('Arm',0,0,250)
+        self._clawServo = ServoModel('Claw',0,0,250)
         
         #TODO: This is a total guess
-        self.MAX_MPS = 0.5
+        self.MAX_MPS = 1
 
     # This function converts a meters per second number into a 
     # Speed percent we can hand to the motors
@@ -58,7 +62,7 @@ class RealRobotControl(object):
         self._probablePoint = Point(0,0)
 
     #Sets all the speeds of all the motors
-    def setAllMotorSpeeds(self, motor0, motor1, motor2, motor3):
+    def setAllMotorSpeeds2(self, motor0, motor1, motor2, motor3):
         self._motors[0].setSpeed(motor0)
         self._motors[1].setSpeed(motor1)
         self._motors[2].setSpeed(motor2)
@@ -67,6 +71,7 @@ class RealRobotControl(object):
 
     #Sets all the speeds of all the motors
     def setAllMotorSpeeds(self, speed):
+        print(self._motors[0].__class__)
         self._motors[0].setSpeed(speed)
         self._motors[1].setSpeed(speed)
         self._motors[2].setSpeed(speed)
@@ -96,12 +101,22 @@ class RealRobotControl(object):
         
     # Rotates the robot by degrees at speed
     def rotate(self, degrees, speedMpS):
+        print("Made it")
         # TODO: Figure out time constraints needed for this to work
         speed = self.metersPerSecondToPercent(speedMpS)
         self._probableTheta += degrees
         if (degrees < 0):
             speed = -speed
-        self.setAllMotorSpeeds(speed, speed, -speed, -speed)
+        self.setAllMotorSpeeds2(speed, speed, -speed, -speed)
+        sleep(3)
+        self.setAllMotorSpeeds2(0,0,0,0)
 
     def getSensorData(self):
         return self._sensors
+
+    #Sets the servo motor's angle to the given int degrees
+    def setArmServo(self, degrees):
+        self._armServo.updateAbsoluteAngle(degrees)
+
+    def setClawServo(self, degrees):
+        self._clawServo.updateAbsoluteAngle(degrees)

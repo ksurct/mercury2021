@@ -33,25 +33,40 @@ class RobotControl(object):
 
     def getSensorData(self):
         pass
+    
+    def setArmServo(self, degrees):
+        pass
+
+    def setClawServo(self, degrees):
+        pass
 
     #Reads a command string and operates motors and servos from that
     def runCommand(self, string):
-        #String Template: "CONTINUOUS",{LEFT SPEED},{RIGHT SPEED},{ARM SERVO PWM},{CLAW SERVO PWM}
-        #example: string = CONTINUOUS,  100,-1, 49, 1,
+        #String Template: "CONTINUOUS",{LEFT SPEED},{RIGHT SPEED},{ARM SERVO DEGREES},{CLAW SERVO DEGREES}
+        #example: string = CONTINUOUS,  100, 49, 180, 90
 
-        #String Template: "DISCRETE", {"MOVE"/"ROTATE"}, {METERS/DEGREES}, {SPEED}
-        #example: string = DISCRETE, MOVE, 0.5, 50
-        #example: string = DISCRETE, ROTATE, 90, 50
+        #String Template: "DISCRETE", {"MOVE"/"ROTATE"}, {METERS/DEGREES}, {SPEED}, {CLAW SERVO DEGREES}, {ARM SERVO DEGREES}
+        #example: string = DISCRETE, MOVE, 0.5, 50, 120, 180
+        #example: string = DISCRETE, ROTATE, 90, 50, 145, 35\
+        print("COMMAND STRING INPUT: ", string)
         commands = string.strip().split(',')
 
         if commands[0].strip() == 'CONTINUOUS':
+            #ServoMotors:
+            self.setArmServo(int(commands[3]))
+            self.setClawServo(int(commands[4]))
+            #DriveMotors:
             self.setMotorSpeedByIndex(0,int(commands[1].strip()))
             self.setMotorSpeedByIndex(1,int(commands[1].strip()))
-            self.setMotorSpeedByIndex(2,int(commands[3].strip()))
-            self.setMotorSpeedByIndex(3,int(commands[3].strip()))
+            self.setMotorSpeedByIndex(2,int(commands[2].strip()))
+            self.setMotorSpeedByIndex(3,int(commands[2].strip()))
         
         elif commands[0].strip() == 'DISCRETE':
             if commands[1].strip() == 'MOVE':
                 self.move(float(commands[2]),float(commands[3]))
+                self.setClawAngle(int(commands[4]))
+                self.setArmAngle(int(commands[5]))
             elif commands[1].strip() == 'ROTATE':
                 self.rotate(float(commands[2]),float(commands[3]))
+                self.setClawAngle(int(commands[4]))
+                self.setArmAngle(int(commands[5]))

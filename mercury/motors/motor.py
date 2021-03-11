@@ -12,9 +12,10 @@ class Motor():
     # if it is too fast compared to others
     # NOTE: We may need to implement a modifier function
     # if the motor behavior is not linear.
-    def __init__(self, pwmPin, dirPin, modifier):
+    def __init__(self, pwmPin, dirPin, name, modifier):
         self.modifier = modifier
         self.speed = 0
+        self.name = name
         self.dir = 1
         GPIO.setup(pwmPin, GPIO.OUT)
         GPIO.setup(dirPin, GPIO.OUT)
@@ -46,12 +47,12 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
 if (__name__ == "__main__"):
-    M1 = Motor(18, 24)
-    M2 = Motor(12, 7)
-    M3 = Motor(13, 5)
-    M4 = Motor(26, 6)
+    M1 = Motor(18, 24,"",1)
+    M2 = Motor(12, 7,"",1)
+    M3 = Motor(13, 5,"",1)
+    M4 = Motor(26, 6,"",1)
 
-    M1.setSpeed(0)
+    M1.setSpeed(50)
     M2.setSpeed(0)
     M3.setSpeed(0)
     M4.setSpeed(0)
