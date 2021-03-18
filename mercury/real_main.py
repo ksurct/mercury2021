@@ -4,9 +4,9 @@ print("Running as actual robot")
 #     def getProbableTheta(self):
 #         pass
 # from mercury.robot_control.real_robot_control import RealRobotControl
-from mercury.Webserver_Compter import webserver
+from mercury.internet_com import InternetCom
 
-w = webserver()
+com = InternetCom()
 
 r = RealRobotControl()
 r.setClawServo(100)
