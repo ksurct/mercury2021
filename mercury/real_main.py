@@ -11,5 +11,8 @@ r = RealRobotControl()
 r.setClawServo(100)
 
 while(True):
-    r.runCommand(com.send("computer"))
-    sleep(0.5)
+    try:
+        r.runCommand(com.send("computer"))
+    except:
+        print("We are experiencing technical difficulties.")
+    sleep(0.25)
