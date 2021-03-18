@@ -11,5 +11,5 @@ r = RealRobotControl()
 r.setClawServo(100)
 
 while(True):
-    com.send("computer")
+    r.runCommand(com.send("computer"))
     sleep(0.5)

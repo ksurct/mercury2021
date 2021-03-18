@@ -10,12 +10,15 @@ class InternetCom:
     def send(self, string):
         r = str(requests.get("{}/{},{},{}/".format(self.url, self.id, self.i, string)).content.decode("utf-8"))
         data_from_blob = r.split(",")
-        print(r)
+        #print(r)
         self.i = self.i + 1
         if data_from_blob[0] == self.prevId:
             return ""
         else:
             self.prevId = data_from_blob[0]
+        r = r.split(",")
+        r.pop(0)
+        r = ",".join(r)
         return r
 
 if (__name__ == "__main__"):
