@@ -3,7 +3,7 @@ from mercury.settings.settings import settings
 from mercury.common.point import Point
 from time import sleep
 from mercury.robot_control.robot_control import RobotControl
-from mercury.motors.ServoModel import ServoModel
+#from mercury.motors.ServoModel import ServoModel
 # Simple setup to allow for playground usage of the real robot
 if (settings['instance'].value == 'realbot'):
     from mercury.motors.motor import Motor
@@ -24,8 +24,8 @@ class RealRobotControl(RobotControl):
         self._probableTheta = 0
         self._sensors = [Sensor(), Sensor(), Sensor(), Sensor(), Sensor()] 
         # Created A servo motor from the ServoModel Class.
-        self._armServo = ServoModel('Arm',0,0,250)
-        self._clawServo = ServoModel('Claw',0,0,250)
+        #self._armServo = ServoModel('Arm',0,0,250)
+        #self._clawServo = ServoModel('Claw',0,0,250)
         
         #TODO: This is a total guess
         self.MAX_MPS = 1
@@ -116,7 +116,8 @@ class RealRobotControl(RobotControl):
 
     #Sets the servo motor's angle to the given int degrees
     def setArmServo(self, degrees):
-        self._armServo.updateAbsoluteAngle(degrees)
-
+        #self._armServo.updateAbsoluteAngle(degrees)
+        pass
     def setClawServo(self, degrees):
-        self._clawServo.updateAbsoluteAngle(degrees)
+        pass
+        #self._clawServo.updateAbsoluteAngle(degrees)
