@@ -13,9 +13,13 @@ r.setClawServo(100)
 time_since_last_command = time.time()
 
 while(True):
-    command = com.send("computer")
-    if (command != ""):
-        update time
-    r.runCommand(command)
-    sleep(0.5)
-    r.setAllMotorSpeeds(0)
+    if(time.time() - time_since_last_command > 2):
+        r.setAllMotorSpeeds(0)
+    try:
+        command = com.send("computer")
+        if(command != ""):
+            time_since_last_command = time.time()
+        r.runCommand(command)
+    except:
+        print("We are experiencing technical difficulties.")
+    sleep(0.25)
