@@ -7,7 +7,7 @@ from mercury.robot_control.real_robot_control import RealRobotControl
 from mercury.internet_com import InternetCom
 from time import sleep
 import time
-com = InternetCom("robot", "http://10.150.251.154:8000/server")
+com = InternetCom("robot", "http://24.248.230.205:9999/server")
 r = RealRobotControl()
 r.setClawServo(100)
 time_since_last_command = time.time()
