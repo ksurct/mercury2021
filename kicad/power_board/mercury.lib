@@ -30,6 +30,20 @@ X SUPSW 9 600 -400 100 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
+# motor_controller
+#
+DEF motor_controller U 0 40 Y Y 1 F N
+F0 "U" 0 400 50 H V C CNN
+F1 "motor_controller" 0 300 50 H V C CNN
+F2 "" 0 400 50 H I C CNN
+F3 "" 0 400 50 H I C CNN
+DRAW
+S -250 0 400 -350 0 1 0 N
+X DIR1 1 -150 -450 100 U 50 50 1 1 I
+X PWM1 2 0 -450 100 U 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
 # multi_plexer
 #
 DEF multi_plexer U 0 40 Y Y 1 F N

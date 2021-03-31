@@ -1,5 +1,5 @@
 import requests
-
+import time
 class InternetCom:
     def __init__(self, id = "robot", url = "http://127.0.0.1:8000/server"):
         self.prevId = 0
@@ -8,7 +8,10 @@ class InternetCom:
         self.id = id
 
     def send(self, string):
+        start = time.time()
         r = str(requests.get("{}/{},{},{}/".format(self.url, self.id, self.i, string)).content.decode("utf-8"))
+        print("Took: ", time.time() - start)
+
         data_from_blob = r.split(",")
         #print(r)
         self.i = self.i + 1
