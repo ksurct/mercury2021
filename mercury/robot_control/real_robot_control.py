@@ -28,7 +28,7 @@ class RealRobotControl(RobotControl):
         self._sensors = [Sensor("RB"), Sensor("RF"), Sensor("FR"), Sensor("FM"), Sensor("FL"), Sensor("LF"), Sensor("LB")]
         self.serialData = Serial() 
         # Created A servo motor from the ServoModel Class.
-        self._armServo = ServoModel('Arm',0,0,250)
+        self._armServo = ServoModel('Arm',1,0,250)
         self._clawServo = ServoModel('Claw',0,0,250)
         
         #TODO: This is a total guess
@@ -127,6 +127,7 @@ class RealRobotControl(RobotControl):
     #Sets the servo motor's angle to the given int degrees
     def setArmServo(self, degrees):
         self._armServo.updateAbsoluteAngle(degrees)
-
+        pass
     def setClawServo(self, degrees):
+        pass
         self._clawServo.updateAbsoluteAngle(degrees)

@@ -64,9 +64,9 @@ class RobotControl(object):
         elif commands[0].strip() == 'DISCRETE':
             if commands[1].strip() == 'MOVE':
                 self.move(float(commands[2]),float(commands[3]))
-                self.setClawAngle(int(commands[4]))
-                self.setArmAngle(int(commands[5]))
+                #self.setClawAngle(int(commands[4]))
+                #self.setArmAngle(int(commands[5]))
             elif commands[1].strip() == 'ROTATE':
                 self.rotate(float(commands[2]),float(commands[3]))
-                self.setClawAngle(int(commands[4]))
-                self.setArmAngle(int(commands[5]))
+                #self.setClawAngle(int(commands[4]))
+                #self.setArmAngle(int(commands[5]))
