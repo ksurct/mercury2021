@@ -21,5 +21,6 @@ while(True):
             time_since_last_command = time.time()
         r.runCommand(command)
     except:
+        r.setAllMotorSpeeds(0)
         print("We are experiencing technical difficulties.")
     sleep(0.25)
