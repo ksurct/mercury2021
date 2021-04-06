@@ -13,73 +13,22 @@ speed = 100
         #String Template: "DISCRETE", {"MOVE"/"ROTATE"}, {METERS/DEGREES}, {SPEED}
         #example: string = DISCRETE, MOVE, 0.5, 50
         #example: string = DISCRETE, ROTATE, 90, 50\
-window = pyglet.window.Window(width = 100, height = 100)
+window = pyglet.window.Window(width = 1000, height = 1000)
 @window.event
+
+
 def on_key_press(key, mod):
     global speed
-    movementCommand = ""
-    speedCommand = ""
     keyP = chr(key)
-    #forward
-    if (keyP == "w"):
-        if (speed > 0 and speed <= 100):
-            speedCommand = "CONTINUOUS, " + str(int(speed)) + ", " + str(int(speed)) + ", 90, 90"
-            w.send(speedCommand)
-            #r.runCommand(speedCommand)
-            movementCommand = "DISCRETE, MOVE, 100, " + str(int(speed)) + ", 90, 90"
-            w.send(movementCommand)
-            #r.runCommand(movementCommand)
-    #left
-    elif (keyP == "d"):
-        if (speed > 0 and speed <= 100):
-            speedCommand = "CONTINUOUS, " + str(int(speed*-1)) + ", " + str(int(speed)) + ", 90, 90"
-            w.send(speedCommand)
-            #r.runCommand(speedCommand)
-            #movementCommand = "DISCRETE, ROTATE, 100, " + str(int(speed)) + ", 90, 90"
-            #w.send(movementCommand)
-            #r.runCommand(movementCommand)
-    #right
-    elif (keyP == "a"):
-        if (speed > 0 and speed <= 100):
-            speedCommand = "CONTINUOUS, " + str(int(speed)) + ", " + str(int(-1*speed)) + ", 90, 90"
-            w.send(speedCommand)
-            #r.runCommand(speedCommand)
-            #movementCommand = "DISCRETE, ROTATE, 100, " + str(int(speed)) + ", 90, 90"
-            #w.send(movementCommand)
-            #r.runCommand(movementCommand)
-    #stop
-    elif(keyP == "s"):
-        speedCommand = "CONTINUOUS, 0, 0, 90, 90"
-        w.send(speedCommand)
-        #r.runCommand(speedCommand)
-        movementCommand = "DISCRETE, ROTATE, 0, 0, 90, 90"
-        w.send(movementCommand)
-        #r.runCommand(movementCommand)
-    elif(keyP == "m"):
-        speedCommand = "CONTINUOUS, 0, 0, 90, 90"
-        w.send(speedCommand)
+    instruction = ""
+    if(keyP == 'm'):
+        instruction = r.createCommandInstruction(r, keyP)
+        w.send(instruction)
         pyglet.app.exit()
-    #set speed (1-0, 0 being 10)
-    elif (keyP == "1"):
-        speed = 10
-    elif (keyP == "2"):
-        speed = 20
-    elif (keyP == "3"):
-        speed = 30
-    elif (keyP == "4"):
-        speed = 40
-    elif (keyP == "5"):
-        speed = 50
-    elif (keyP == "6"):
-        speed = 60
-    elif (keyP == "7"):
-        speed = 70
-    elif (keyP == "8"):
-        speed = 80
-    elif (keyP == "9"):
-        speed = 90
-    elif (keyP == "0"):
-        speed = 100
+    else:
+        instruction = r.createCommandInstruction(r, keyP)
+        w.send(instruction)
+
 
 r = RobotControl()
 pyglet.app.run()
@@ -159,15 +108,9 @@ def CommandConstruction(key, speed):
     elif (key == "0"):
         return 100
 
-def ReadingRainbow():
-    key = ""
-    speed = 0
-    while (key != "m"):
-        key = input("")
-        speed = CommandConstruction(key, speed)
         
 
 r = RobotControl()
 
-ReadingRainbow()
+
 """

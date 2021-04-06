@@ -40,6 +40,9 @@ class RobotControl(object):
     def setClawServo(self, degrees):
         pass
 
+    def createCommandInstruction(self, key):
+        pass
+    
     #Reads a command string and operates motors and servos from that
     def runCommand(self, string):
         #String Template: "CONTINUOUS",{LEFT SPEED},{RIGHT SPEED},{ARM SERVO DEGREES},{CLAW SERVO DEGREES}
