@@ -1,9 +1,23 @@
 #include <ArduinoJson.h>
+int enPin = 13;
+int state;
+int lastState = HIGH;
+unsigned long lastTime;
+
+enum stat {
+  triggered,
+  wait,
+  high,
+  low
+};
+
+stat curSt = high;
+stat lastSt = high;
+StaticJsonDocument<200> doc;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  StaticJsonDocument<200> doc;
 
   // Array of Encoders
   JsonArray encoder = doc.createNestedArray("encoder");
@@ -20,9 +34,45 @@ void setup() {
 
   // Hall's Effect Sensor
   doc["magnet"] = 1.03;
+
+  //serializeJson(doc, Serial);
+
+  pinMode(13, INPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  state = digitalRead(enPin);
+  
+  switch(curSt) {
+    case high:
+      if(state == LOW){
+        curSt = wait;
+        lastTime = millis();  
+      }
+      break;
+     case low:
+      if(state == HIGH){
+        curSt = wait;
+        lastTime = millis();        
+      }
+      break;
+     case wait:
+      if(state != lastSt){
+        if (millis() - lastTime >= 50){
+          lastState = state;
+          if (state == HIGH)
+            curSt = triggered;
+          else
+            curSt = low;
+        }
+      } else 
+        curSt = lastSt;
+      break;
+     case triggered:
+      serializeJson(doc, Serial);
+      Serial.println();
+      curSt = high;
+      break;
+      
+  }
 }
