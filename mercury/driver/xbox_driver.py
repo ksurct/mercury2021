@@ -2,8 +2,8 @@ import signal
 from xbox360controller import Xbox360Controller
 from time import sleep
 import time, threading
-
 from mercury.internet_com import InternetCom
+
 class XboxDriver():
     def __init__(self):
         self.rightSpeed = 0
@@ -13,10 +13,14 @@ class XboxDriver():
         self.clawAngle = 90
         self.command = ""
         self.controller = None
-        self.com = InternetCom("computer")
+        self.com = InternetCom("computer", "http://10.150.133.98:8000/server")
 
     def on_button_pressed(self,button):
         print('Button {0} was pressed'.format(button.name))
+        if (button.name == "button_a"):
+            self.clawAngle = 0
+        elif (button.name == "button_b"):
+            self.clawAngle = 180
 
     def on_button_released(self,button):
         print('Button {0} was released'.format(button.name))
@@ -31,7 +35,7 @@ class XboxDriver():
             ls = 0
         if (abs(rs) < 0.1):
             rs = 0
-        self.command = "CONTINUOUS, {}, {}, {}, {}".format(ls*-100,rs*-100,aa,ca)
+        self.command = "CONTINUOUS, {}, {}, {}, {}".format(round(rs*-100),round(ls*-100),aa,ca)
         return self.command
     def signal(self):
         try:
@@ -64,8 +68,8 @@ class XboxDriver():
             pass
 
     def run(self):
-        threading.Timer(1, self.run).start()
-        print("Sending: {}".format(self.createCommandString(self.controller.axis_l._value_y, self.controller.axis_r._value_y, 90, 90)))
+        threading.Timer(0.25, self.run).start()
+        print("Sending: {}".format(self.createCommandString(self.controller.axis_l._value_y, self.controller.axis_r._value_y, self.armAngle, self.clawAngle)))
         if (self.controller != None):
             print("INIT: ", self.controller.axis_r._value_y)
         self.com.send(self.command)
@@ -73,5 +77,5 @@ if (__name__ == "__main__"):
     import time, threading
     x = XboxDriver()
     print(time.ctime())
-    threading.Timer(0.5, x.run).start()
+    threading.Timer(0.3, x.run).start()
     x.signal()
