@@ -41,7 +41,35 @@ class RobotControl(object):
         pass
 
     def createCommandInstruction(self, key):
-        pass
+        speed = 100
+        if (key == "w"):
+            if (speed > 0 and speed <= 100):
+                return "CONTINUOUS, " + str(int(speed)) + ", " + str(int(speed)) + ", 90, 90"
+                #return "DISCRETE, MOVE, 100, " + str(int(speed)) + ", 90, 90"
+            else:
+                return "CONTINUOUS, " + 100 + ", " + 100 + ", 90, 90"
+                #return "DISCRETE, MOVE, 100, " + 100 + ", 90, 90"
+        #left
+        elif (key == "d"):
+            if (speed > 0 and speed <= 100):
+                return "CONTINUOUS, " + str(int(speed*-1)) + ", " + str(int(speed)) + ", 90, 90"
+            else:
+                return "CONTINUOUS, " + -100 + ", " + 100 + ", 90, 90"
+        #right
+        elif (key == "a"):
+            if (speed > 0 and speed <= 100):
+                return "CONTINUOUS, " + str(int(speed)) + ", " + str(int(-1*speed)) + ", 90, 90"
+            else:
+                return "CONTINUOUS, " + 100 + ", " + -100 + ", 90, 90"
+        #stop
+        elif(key == "s"):
+            return "CONTINUOUS, 0, 0, 90, 90"
+            #return "DISCRETE, ROTATE, 0, 0, 90, 90"
+        elif(key == "m"):
+            return "CONTINUOUS, 0, 0, 90, 90"
+        else:
+            return "fail"
+
     
     #Reads a command string and operates motors and servos from that
     def runCommand(self, string):
