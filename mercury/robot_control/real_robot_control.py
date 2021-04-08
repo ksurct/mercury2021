@@ -3,17 +3,14 @@ from mercury.settings.settings import settings
 from mercury.common.point import Point
 from time import sleep
 from mercury.robot_control.robot_control import RobotControl
+from mercury.motors.ServoModel import ServoModel
+from mercury.sensors.sensors import Sensor
+from mercury.communication.serial import Serial
 # Simple setup to allow for playground usage of the real robot
 if (settings['instance'].value == 'realbot'):
     from mercury.motors.motor import Motor
 else:
     from mercury.motors.dummy_motors import Motor
-
-#TODO: remove and add to proper module.
-class Sensor( ):
-    def __init__(self):
-        self.speed = 0
-
 
 class RealRobotControl(RobotControl):
     def __init__(self):
@@ -21,7 +18,18 @@ class RealRobotControl(RobotControl):
         self._motors = Motor.getDefaultMotors()
         self._probablePoint = Point(0, 0)
         self._probableTheta = 0
-        self._sensors = [Sensor(), Sensor(), Sensor(), Sensor(), Sensor()] 
+        """self.sensorRB = Sensor("RB") #Right Back Sensor
+        self.sensorRF = Sensor("RF") #Right Front Sensor
+        self.sensorFR = Sensor("FR") #Front Right Sensor
+        self.sensorFM = Sensor("FM") #Front Middle Sensor
+        self.sensorFL = Sensor("FL") #Front Left Sensor
+        self.sensorLF = Sensor("LF") #Left Front Sensor
+        self.sensorLB = Sensor("LB") #Left Back Sensor"""
+        self._sensors = [Sensor("RB"), Sensor("RF"), Sensor("FR"), Sensor("FM"), Sensor("FL"), Sensor("LF"), Sensor("LB")]
+        self.serialData = Serial() 
+        # Created A servo motor from the ServoModel Class.
+        self._armServo = ServoModel('Arm',1,0,250)
+        self._clawServo = ServoModel('Claw',0,0,250)
         
         #TODO: This is a total guess
         self.MAX_MPS = 1
@@ -108,4 +116,18 @@ class RealRobotControl(RobotControl):
         self.setAllMotorSpeeds2(0,0,0,0)
 
     def getSensorData(self):
+        # ADD THIS: At this point set GPIO pin to high telling the arduino, the pi wants data.
+        serialData.receiveData
+        # ADD THIS: At this point, we have the data so set GPIO pin to low
+        serialSensorData = serialData.getSensor()
+        for i in range(0, _sensors.len()):
+            _sensors[i].update(serialSensorData[i])
         return self._sensors
+
+    #Sets the servo motor's angle to the given int degrees
+    def setArmServo(self, degrees):
+        self._armServo.updateAbsoluteAngle(degrees)
+        pass
+    def setClawServo(self, degrees):
+        pass
+        self._clawServo.updateAbsoluteAngle(degrees)

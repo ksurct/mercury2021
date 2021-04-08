@@ -1,0 +1,400 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Mercury:MDD10A U?
+U 2 1 60981FB5
+P 1750 3500
+AR Path="/60981FB5" Ref="U?"  Part="2" 
+AR Path="/6094441B/60981FB5" Ref="U?"  Part="2" 
+AR Path="/60979A3C/60981FB5" Ref="U?"  Part="2" 
+F 0 "U?" H 1787 3775 50  0000 C CNN
+F 1 "MDD10A" H 1787 3684 50  0000 C CNN
+F 2 "" H 1750 3700 50  0001 C CNN
+F 3 "" H 1750 3700 50  0001 C CNN
+	2    1750 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mercury:MDD10A U?
+U 3 1 60981FBB
+P 1750 3700
+AR Path="/60981FBB" Ref="U?"  Part="3" 
+AR Path="/6094441B/60981FBB" Ref="U?"  Part="3" 
+AR Path="/60979A3C/60981FBB" Ref="U?"  Part="3" 
+F 0 "U?" H 1812 3975 50  0000 C CNN
+F 1 "MDD10A" H 1812 3884 50  0000 C CNN
+F 2 "" H 1750 3900 50  0001 C CNN
+F 3 "" H 1750 3900 50  0001 C CNN
+	3    1750 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mercury:MDD10A U?
+U 4 1 60981FC1
+P 1750 3900
+AR Path="/60981FC1" Ref="U?"  Part="4" 
+AR Path="/6094441B/60981FC1" Ref="U?"  Part="4" 
+AR Path="/60979A3C/60981FC1" Ref="U?"  Part="4" 
+F 0 "U?" H 1787 4175 50  0000 C CNN
+F 1 "MDD10A" H 1787 4084 50  0000 C CNN
+F 2 "" H 1750 4100 50  0001 C CNN
+F 3 "" H 1750 4100 50  0001 C CNN
+	4    1750 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mercury:MDD10A U?
+U 2 1 60981FC7
+P 2500 3500
+AR Path="/60981FC7" Ref="U?"  Part="2" 
+AR Path="/6094441B/60981FC7" Ref="U?"  Part="2" 
+AR Path="/60979A3C/60981FC7" Ref="U?"  Part="2" 
+F 0 "U?" H 2537 3775 50  0000 C CNN
+F 1 "MDD10A" H 2537 3684 50  0000 C CNN
+F 2 "" H 2500 3700 50  0001 C CNN
+F 3 "" H 2500 3700 50  0001 C CNN
+	2    2500 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mercury:MDD10A U?
+U 3 1 60981FCD
+P 2500 3700
+AR Path="/60981FCD" Ref="U?"  Part="3" 
+AR Path="/6094441B/60981FCD" Ref="U?"  Part="3" 
+AR Path="/60979A3C/60981FCD" Ref="U?"  Part="3" 
+F 0 "U?" H 2562 3975 50  0000 C CNN
+F 1 "MDD10A" H 2562 3884 50  0000 C CNN
+F 2 "" H 2500 3900 50  0001 C CNN
+F 3 "" H 2500 3900 50  0001 C CNN
+	3    2500 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mercury:MDD10A U?
+U 4 1 60981FD3
+P 2500 3900
+AR Path="/60981FD3" Ref="U?"  Part="4" 
+AR Path="/6094441B/60981FD3" Ref="U?"  Part="4" 
+AR Path="/60979A3C/60981FD3" Ref="U?"  Part="4" 
+F 0 "U?" H 2537 4175 50  0000 C CNN
+F 1 "MDD10A" H 2537 4084 50  0000 C CNN
+F 2 "" H 2500 4100 50  0001 C CNN
+F 3 "" H 2500 4100 50  0001 C CNN
+	4    2500 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mercury:MDD10A U?
+U 1 1 60981FD9
+P 2800 1550
+AR Path="/60981FD9" Ref="U?"  Part="1" 
+AR Path="/6094441B/60981FD9" Ref="U?"  Part="1" 
+AR Path="/60979A3C/60981FD9" Ref="U?"  Part="1" 
+F 0 "U?" H 3119 1451 50  0000 L CNN
+F 1 "MDD10A" H 3119 1360 50  0000 L CNN
+F 2 "" H 2800 1750 50  0001 C CNN
+F 3 "" H 2800 1750 50  0001 C CNN
+	1    2800 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2700 1900 2550 1900
+Wire Wire Line
+	2700 1800 2550 1800
+Wire Wire Line
+	2700 1700 2550 1700
+Wire Wire Line
+	2700 1600 2550 1600
+Wire Wire Line
+	2700 1500 2550 1500
+Entry Wire Line
+	2550 1900 2450 1800
+Entry Wire Line
+	2550 1800 2450 1700
+Entry Wire Line
+	2550 1700 2450 1600
+Entry Wire Line
+	2550 1600 2450 1500
+Entry Wire Line
+	2550 1500 2450 1400
+Text Label 2650 1900 2    50   ~ 0
+RM_GND
+Text Label 2650 1800 2    50   ~ 0
+RM_PWM2_GPIO12
+Text Label 2650 1700 2    50   ~ 0
+RM_DIR2_GPIO21
+Text Label 2650 1600 2    50   ~ 0
+RM_PWM1_GPIO18
+Text Label 2650 1500 2    50   ~ 0
+RM_DIR1_GPIO20
+$Comp
+L Mercury:MDD10A U?
+U 1 1 60981FEE
+P 2800 2150
+AR Path="/60981FEE" Ref="U?"  Part="1" 
+AR Path="/6094441B/60981FEE" Ref="U?"  Part="1" 
+AR Path="/60979A3C/60981FEE" Ref="U?"  Part="1" 
+F 0 "U?" H 3119 2051 50  0000 L CNN
+F 1 "MDD10A" H 3119 1960 50  0000 L CNN
+F 2 "" H 2800 2350 50  0001 C CNN
+F 3 "" H 2800 2350 50  0001 C CNN
+	1    2800 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2700 2500 2550 2500
+Wire Wire Line
+	2700 2400 2550 2400
+Wire Wire Line
+	2700 2300 2550 2300
+Wire Wire Line
+	2700 2200 2550 2200
+Wire Wire Line
+	2700 2100 2550 2100
+Entry Wire Line
+	2550 2500 2450 2400
+Entry Wire Line
+	2550 2400 2450 2300
+Entry Wire Line
+	2550 2300 2450 2200
+Entry Wire Line
+	2550 2200 2450 2100
+Entry Wire Line
+	2550 2100 2450 2000
+Text Label 2650 2100 2    50   ~ 0
+LM_DIR1_GPIO6
+Text Label 2650 2300 2    50   ~ 0
+LM_DIR2_GPIO5
+Text Label 2650 2200 2    50   ~ 0
+LM_PWM1_GPIO19
+Text Label 2650 2400 2    50   ~ 0
+LM_PWM2_GPIO13
+Text Label 2650 2500 2    50   ~ 0
+LM_GND
+Wire Bus Line
+	2450 2250 1650 2250
+Connection ~ 2450 2250
+Wire Bus Line
+	2450 1650 1650 1650
+Connection ~ 2450 1650
+Text Label 1700 1650 0    50   ~ 0
+RightMotor
+Text Label 1700 2250 0    50   ~ 0
+LeftMotor
+Entry Bus Bus
+	1550 2350 1650 2250
+Entry Bus Bus
+	1550 1750 1650 1650
+$Comp
+L Mercury:PCA9685 U?
+U 4 1 60982012
+P 3400 3550
+AR Path="/60982012" Ref="U?"  Part="4" 
+AR Path="/609567C6/60982012" Ref="U?"  Part="4" 
+AR Path="/60979A3C/60982012" Ref="U?"  Part="4" 
+F 0 "U?" H 3558 3234 50  0000 L CNN
+F 1 "PCA9685" H 3558 3143 50  0000 L CNN
+F 2 "" H 3400 3750 50  0001 C CNN
+F 3 "" H 3400 3750 50  0001 C CNN
+	4    3400 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mercury:PCA9685 U?
+U 5 1 60982018
+P 4100 3550
+AR Path="/60982018" Ref="U?"  Part="5" 
+AR Path="/609567C6/60982018" Ref="U?"  Part="5" 
+AR Path="/60979A3C/60982018" Ref="U?"  Part="5" 
+F 0 "U?" H 4258 3234 50  0000 L CNN
+F 1 "PCA9685" H 4258 3143 50  0000 L CNN
+F 2 "" H 4100 3750 50  0001 C CNN
+F 3 "" H 4100 3750 50  0001 C CNN
+	5    4100 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Raspberry_Pi_2_3 J?
+U 1 1 60987481
+P 6450 2200
+AR Path="/60987481" Ref="J?"  Part="1" 
+AR Path="/6094441B/60987481" Ref="J?"  Part="1" 
+F 0 "J?" H 6450 3681 50  0000 C CNN
+F 1 "Raspberry_Pi_2_3" H 6450 3590 50  0000 C CNN
+F 2 "" H 6450 2200 50  0001 C CNN
+F 3 "https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_3bplus_1p0_reduced.pdf" H 6450 2200 50  0001 C CNN
+	1    6450 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 1800 5450 1800
+Wire Wire Line
+	5650 2000 5450 2000
+Wire Wire Line
+	5650 2100 5450 2100
+Wire Wire Line
+	5650 2200 5450 2200
+Entry Wire Line
+	5350 1700 5450 1800
+Entry Wire Line
+	5350 1900 5450 2000
+Entry Wire Line
+	5350 2000 5450 2100
+Entry Wire Line
+	5350 2100 5450 2200
+Wire Wire Line
+	7250 2000 7450 2000
+Wire Wire Line
+	7250 2100 7450 2100
+Wire Wire Line
+	7250 2900 7450 2900
+Wire Wire Line
+	7250 3000 7450 3000
+Entry Wire Line
+	7450 2900 7550 2800
+Entry Wire Line
+	7550 2900 7450 3000
+Entry Wire Line
+	7550 1900 7450 2000
+Entry Wire Line
+	7550 2000 7450 2100
+Entry Wire Line
+	6050 3600 6150 3700
+Wire Wire Line
+	6050 3500 6050 3600
+Text Label 7300 2100 0    50   ~ 0
+LM_DIR1_GPIO6
+Text Label 7300 2000 0    50   ~ 0
+LM_DIR2_GPIO5
+Text Label 5500 2000 2    50   ~ 0
+LM_PWM1_GPIO19
+Text Label 7300 3000 0    50   ~ 0
+LM_PWM2_GPIO13
+Text Label 6050 3550 3    50   ~ 0
+LM_GND
+Text Label 5500 1800 2    50   ~ 0
+RM_PWM1_GPIO18
+Text Label 5500 2100 2    50   ~ 0
+RM_DIR1_GPIO20
+Text Label 5500 2200 2    50   ~ 0
+RM_DIR2_GPIO21
+Text Label 7300 2900 0    50   ~ 0
+RM_PWM2_GPIO12
+Entry Wire Line
+	6150 3600 6250 3700
+Text Label 6150 3550 3    50   ~ 0
+RM_GND
+Wire Wire Line
+	6150 3600 6150 3500
+Connection ~ 5350 2800
+Wire Bus Line
+	5350 2800 5350 3700
+$Comp
+L Mercury:PCA9685 U?
+U 1 1 609948C9
+P 2900 1300
+F 0 "U?" H 3069 950 50  0000 L CNN
+F 1 "PCA9685" H 3069 859 50  0000 L CNN
+F 2 "" H 2900 1500 50  0001 C CNN
+F 3 "" H 2900 1500 50  0001 C CNN
+	1    2900 1300
+	-1   0    0    1   
+$EndComp
+Entry Wire Line
+	3250 650  3350 750 
+Entry Wire Line
+	3250 750  3350 850 
+Entry Wire Line
+	3250 850  3350 950 
+Entry Wire Line
+	3250 950  3350 1050
+Entry Wire Line
+	3250 1050 3350 1150
+Entry Wire Line
+	3250 1150 3350 1250
+Wire Bus Line
+	3350 1400 3650 1400
+Entry Bus Bus
+	3650 2700 3750 2800
+Wire Bus Line
+	3650 1400 3650 2700
+Wire Wire Line
+	3100 650  3250 650 
+Wire Wire Line
+	3250 750  3100 750 
+Wire Wire Line
+	3100 850  3250 850 
+Wire Wire Line
+	3250 950  3100 950 
+Wire Wire Line
+	3100 1050 3250 1050
+Wire Wire Line
+	3250 1150 3100 1150
+Entry Wire Line
+	6250 3600 6350 3700
+$Comp
+L Mercury:PCA9685 U?
+U 3 1 6098200C
+P 5800 4300
+AR Path="/6098200C" Ref="U?"  Part="3" 
+AR Path="/609567C6/6098200C" Ref="U?"  Part="3" 
+AR Path="/60979A3C/6098200C" Ref="U?"  Part="3" 
+F 0 "U?" H 5930 4309 50  0000 L CNN
+F 1 "PCA9685" H 5930 4218 50  0000 L CNN
+F 2 "" H 5800 4500 50  0001 C CNN
+F 3 "" H 5800 4500 50  0001 C CNN
+	3    5800 4300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 3500 6250 3600
+Entry Wire Line
+	7400 1600 7500 1500
+Entry Wire Line
+	7400 1700 7500 1600
+Wire Bus Line
+	7550 1550 7500 1550
+Wire Bus Line
+	7500 1500 7500 1550
+Connection ~ 7500 1550
+Wire Bus Line
+	7500 1550 7500 1600
+Wire Wire Line
+	7250 1600 7400 1600
+Wire Wire Line
+	7400 1700 7250 1700
+Wire Bus Line
+	1550 2800 5350 2800
+Wire Bus Line
+	1550 1750 1550 2800
+Wire Bus Line
+	2450 2250 2450 2400
+Wire Bus Line
+	2450 1650 2450 1800
+Wire Bus Line
+	2450 1400 2450 1650
+Wire Bus Line
+	2450 2000 2450 2250
+Wire Bus Line
+	5350 3700 7550 3700
+Wire Bus Line
+	5350 1700 5350 2800
+Wire Bus Line
+	7550 1550 7550 3700
+Wire Bus Line
+	3350 750  3350 1400
+$EndSCHEMATC

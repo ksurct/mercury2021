@@ -24,12 +24,13 @@ class Visualizer():
 
         # this is just to calculate 
         self.sensors = [
-            (sqrt((self.robit.length/2)**2 + (1*self.robit.height/4)**2), atan((2 * self.robit.length) / (self.robit.height)), PI / 2, "Right Top"), # right top
-            (sqrt((self.robit.length/2)**2 + (1*self.robit.height/4)**2), -atan((2 * self.robit.length) / (self.robit.height)), -PI / 2, "Left Top"), # Left top
-            (sqrt((self.robit.length/2)**2 + (1*self.robit.height/4)**2), PI + atan((2 * self.robit.length) / (self.robit.height)), -PI / 2, "Left bottom"), # Left bottom
-            (sqrt((self.robit.length/2)**2 + (1*self.robit.height/4)**2), -PI + -atan((2 * self.robit.length) / (self.robit.height)), PI / 2, "Right Bottom"), # right bottom
-            (sqrt((self.robit.length/3)**2 + (1*self.robit.height/2)**2), atan((self.robit.length/3) / (self.robit.height/2)), 0, "Front Right"),
-            (sqrt((self.robit.length/3)**2 + (1*self.robit.height/2)**2), -atan((self.robit.length/3) / (self.robit.height/2)), 0, "Front Left"),
+            (sqrt((self.robit.length/2)**2 + (1*self.robit.height/2)**2), atan((self.robit.length) / (self.robit.height)), PI / 2, "Right Top"), # right top
+            (sqrt((self.robit.length/2)**2 + (1*self.robit.height/2)**2), -atan((self.robit.length) / (self.robit.height)), -PI / 2, "Left Top"), # Left top
+            (sqrt((self.robit.length/2)**2 + (1*self.robit.height/2)**2), PI + atan((self.robit.length) / (self.robit.height)), -PI / 2, "Left bottom"), # Left bottom
+            (sqrt((self.robit.length/2)**2 + (1*self.robit.height/2)**2), -PI + -atan((self.robit.length) / (self.robit.height)), PI / 2, "Right Bottom"), # right bottom
+            (sqrt((self.robit.length/3)**2 + (1*self.robit.height/2)**2), atan((self.robit.length) / (self.robit.height)), 0, "Front Right"),
+            (sqrt((self.robit.length/3)**2 + (1*self.robit.height/2)**2), -atan((self.robit.length) / (self.robit.height)), 0, "Front Left"),
+            (sqrt((self.robit.length/2)**2 + (1*self.robit.height/4)**2), 0, 0, "Front Middle")
         ]
         self.setXYAbsolute(0, 462)
         self.setΘAbsolute(PI/2)
@@ -112,7 +113,12 @@ class Visualizer():
         for sensor in self.sensors:
             (a, b) = self.getSenorPoint(sensor)
             distance = self.PsuedoRayCast.rayCast(a, b, self.robit.theta + sensor[2])
-            data.append((distance / self.scale, sensor[3]))
+            #data.append((distance / self.scale, sensor[3]))
+            if (distance != None and distance > 0):
+                data.append((distance / self.scale, sensor[3]))
+            #if there is no sensor data, set distance as -34404 (reminded me of ERROR)
+            else:
+                data.append((False, sensor[3]))        
         return data
 
     def runAllSensors(self):
