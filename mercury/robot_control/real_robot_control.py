@@ -6,6 +6,11 @@ from mercury.robot_control.robot_control import RobotControl
 from mercury.motors.ServoModel import ServoModel
 from mercury.sensors.sensors import Sensor
 from mercury.communication.serial import Serial
+
+#-----------------------------
+import RPi.GPIO as GPIO
+#-----------------------------
+
 # Simple setup to allow for playground usage of the real robot
 if (settings['instance'].value == 'realbot'):
     from mercury.motors.motor import Motor
@@ -18,6 +23,10 @@ class RealRobotControl(RobotControl):
         self._motors = Motor.getDefaultMotors()
         self._probablePoint = Point(0, 0)
         self._probableTheta = 0
+
+        #Creates a Serial Object to read data
+        self.serialData = Serial()
+        #Sensors
         """self.sensorRB = Sensor("RB") #Right Back Sensor
         self.sensorRF = Sensor("RF") #Right Front Sensor
         self.sensorFR = Sensor("FR") #Front Right Sensor
@@ -26,7 +35,13 @@ class RealRobotControl(RobotControl):
         self.sensorLF = Sensor("LF") #Left Front Sensor
         self.sensorLB = Sensor("LB") #Left Back Sensor"""
         self._sensors = [Sensor("RB"), Sensor("RF"), Sensor("FR"), Sensor("FM"), Sensor("FL"), Sensor("LF"), Sensor("LB")]
-        self.serialData = Serial() 
+
+        #Stores Magnet Data read from arduino (float)
+        self.magnetData = 0.0
+
+        #Stores encoder data read from arduino (three floats)
+        self.encoderData = [0.0, 0.0, 0.0, 0.0]
+
         # Created A servo motor from the ServoModel Class.
         self._armServo = ServoModel('Arm',1,0,250)
         self._clawServo = ServoModel('Claw',0,0,250)
@@ -116,13 +131,58 @@ class RealRobotControl(RobotControl):
         self.setAllMotorSpeeds2(0,0,0,0)
 
     def getSensorData(self):
-        # ADD THIS: At this point set GPIO pin to high telling the arduino, the pi wants data.
+        # Gets Sensor Data from Arduino (ints)
+        #Setting up GPIO
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+        #Currently set up as pin 18
+        GPIO.setup(18,GPIO.OUT)
+
+        GPIO.output(18,GPIO.HIGH)
         serialData.receiveData
-        # ADD THIS: At this point, we have the data so set GPIO pin to low
+        GPIO.output(18,GPIO.LOW)
+        serialData.receiveData
+
         serialSensorData = serialData.getSensor()
         for i in range(0, _sensors.len()):
             _sensors[i].update(serialSensorData[i])
+            print serialSensorData[i] 
         return self._sensors
+
+    def getMagnetData(self):
+        # Gets Magnet Data from Arduino (float)
+        #Setting up GPIO
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+        #Currently set up as pin 18
+        GPIO.setup(18,GPIO.OUT)
+
+        GPIO.output(18,GPIO.HIGH)
+        serialData.receiveData
+        GPIO.output(18,GPIO.LOW)
+
+        serialMagnetData = serialData.getMagnet()
+        magnetData = serialMagnetData
+        print (magnetData)
+        return self.magnetData
+
+    def getEncoderData(self):
+        # Gets Encoder Data from Arduino
+        #Setting up GPIO
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+        #Currently set up as pin 18
+        GPIO.setup(18,GPIO.OUT)
+
+        GPIO.output(18,GPIO.HIGH)
+        serialData.receiveData
+        GPIO.output(18,GPIO.LOW)
+
+        serialEncoderData = serialData.getEncoder()
+        for i in range(0, encoderData.len()):
+            encoderData[i] = serialEncoderData[i]
+            print serialEncoderData[i] 
+        return self.encoderData
 
     #Sets the servo motor's angle to the given int degrees
     def setArmServo(self, degrees):
