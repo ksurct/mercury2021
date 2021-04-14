@@ -3,7 +3,7 @@ from mercury.settings.settings import settings
 from mercury.common.point import Point
 from time import sleep
 from mercury.robot_control.robot_control import RobotControl
-from mercury.motors.ServoModel import ServoModel
+#from mercury.motors.ServoModel import ServoModel
 from mercury.sensors.sensors import Sensor
 from mercury.communication.serial import Serial
 
