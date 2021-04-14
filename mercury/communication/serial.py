@@ -11,7 +11,7 @@ class Serial(object):
         self.magnetData = ""
 
     def receiveData(self):
-        while !(ser.in_waiting > 0):
+        while (not ser.in_waiting > 0):
             if ser.in_waiting > 0:
                 line = ser.readline().decode('utf-8').rstrip()
                 jsonLine = json.loads(line)
