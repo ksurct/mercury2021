@@ -72,7 +72,7 @@ Wire Wire Line
 	1450 4000 2000 4000
 Connection ~ 1450 4000
 Wire Wire Line
-	1750 3700 2000 3700
+	1750 3700 1900 3700
 Connection ~ 1750 3700
 Connection ~ 1750 4300
 $Comp
@@ -93,11 +93,11 @@ GND
 Text Label 2300 4300 0    50   ~ 0
 5V
 $Comp
-L Device:C C1
+L Device:CP C1
 U 1 1 6088CA50
 P 2000 3850
-F 0 "C1" H 2115 3896 50  0000 L CNN
-F 1 "10μf" H 2115 3805 50  0000 L CNN
+F 0 "C1" H 2118 3896 50  0000 L CNN
+F 1 "10μf" H 2118 3805 50  0000 L CNN
 F 2 "" H 2038 3700 50  0001 C CNN
 F 3 "~" H 2000 3850 50  0001 C CNN
 	1    2000 3850
@@ -105,24 +105,8 @@ F 3 "~" H 2000 3850 50  0001 C CNN
 $EndComp
 Connection ~ 2000 3700
 Connection ~ 2000 4000
-$Comp
-L Device:C C2
-U 1 1 6088D347
-P 2000 4150
-F 0 "C2" H 2115 4196 50  0000 L CNN
-F 1 "10μf" H 2115 4105 50  0000 L CNN
-F 2 "" H 2038 4000 50  0001 C CNN
-F 3 "~" H 2000 4150 50  0001 C CNN
-	1    2000 4150
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	1750 4300 2000 4300
-Connection ~ 2000 4300
-Wire Wire Line
-	2000 4300 2550 4300
-Wire Wire Line
-	2000 4000 3050 4000
+	2000 4000 2600 4000
 $Comp
 L Connector:Screw_Terminal_01x02 J1
 U 1 1 608781A8
@@ -498,205 +482,440 @@ Connection ~ 2950 6550
 $Comp
 L Connector:Screw_Terminal_01x02 J13
 U 1 1 6093E999
-P 3650 3250
-F 0 "J13" H 3730 3242 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 3730 3151 50  0000 L CNN
-F 2 "" H 3650 3250 50  0001 C CNN
-F 3 "~" H 3650 3250 50  0001 C CNN
-	1    3650 3250
-	1    0    0    -1  
+P 4600 3550
+F 0 "J13" H 4680 3542 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 4680 3451 50  0000 L CNN
+F 2 "" H 4600 3550 50  0001 C CNN
+F 3 "~" H 4600 3550 50  0001 C CNN
+	1    4600 3550
+	0    1    1    0   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J12
 U 1 1 609409E0
-P 3650 3000
-F 0 "J12" H 3730 2992 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 3730 2901 50  0000 L CNN
-F 2 "" H 3650 3000 50  0001 C CNN
-F 3 "~" H 3650 3000 50  0001 C CNN
-	1    3650 3000
-	1    0    0    -1  
+P 4850 3550
+F 0 "J12" H 4930 3542 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 4930 3451 50  0000 L CNN
+F 2 "" H 4850 3550 50  0001 C CNN
+F 3 "~" H 4850 3550 50  0001 C CNN
+	1    4850 3550
+	0    1    1    0   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J11
 U 1 1 60940C70
-P 3650 2750
-F 0 "J11" H 3730 2742 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 3730 2651 50  0000 L CNN
-F 2 "" H 3650 2750 50  0001 C CNN
-F 3 "~" H 3650 2750 50  0001 C CNN
-	1    3650 2750
-	1    0    0    -1  
+P 5100 3550
+F 0 "J11" H 5180 3542 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 5180 3451 50  0000 L CNN
+F 2 "" H 5100 3550 50  0001 C CNN
+F 3 "~" H 5100 3550 50  0001 C CNN
+	1    5100 3550
+	0    1    1    0   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J10
 U 1 1 60941108
-P 3650 2500
-F 0 "J10" H 3730 2492 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 3730 2401 50  0000 L CNN
-F 2 "" H 3650 2500 50  0001 C CNN
-F 3 "~" H 3650 2500 50  0001 C CNN
-	1    3650 2500
-	1    0    0    -1  
+P 5350 3550
+F 0 "J10" H 5430 3542 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 5430 3451 50  0000 L CNN
+F 2 "" H 5350 3550 50  0001 C CNN
+F 3 "~" H 5350 3550 50  0001 C CNN
+	1    5350 3550
+	0    1    1    0   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J9
 U 1 1 609414F6
-P 3650 2250
-F 0 "J9" H 3730 2242 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 3730 2151 50  0000 L CNN
-F 2 "" H 3650 2250 50  0001 C CNN
-F 3 "~" H 3650 2250 50  0001 C CNN
-	1    3650 2250
-	1    0    0    -1  
+P 5600 3550
+F 0 "J9" H 5680 3542 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 5680 3451 50  0000 L CNN
+F 2 "" H 5600 3550 50  0001 C CNN
+F 3 "~" H 5600 3550 50  0001 C CNN
+	1    5600 3550
+	0    1    1    0   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J2
 U 1 1 60941AB4
-P 2350 2350
-F 0 "J2" H 2268 2025 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 2268 2116 50  0000 C CNN
-F 2 "" H 2350 2350 50  0001 C CNN
-F 3 "~" H 2350 2350 50  0001 C CNN
-	1    2350 2350
-	-1   0    0    1   
+P 5500 2250
+F 0 "J2" H 5418 1925 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 5418 2016 50  0000 C CNN
+F 2 "" H 5500 2250 50  0001 C CNN
+F 3 "~" H 5500 2250 50  0001 C CNN
+	1    5500 2250
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J3
 U 1 1 60942614
-P 2350 2600
-F 0 "J3" H 2268 2275 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 2268 2366 50  0000 C CNN
-F 2 "" H 2350 2600 50  0001 C CNN
-F 3 "~" H 2350 2600 50  0001 C CNN
-	1    2350 2600
-	-1   0    0    1   
+P 5250 2250
+F 0 "J3" H 5168 1925 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 5168 2016 50  0000 C CNN
+F 2 "" H 5250 2250 50  0001 C CNN
+F 3 "~" H 5250 2250 50  0001 C CNN
+	1    5250 2250
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J4
 U 1 1 60942A20
-P 2350 2850
-F 0 "J4" H 2268 2525 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 2268 2616 50  0000 C CNN
-F 2 "" H 2350 2850 50  0001 C CNN
-F 3 "~" H 2350 2850 50  0001 C CNN
-	1    2350 2850
-	-1   0    0    1   
+P 5000 2250
+F 0 "J4" H 4918 1925 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 4918 2016 50  0000 C CNN
+F 2 "" H 5000 2250 50  0001 C CNN
+F 3 "~" H 5000 2250 50  0001 C CNN
+	1    5000 2250
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J5
 U 1 1 6094314E
-P 2350 3100
-F 0 "J5" H 2268 2775 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 2268 2866 50  0000 C CNN
-F 2 "" H 2350 3100 50  0001 C CNN
-F 3 "~" H 2350 3100 50  0001 C CNN
-	1    2350 3100
-	-1   0    0    1   
+P 4750 2250
+F 0 "J5" H 4668 1925 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 4668 2016 50  0000 C CNN
+F 2 "" H 4750 2250 50  0001 C CNN
+F 3 "~" H 4750 2250 50  0001 C CNN
+	1    4750 2250
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J6
 U 1 1 609434ED
-P 2350 3350
-F 0 "J6" H 2268 3025 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 2268 3116 50  0000 C CNN
-F 2 "" H 2350 3350 50  0001 C CNN
-F 3 "~" H 2350 3350 50  0001 C CNN
-	1    2350 3350
-	-1   0    0    1   
+P 4500 2250
+F 0 "J6" H 4418 1925 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 4418 2016 50  0000 C CNN
+F 2 "" H 4500 2250 50  0001 C CNN
+F 3 "~" H 4500 2250 50  0001 C CNN
+	1    4500 2250
+	0    -1   -1   0   
 $EndComp
 Wire Wire Line
 	2550 4300 2700 4300
 Wire Wire Line
-	2700 4300 2700 3250
-Wire Wire Line
-	2700 2250 2550 2250
+	5600 2600 5600 2450
 Connection ~ 2550 4300
 Wire Wire Line
-	2550 2500 2700 2500
-Connection ~ 2700 2500
+	5350 2450 5350 2600
+Connection ~ 5350 2600
 Wire Wire Line
-	2700 2500 2700 2250
+	5350 2600 5600 2600
 Wire Wire Line
-	2550 2750 2700 2750
-Connection ~ 2700 2750
+	5100 2450 5100 2600
+Connection ~ 5100 2600
 Wire Wire Line
-	2700 2750 2700 2500
+	5100 2600 5350 2600
 Wire Wire Line
-	2550 3000 2700 3000
-Connection ~ 2700 3000
+	4850 2450 4850 2600
+Connection ~ 4850 2600
 Wire Wire Line
-	2700 3000 2700 2750
+	4850 2600 5100 2600
 Wire Wire Line
-	2550 3250 2700 3250
-Connection ~ 2700 3250
+	4600 2450 4600 2600
+Connection ~ 4600 2600
 Wire Wire Line
-	2700 3250 2700 3000
+	4600 2600 4850 2600
 Wire Wire Line
-	3050 4000 3050 3350
+	5500 2950 5500 2450
 Wire Wire Line
-	3050 2350 2550 2350
+	5250 2450 5250 2950
+Connection ~ 5250 2950
+Wire Wire Line
+	5250 2950 5500 2950
+Wire Wire Line
+	5000 2450 5000 2950
+Connection ~ 5000 2950
+Wire Wire Line
+	5000 2950 5250 2950
+Wire Wire Line
+	4750 2450 4750 2950
+Connection ~ 4750 2950
+Wire Wire Line
+	4750 2950 5000 2950
+Wire Wire Line
+	4500 2450 4500 2950
+Connection ~ 4500 2950
+Wire Wire Line
+	4500 2950 4750 2950
+Wire Wire Line
+	5600 3250 5600 3350
+Wire Wire Line
+	5350 3250 5350 3350
+Connection ~ 5350 3250
+Wire Wire Line
+	5350 3250 5600 3250
+Wire Wire Line
+	5100 3350 5100 3250
+Connection ~ 5100 3250
+Wire Wire Line
+	5100 3250 5350 3250
+Wire Wire Line
+	4850 3350 4850 3250
+Connection ~ 4850 3250
+Wire Wire Line
+	4850 3250 5100 3250
+Wire Wire Line
+	4600 3350 4600 3250
+Connection ~ 4600 3250
+Wire Wire Line
+	4600 3250 4850 3250
+Wire Wire Line
+	5500 2950 5500 3350
+Connection ~ 5500 2950
+Wire Wire Line
+	5250 2950 5250 3350
+Wire Wire Line
+	5000 2950 5000 3350
+Wire Wire Line
+	4750 2950 4750 3350
+Wire Wire Line
+	4500 2950 4500 3350
+$Comp
+L Regulator_Linear:LM1084-3.3 U?
+U 1 1 60D85B5C
+P 1900 3400
+F 0 "U?" V 1946 3505 50  0000 L CNN
+F 1 "LM1084-3.3" V 1855 3505 50  0000 L CNN
+F 2 "" H 1900 3650 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/symlink/lm1084.pdf" H 1900 3400 50  0001 C CNN
+	1    1900 3400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 60D8BE94
+P 2000 4150
+F 0 "C?" H 1882 4104 50  0000 R CNN
+F 1 "10μf" H 1882 4195 50  0000 R CNN
+F 2 "" H 2038 4000 50  0001 C CNN
+F 3 "~" H 2000 4150 50  0001 C CNN
+	1    2000 4150
+	-1   0    0    1   
+$EndComp
+Connection ~ 1900 3700
+Wire Wire Line
+	1900 3700 2000 3700
+Wire Wire Line
+	2000 3700 2250 3700
+$Comp
+L Device:CP C?
+U 1 1 60DFA77E
+P 2250 3550
+F 0 "C?" H 2132 3504 50  0000 R CNN
+F 1 "10μf" H 2132 3595 50  0000 R CNN
+F 2 "" H 2288 3400 50  0001 C CNN
+F 3 "~" H 2250 3550 50  0001 C CNN
+	1    2250 3550
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 60DFEA28
+P 2250 3250
+F 0 "C?" H 2368 3296 50  0000 L CNN
+F 1 "10μf" H 2368 3205 50  0000 L CNN
+F 2 "" H 2288 3100 50  0001 C CNN
+F 3 "~" H 2250 3250 50  0001 C CNN
+	1    2250 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1750 4300 2000 4300
+Connection ~ 2000 4300
+Wire Wire Line
+	2000 4300 2550 4300
+Connection ~ 2250 3700
+Wire Wire Line
+	2250 3700 3550 3700
+Wire Wire Line
+	1900 3100 2250 3100
+$Comp
+L power:+3.3V #PWR?
+U 1 1 60E16566
+P 1900 3100
+F 0 "#PWR?" H 1900 2950 50  0001 C CNN
+F 1 "+3.3V" H 1915 3273 50  0000 C CNN
+F 2 "" H 1900 3100 50  0001 C CNN
+F 3 "" H 1900 3100 50  0001 C CNN
+	1    1900 3100
+	1    0    0    -1  
+$EndComp
+Connection ~ 1900 3100
+Connection ~ 2250 3100
+$Comp
+L Connector:Conn_01x11_Male J?
+U 1 1 60E1FDA6
+P 4100 4000
+F 0 "J?" H 4072 3932 50  0000 R CNN
+F 1 "Conn_01x11_Male" H 4072 4023 50  0000 R CNN
+F 2 "" H 4100 4000 50  0001 C CNN
+F 3 "~" H 4100 4000 50  0001 C CNN
+	1    4100 4000
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3900 3500 3900 3600
+Connection ~ 3900 3500
+Wire Wire Line
+	3900 3600 3900 3700
+Connection ~ 3900 3600
+Connection ~ 3900 4500
+Connection ~ 3900 3700
+Wire Wire Line
+	3900 3700 3900 3800
+Connection ~ 3900 3800
+Wire Wire Line
+	3900 3800 3900 3900
+Connection ~ 3900 3900
+Wire Wire Line
+	3900 3900 3900 4000
+Connection ~ 3900 4000
+Wire Wire Line
+	3900 4000 3900 4100
+Connection ~ 3900 4100
+Wire Wire Line
+	3900 4100 3900 4200
+Connection ~ 3900 4200
+Wire Wire Line
+	3900 4200 3900 4300
+Connection ~ 3900 4300
+Wire Wire Line
+	3900 4300 3900 4400
+Connection ~ 3900 4400
+Wire Wire Line
+	3900 4400 3900 4500
+Wire Wire Line
+	3900 4500 3900 4600
+Text Label 3950 4600 0    50   ~ 0
+LM_VIN
+Wire Wire Line
+	3900 3100 3900 3500
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 60E3AE94
+P 2250 1900
+F 0 "J?" H 2168 1575 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 2168 1666 50  0000 C CNN
+F 2 "" H 2250 1900 50  0001 C CNN
+F 3 "~" H 2250 1900 50  0001 C CNN
+	1    2250 1900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 60E3AE9A
+P 2250 2150
+F 0 "J?" H 2168 1825 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 2168 1916 50  0000 C CNN
+F 2 "" H 2250 2150 50  0001 C CNN
+F 3 "~" H 2250 2150 50  0001 C CNN
+	1    2250 2150
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 60E3AEA0
+P 2250 2400
+F 0 "J?" H 2168 2075 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 2168 2166 50  0000 C CNN
+F 2 "" H 2250 2400 50  0001 C CNN
+F 3 "~" H 2250 2400 50  0001 C CNN
+	1    2250 2400
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 60E3AEA6
+P 2250 2650
+F 0 "J?" H 2168 2325 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 2168 2416 50  0000 C CNN
+F 2 "" H 2250 2650 50  0001 C CNN
+F 3 "~" H 2250 2650 50  0001 C CNN
+	1    2250 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 60E3AEAC
+P 2250 2900
+F 0 "J?" H 2168 2575 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 2168 2666 50  0000 C CNN
+F 2 "" H 2250 2900 50  0001 C CNN
+F 3 "~" H 2250 2900 50  0001 C CNN
+	1    2250 2900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2600 1800 2450 1800
+Wire Wire Line
+	2450 2050 2600 2050
+Connection ~ 2600 2050
+Wire Wire Line
+	2600 2050 2600 1800
+Wire Wire Line
+	2450 2300 2600 2300
+Connection ~ 2600 2300
+Wire Wire Line
+	2600 2300 2600 2050
+Wire Wire Line
+	2450 2550 2600 2550
+Connection ~ 2600 2550
+Wire Wire Line
+	2600 2550 2600 2300
+Wire Wire Line
+	2450 2800 2600 2800
+Connection ~ 2600 2800
+Wire Wire Line
+	2600 2800 2600 2550
+Wire Wire Line
+	2950 1900 2450 1900
+Wire Wire Line
+	2450 2150 2950 2150
+Connection ~ 2950 2150
+Wire Wire Line
+	2950 2150 2950 1900
+Wire Wire Line
+	2450 2400 2950 2400
+Connection ~ 2950 2400
+Wire Wire Line
+	2950 2400 2950 2150
+Wire Wire Line
+	2450 2650 2950 2650
+Connection ~ 2950 2650
+Wire Wire Line
+	2950 2650 2950 2400
+Wire Wire Line
+	2450 2900 2950 2900
+Connection ~ 2950 2900
+Wire Wire Line
+	2950 2900 2950 2650
+Wire Wire Line
+	2950 2900 2950 3100
+Connection ~ 2950 3100
+Wire Wire Line
+	2950 3100 3150 3100
+Connection ~ 2600 4000
+Wire Wire Line
+	2250 3100 2950 3100
+Wire Wire Line
+	2600 2800 2600 4000
+Wire Wire Line
+	2600 4000 3050 4000
+Wire Wire Line
+	3050 2950 3050 4000
+Wire Wire Line
+	3050 2950 4500 2950
 Connection ~ 3050 4000
 Wire Wire Line
-	2550 2600 3050 2600
-Connection ~ 3050 2600
+	3150 2600 3150 3100
 Wire Wire Line
-	3050 2600 3050 2350
+	3150 2600 4600 2600
+Connection ~ 3150 3100
 Wire Wire Line
-	2550 2850 3050 2850
-Connection ~ 3050 2850
+	3150 3100 3900 3100
 Wire Wire Line
-	3050 2850 3050 2600
+	2550 3250 2550 4300
 Wire Wire Line
-	2550 3100 3050 3100
-Connection ~ 3050 3100
-Wire Wire Line
-	3050 3100 3050 2850
-Wire Wire Line
-	2550 3350 3050 3350
-Connection ~ 3050 3350
-Wire Wire Line
-	3050 3350 3050 3100
-Wire Wire Line
-	3350 3700 3350 3250
-Wire Wire Line
-	3350 2250 3450 2250
-Wire Wire Line
-	3350 2500 3450 2500
-Connection ~ 3350 2500
-Wire Wire Line
-	3350 2500 3350 2250
-Wire Wire Line
-	3450 2750 3350 2750
-Connection ~ 3350 2750
-Wire Wire Line
-	3350 2750 3350 2500
-Wire Wire Line
-	3450 3000 3350 3000
-Connection ~ 3350 3000
-Wire Wire Line
-	3350 3000 3350 2750
-Wire Wire Line
-	3450 3250 3350 3250
-Connection ~ 3350 3250
-Wire Wire Line
-	3350 3250 3350 3000
-Connection ~ 3350 3700
-Wire Wire Line
-	3350 3700 3550 3700
-Wire Wire Line
-	2000 3700 3350 3700
-Wire Wire Line
-	3050 2350 3450 2350
-Connection ~ 3050 2350
-Wire Wire Line
-	3050 2600 3450 2600
-Wire Wire Line
-	3050 2850 3450 2850
-Wire Wire Line
-	3050 3100 3450 3100
-Wire Wire Line
-	3050 3350 3450 3350
+	2550 3250 4600 3250
 Wire Bus Line
 	3800 5000 3800 6050
 Wire Bus Line
