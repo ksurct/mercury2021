@@ -146,7 +146,7 @@ class RealRobotControl(RobotControl):
         serialSensorData = serialData.getSensor()
         for i in range(0, _sensors.len()):
             _sensors[i].update(serialSensorData[i])
-            print serialSensorData[i] 
+            print (serialSensorData[i]) 
         return self._sensors
 
     def getMagnetData(self):
@@ -181,7 +181,7 @@ class RealRobotControl(RobotControl):
         serialEncoderData = serialData.getEncoder()
         for i in range(0, encoderData.len()):
             encoderData[i] = serialEncoderData[i]
-            print serialEncoderData[i] 
+            print (serialEncoderData[i])
         return self.encoderData
 
     #Sets the servo motor's angle to the given int degrees
