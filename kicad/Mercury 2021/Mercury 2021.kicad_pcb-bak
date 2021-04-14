@@ -5090,8 +5090,8 @@
     )
   )
 
-  (module Connector_USB:USB_B_TE_5787834_Vertical (layer F.Cu) (tedit 5A23F084) (tstamp 6079BEF5)
-    (at 36.068 33.782)
+  (module Connector_USB:USB_B_TE_5787834_Vertical (layer F.Cu) (tedit 5A23F084) (tstamp 6079BE14)
+    (at 236.355001 89.650001)
     (descr http://www.mouser.com/ds/2/418/NG_CD_5787834_A4-669110.pdf)
     (tags "USB_B USB B vertical female connector")
     (path /60979A3C/612E76FA)
@@ -5142,7 +5142,7 @@
   )
 
   (module Connector_USB:USB_A_Molex_105057_Vertical (layer F.Cu) (tedit 5C671087) (tstamp 6079BE30)
-    (at 75.184 121.158)
+    (at 262.915001 91.345001)
     (descr https://www.molex.com/pdm_docs/sd/1050570001_sd.pdf)
     (tags "USB A Vertical")
     (path /6095675A/612C23CD)
