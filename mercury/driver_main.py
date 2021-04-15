@@ -10,67 +10,39 @@ w = InternetCom("computer", "http://10.150.251.154:8000/server")
 
 window = pyglet.window.Window(width = 500, height = 500)
 
-"""
-#code in progress to streamline the label creation for sensors
-sensorsFL = pyglet.text.Label
-sensorsFM = pyglet.text.Label
-sensorsFR = pyglet.text.Label
-sensorsLT = pyglet.text.Label
-sensorsLB = pyglet.text.Label
-sensorsRT = pyglet.text.Label
-sensorsRB = pyglet.text.Label
-sensors = [sensorsFL, sensorsFM, sensorsFR, sensorsLT, sensorsLB, sensorsRT, sensorsRB]
+labels = [pyglet.text.Label(text = "Frt L"), pyglet.text.Label(text = "Frt M"), 
+    pyglet.text.Label(text = "Frt R"), pyglet.text.Label(text = "Left Frt"), 
+    pyglet.text.Label(text = "Left Bk"), pyglet.text.Label(text = "Right Frt"), 
+    pyglet.text.Label(text = "Right Bk")]
+count = 7
+for s in labels: 
+    s.font_name = "Times New Roman"
+    s.font_size = 35
+    s.x = window.width//4
+    s.y = (window.height//8 * count)
+    s.anchor_x = "center"
+    s.anchor_y = "center"
+    count = count - 1
 
-for s in sensors:
-    count = 7 
-    s = pyglet.text.Label('Sensor',
-                          font_name='Times New Roman',
-                          font_size=36,
-                          x=window.width//4, y=window.height//8 * count,
-                          anchor_x='center', anchor_y='center')
-    count = count - 1"""
-#first iteration of working changing text for interface
-sensorsFL = pyglet.text.Label('Front Left',
-                          font_name='Times New Roman',
-                          font_size=36,
-                          x=window.width//2, y=window.height//8 * 7,
-                          anchor_x='center', anchor_y='center')
-sensorsFM = pyglet.text.Label('Front middle',
-                          font_name='Times New Roman',
-                          font_size=36,
-                          x=window.width//2, y=window.height//8 * 6,
-                          anchor_x='center', anchor_y='center')
-sensorsFR = pyglet.text.Label('Front right',
-                          font_name='Times New Roman',
-                          font_size=36,
-                          x=window.width//2, y=window.height//8 * 5,
-                          anchor_x='center', anchor_y='center')
-sensorsLT = pyglet.text.Label('Left top',
-                          font_name='Times New Roman',
-                          font_size=36,
-                          x=window.width//2, y=window.height//8 * 4,
-                          anchor_x='center', anchor_y='center')
-sensorsLB = pyglet.text.Label('Left bottom',
-                          font_name='Times New Roman',
-                          font_size=36,
-                          x=window.width//2, y=window.height//8 * 3,
-                          anchor_x='center', anchor_y='center')
-sensorsRT = pyglet.text.Label('Right top',
-                          font_name='Times New Roman',
-                          font_size=36,
-                          x=window.width//2, y=window.height//8 * 2,
-                          anchor_x='center', anchor_y='center')
-sensorsRB = pyglet.text.Label('Right bottom',
-                          font_name='Times New Roman',
-                          font_size=36,
-                          x=window.width//2, y=window.height//8,
-                          anchor_x='center', anchor_y='center')
-                          
-sensors = [sensorsFL, sensorsFM, sensorsFR, sensorsLT, sensorsLB, sensorsRT, sensorsRB]
+sensors = [pyglet.text.Label(), pyglet.text.Label(), pyglet.text.Label(), 
+    pyglet.text.Label(), pyglet.text.Label(), 
+    pyglet.text.Label(), pyglet.text.Label()]
+count = 7
+for s in sensors: 
+    s.text = "sensor"
+    s.font_name = "Times New Roman"
+    s.font_size = 35
+    s.x = window.width//4 * 3
+    s.y = (window.height//8 * count)
+    s.anchor_x = "center"
+    s.anchor_y = "center"
+    count = count - 1
 
 @window.event
 def on_draw():
     window.clear()
+    for x in labels:
+        x.draw()
     for s in sensors:
         s.draw()
         
