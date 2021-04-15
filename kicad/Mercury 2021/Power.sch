@@ -98,7 +98,7 @@ $EndComp
 Connection ~ 3450 3550
 Connection ~ 3450 3850
 Wire Wire Line
-	3450 3850 4050 3850
+	3450 3850 3600 3850
 $Comp
 L Connector:Screw_Terminal_01x02 J?
 U 1 1 60EA5F18
@@ -274,17 +274,15 @@ MP_GND
 Entry Wire Line
 	5150 4850 5250 4950
 Entry Wire Line
-	5150 4950 5250 5050
+	4200 5400 4300 5500
 Wire Wire Line
 	5000 4850 5150 4850
 Wire Wire Line
-	5000 4950 5150 4950
+	4050 5400 4200 5400
 Wire Wire Line
 	5000 4750 5150 4750
 Text Label 5050 4850 0    50   ~ 0
 RM_VIN
-Text Label 5050 4950 0    50   ~ 0
-Servo_VIN
 Text Label 5050 4750 0    50   ~ 0
 LM_VIN
 Entry Wire Line
@@ -321,8 +319,7 @@ Connection ~ 5000 4750
 Wire Wire Line
 	5000 4750 5000 4850
 Wire Wire Line
-	5000 4850 5000 4950
-Connection ~ 5000 4850
+	4050 5300 4050 5400
 Wire Bus Line
 	4400 6400 4400 5900
 $Comp
@@ -548,32 +545,17 @@ F 3 "~" H 3450 4000 50  0001 C CNN
 	1    3450 4000
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	3450 3550 3700 3550
-$Comp
-L Device:CP C?
-U 1 1 60EA6068
-P 3700 3400
-AR Path="/60EA6068" Ref="C?"  Part="1" 
-AR Path="/60E98AAB/60EA6068" Ref="C4"  Part="1" 
-F 0 "C4" H 3582 3354 50  0000 R CNN
-F 1 "10μf" H 3582 3445 50  0000 R CNN
-F 2 "Capacitor_THT:CP_Radial_D10.0mm_P2.50mm" H 3738 3250 50  0001 C CNN
-F 3 "~" H 3700 3400 50  0001 C CNN
-	1    3700 3400
-	-1   0    0    1   
-$EndComp
 $Comp
 L Device:CP C?
 U 1 1 60EA606E
-P 3700 3100
+P 3600 3100
 AR Path="/60EA606E" Ref="C?"  Part="1" 
 AR Path="/60E98AAB/60EA606E" Ref="C3"  Part="1" 
-F 0 "C3" H 3818 3146 50  0000 L CNN
-F 1 "10μf" H 3818 3055 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D10.0mm_P2.50mm" H 3738 2950 50  0001 C CNN
-F 3 "~" H 3700 3100 50  0001 C CNN
-	1    3700 3100
+F 0 "C3" H 3718 3146 50  0000 L CNN
+F 1 "10μf" H 3718 3055 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D10.0mm_P2.50mm" H 3638 2950 50  0001 C CNN
+F 3 "~" H 3600 3100 50  0001 C CNN
+	1    3600 3100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -581,12 +563,8 @@ Wire Wire Line
 Connection ~ 3450 4150
 Wire Wire Line
 	3450 4150 4000 4150
-Connection ~ 3700 3550
 Wire Wire Line
-	3700 3550 4600 3550
-Wire Wire Line
-	3350 2950 3700 2950
-Connection ~ 3700 2950
+	3350 2950 3600 2950
 Connection ~ 5350 3650
 $Comp
 L Connector:Screw_Terminal_01x02 J?
@@ -701,8 +679,6 @@ Wire Wire Line
 	4400 2750 4400 2950
 Connection ~ 4400 2950
 Connection ~ 4050 3850
-Wire Wire Line
-	3700 2950 4400 2950
 Wire Wire Line
 	4050 2650 4050 3850
 Wire Wire Line
@@ -892,17 +868,17 @@ Text GLabel 5050 4750 2    50   Input ~ 0
 LM_VIN
 Text GLabel 5050 4850 2    50   Input ~ 0
 RM_VIN
-Text GLabel 5050 4950 2    50   Input ~ 0
+Text GLabel 4000 5400 0    50   Input ~ 0
 SERVO_VIN
 Text GLabel 4100 6050 2    50   Input ~ 0
 Sense_VDD
 Text GLabel 4050 6150 2    50   Input ~ 0
 MP_5v
 Wire Wire Line
-	4000 5250 4000 5500
+	4000 5250 4000 5300
 Text GLabel 4100 5650 2    50   Input ~ 0
 Arduino_3v3
-Text GLabel 4100 5500 2    50   Input ~ 0
+Text GLabel 4000 5500 0    50   Input ~ 0
 Pi_5v
 Text GLabel 4450 5300 3    50   Input ~ 0
 Pi_GND
@@ -919,6 +895,35 @@ Wire Wire Line
 	4550 5050 4550 5300
 Wire Wire Line
 	4550 5300 4400 5300
+Connection ~ 4550 5050
+Wire Wire Line
+	4550 5050 4700 5050
+Text Label 3450 2950 2    50   ~ 0
+3.3v
+Text GLabel 5350 2950 2    50   Input ~ 0
+3.3v_Rail
+Text GLabel 5000 3550 2    50   Input ~ 0
+11.1v_Rail
+Text GLabel 4500 3850 2    50   Input ~ 0
+GND_Rail
+Text GLabel 4150 4150 2    50   Input ~ 0
+5v_Rail
+Connection ~ 3600 2950
+Wire Wire Line
+	3600 3250 3600 3850
+Wire Wire Line
+	3600 2950 4400 2950
+Connection ~ 3600 3850
+Wire Wire Line
+	3600 3850 4050 3850
+Wire Wire Line
+	3450 3550 4600 3550
+Text GLabel 4000 5350 2    50   Input ~ 0
+Servo_VCC
+Text Label 4200 5400 0    50   ~ 0
+Servo_VIN
+Wire Wire Line
+	4050 5300 4000 5300
 Wire Bus Line
 	4300 5900 4300 6250
 Wire Bus Line
@@ -927,7 +932,7 @@ Wire Bus Line
 	5000 5200 5000 5500
 Wire Bus Line
 	4300 5000 4300 5900
-Connection ~ 4550 5050
+Connection ~ 4000 5300
 Wire Wire Line
-	4550 5050 4700 5050
+	4000 5300 4000 5500
 $EndSCHEMATC
