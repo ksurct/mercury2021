@@ -6,3 +6,11 @@ __pycache__/
 .vscode/
 *.pyc
 *.sqlite3
+.DS_Store
+kicad/t/y.sch
+kicad/t/y.pro
+kicad/t/y.sch
+kicad/t/y.sch
+kicad/t/y.pro
+kicad/t/y-cache.lib
+kicad/t/*
