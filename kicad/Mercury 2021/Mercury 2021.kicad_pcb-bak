@@ -3,7 +3,7 @@
   (general
     (thickness 1.6)
     (drawings 6)
-    (tracks 650)
+    (tracks 652)
     (zones 0)
     (modules 41)
     (nets 112)
@@ -4212,6 +4212,8 @@
   (segment (start 96.4908 34.163) (end 95.885 34.163) (width 1.8) (layer GND_11v) (net 74))
   (segment (start 43.0892 28.924281) (end 40.410929 26.24601) (width 1.8) (layer GND_11v) (net 74))
   (segment (start 43.0892 35.0774) (end 43.0892 28.924281) (width 1.8) (layer GND_11v) (net 74))
+  (segment (start 27.051 80.772) (end 27.051 81.9404) (width 1.8) (layer GND_11v) (net 74))
+  (segment (start 35.6362 72.1868) (end 27.051 80.772) (width 1.8) (layer GND_11v) (net 74))
   (segment (start 99.7166 113.157) (end 99.7166 102.188) (width 1.8) (layer GND_11v) (net 75))
   (segment (start 104.3648 97.5398) (end 110.49 97.5398) (width 1.8) (layer GND_11v) (net 75))
   (segment (start 99.7166 102.188) (end 104.3648 97.5398) (width 1.8) (layer GND_11v) (net 75))
