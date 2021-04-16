@@ -2,4 +2,5 @@
   (lib (name Mercury)(type Legacy)(uri ${KIPRJMOD}/Mercury.lib)(options "")(descr ""))
   (lib (name mercury)(type Legacy)(uri ${KIPRJMOD}/power_board/mercury.lib)(options "")(descr ""))
   (lib (name adafruit)(type Legacy)(uri /Users/maxmyzer/Documents/adafruit.lib)(options "")(descr ""))
+  (lib (name Mercury-2021-rescue)(type Legacy)(uri "${KIPRJMOD}/Mercury 2021-rescue.lib")(options "")(descr ""))
 )
