@@ -1,4 +1,4 @@
-update=Thursday, April 15, 2021 at 06:15:32 PM
+update=Thu 15 Apr 2021 09:44:52 PM CDT
 version=1
 last_client=kicad
 [general]
@@ -26,7 +26,7 @@ ERC_TestSimilarLabels=1
 version=1
 PageLayoutDescrFile=
 LastNetListRead=Mercury 2021.net
-CopperLayerCount=4
+CopperLayerCount=2
 BoardThickness=1.6
 AllowMicroVias=0
 AllowBlindVias=0
@@ -42,6 +42,10 @@ TrackWidth1=0.25
 TrackWidth2=1.8
 ViaDiameter1=0.8
 ViaDrill1=0.4
+ViaDiameter2=1
+ViaDrill2=0.3
+ViaDiameter3=1.5
+ViaDrill3=0.4
 dPairWidth1=0.2
 dPairGap1=0.25
 dPairViaGap1=0.25
@@ -74,13 +78,13 @@ Name=F.Cu
 Type=0
 Enabled=1
 [pcbnew/Layer.In1.Cu]
-Name=GND_11v
+Name=In1.Cu
 Type=0
-Enabled=1
+Enabled=0
 [pcbnew/Layer.In2.Cu]
-Name=5v
+Name=In2.Cu
 Type=0
-Enabled=1
+Enabled=0
 [pcbnew/Layer.In3.Cu]
 Name=In3.Cu
 Type=0
