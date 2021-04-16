@@ -61,4 +61,59 @@ Wire Bus Line
 	4350 3200 4300 3200
 Wire Bus Line
 	4300 3200 4300 3300
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 609FDF60
+P 3650 1150
+F 0 "H1" H 3750 1196 50  0000 L CNN
+F 1 "MountingHole" H 3750 1105 50  0000 L CNN
+F 2 "MountingHole:MountingHole_4.3mm_M4_DIN965_Pad_TopBottom" H 3650 1150 50  0001 C CNN
+F 3 "~" H 3650 1150 50  0001 C CNN
+	1    3650 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 60A0061F
+P 4050 1150
+F 0 "H4" H 4150 1196 50  0000 L CNN
+F 1 "MountingHole" H 4150 1105 50  0000 L CNN
+F 2 "MountingHole:MountingHole_4.3mm_M4_DIN965_Pad_TopBottom" H 4050 1150 50  0001 C CNN
+F 3 "~" H 4050 1150 50  0001 C CNN
+	1    4050 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 60A00807
+P 3650 1350
+F 0 "H2" H 3750 1396 50  0000 L CNN
+F 1 "MountingHole" H 3750 1305 50  0000 L CNN
+F 2 "MountingHole:MountingHole_4.3mm_M4_DIN965_Pad_TopBottom" H 3650 1350 50  0001 C CNN
+F 3 "~" H 3650 1350 50  0001 C CNN
+	1    3650 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H5
+U 1 1 60A00A27
+P 4100 1350
+F 0 "H5" H 4200 1396 50  0000 L CNN
+F 1 "MountingHole" H 4200 1305 50  0000 L CNN
+F 2 "MountingHole:MountingHole_4.3mm_M4_DIN965_Pad_TopBottom" H 4100 1350 50  0001 C CNN
+F 3 "~" H 4100 1350 50  0001 C CNN
+	1    4100 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 60A00CDB
+P 3850 1250
+F 0 "H3" H 3950 1296 50  0000 L CNN
+F 1 "MountingHole" H 3950 1205 50  0000 L CNN
+F 2 "MountingHole:MountingHole_4.3mm_M4_DIN965_Pad_TopBottom" H 3850 1250 50  0001 C CNN
+F 3 "~" H 3850 1250 50  0001 C CNN
+	1    3850 1250
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

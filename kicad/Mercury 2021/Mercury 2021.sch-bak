@@ -61,4 +61,59 @@ Wire Bus Line
 	4350 3200 4300 3200
 Wire Bus Line
 	4300 3200 4300 3300
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 609FD44A
+P 4150 1500
+F 0 "H4" H 4250 1546 50  0000 L CNN
+F 1 "MountingHole" H 4250 1455 50  0000 L CNN
+F 2 "" H 4150 1500 50  0001 C CNN
+F 3 "~" H 4150 1500 50  0001 C CNN
+	1    4150 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 609FDCE2
+P 3650 1500
+F 0 "H2" H 3750 1546 50  0000 L CNN
+F 1 "MountingHole" H 3750 1455 50  0000 L CNN
+F 2 "" H 3650 1500 50  0001 C CNN
+F 3 "~" H 3650 1500 50  0001 C CNN
+	1    3650 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 609FDF60
+P 3650 1150
+F 0 "H1" H 3750 1196 50  0000 L CNN
+F 1 "MountingHole" H 3750 1105 50  0000 L CNN
+F 2 "" H 3650 1150 50  0001 C CNN
+F 3 "~" H 3650 1150 50  0001 C CNN
+	1    3650 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H5
+U 1 1 609FE380
+P 4200 1150
+F 0 "H5" H 4300 1196 50  0000 L CNN
+F 1 "MountingHole" H 4300 1105 50  0000 L CNN
+F 2 "" H 4200 1150 50  0001 C CNN
+F 3 "~" H 4200 1150 50  0001 C CNN
+	1    4200 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 609FEBBE
+P 3950 1300
+F 0 "H3" H 4050 1346 50  0000 L CNN
+F 1 "MountingHole" H 4050 1255 50  0000 L CNN
+F 2 "" H 3950 1300 50  0001 C CNN
+F 3 "~" H 3950 1300 50  0001 C CNN
+	1    3950 1300
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
