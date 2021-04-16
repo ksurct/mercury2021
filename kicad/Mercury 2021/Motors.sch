@@ -21,7 +21,7 @@ AR Path="/60981FBB" Ref="U?"  Part="3"
 AR Path="/6094441B/60981FBB" Ref="U?"  Part="3" 
 AR Path="/60979A3C/60981FBB" Ref="U11"  Part="3" 
 F 0 "U11" H 812 1075 50  0000 C CNN
-F 1 "PCA9685" H 812 984 50  0000 C CNN
+F 1 "MDD10A" H 812 984 50  0000 C CNN
 F 2 "Connector_JST:JST_EH_B5B-EH-A_1x05_P2.50mm_Vertical" H 750 1000 50  0001 C CNN
 F 3 "" H 750 1000 50  0001 C CNN
 	3    750  800 
@@ -35,7 +35,7 @@ AR Path="/60981FCD" Ref="U?"  Part="3"
 AR Path="/6094441B/60981FCD" Ref="U?"  Part="3" 
 AR Path="/60979A3C/60981FCD" Ref="U13"  Part="3" 
 F 0 "U13" H 812 2025 50  0000 C CNN
-F 1 "PCA9685" H 812 1934 50  0000 C CNN
+F 1 "MDD10A" H 812 1934 50  0000 C CNN
 F 2 "Connector_JST:JST_EH_B5B-EH-A_1x05_P2.50mm_Vertical" H 750 1950 50  0001 C CNN
 F 3 "" H 750 1950 50  0001 C CNN
 	3    750  1750
@@ -49,7 +49,7 @@ AR Path="/60981FD9" Ref="U?"  Part="1"
 AR Path="/6094441B/60981FD9" Ref="U?"  Part="1" 
 AR Path="/60979A3C/60981FD9" Ref="U11"  Part="1" 
 F 0 "U11" H 3119 1451 50  0000 L CNN
-F 1 "PCA9685" H 3119 1360 50  0000 L CNN
+F 1 "MDD10A" H 3119 1360 50  0000 L CNN
 F 2 "Connector_JST:JST_EH_B5B-EH-A_1x05_P2.50mm_Vertical" H 2800 1750 50  0001 C CNN
 F 3 "" H 2800 1750 50  0001 C CNN
 	1    2800 1550
@@ -93,7 +93,7 @@ AR Path="/60981FEE" Ref="U?"  Part="1"
 AR Path="/6094441B/60981FEE" Ref="U?"  Part="1" 
 AR Path="/60979A3C/60981FEE" Ref="U13"  Part="1" 
 F 0 "U13" H 3119 2051 50  0000 L CNN
-F 1 "PCA9685" H 3119 1960 50  0000 L CNN
+F 1 "MDD10A" H 3119 1960 50  0000 L CNN
 F 2 "Connector_JST:JST_EH_B5B-EH-A_1x05_P2.50mm_Vertical" H 2800 2350 50  0001 C CNN
 F 3 "" H 2800 2350 50  0001 C CNN
 	1    2800 2150
@@ -349,94 +349,6 @@ Text Label 1000 1700 0    50   ~ 0
 LM_VIN
 Text HLabel 1200 2100 0    50   Input ~ 0
 MotorPower
-$Comp
-L Connector_Generic:Conn_02x03_Top_Bottom J22
-U 1 1 609CB3BE
-P 4650 800
-F 0 "J22" H 4700 1117 50  0000 C CNN
-F 1 "Servos_Connector" H 4700 1026 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 4650 800 50  0001 C CNN
-F 3 "~" H 4650 800 50  0001 C CNN
-	1    4650 800 
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x06_Female J25
-U 1 1 60A355DA
-P 5400 2700
-F 0 "J25" H 5292 2175 50  0000 C CNN
-F 1 "Pi_Extra_GPIO" H 5292 2266 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical" H 5400 2700 50  0001 C CNN
-F 3 "~" H 5400 2700 50  0001 C CNN
-	1    5400 2700
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Conn_01x02_Female J24
-U 1 1 60A36CF4
-P 5400 1700
-F 0 "J24" H 5292 1375 50  0000 C CNN
-F 1 "Pi_Extra_GPIO" H 5292 1466 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 5400 1700 50  0001 C CNN
-F 3 "~" H 5400 1700 50  0001 C CNN
-	1    5400 1700
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Conn_01x02_Female J23
-U 1 1 60A3828A
-P 5400 1400
-F 0 "J23" H 5292 1075 50  0000 C CNN
-F 1 "Pi_Extra_Comm" H 5292 1166 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 5400 1400 50  0001 C CNN
-F 3 "~" H 5400 1400 50  0001 C CNN
-	1    5400 1400
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Conn_01x05_Female J29
-U 1 1 60A3B73C
-P 7500 2500
-F 0 "J29" H 7528 2526 50  0000 L CNN
-F 1 "Pi_Extra_GPIO" H 7528 2435 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Vertical" H 7500 2500 50  0001 C CNN
-F 3 "~" H 7500 2500 50  0001 C CNN
-	1    7500 2500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x05_Female J27
-U 1 1 60A3C8AB
-P 6550 3750
-F 0 "J27" V 6396 3998 50  0000 L CNN
-F 1 "Pi_Extra_GND" V 6487 3998 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Vertical" H 6550 3750 50  0001 C CNN
-F 3 "~" H 6550 3750 50  0001 C CNN
-	1    6550 3750
-	0    1    1    0   
-$EndComp
-$Comp
-L Connector:Conn_01x05_Female J26
-U 1 1 60A3E5BD
-P 6450 650
-F 0 "J26" V 6388 362 50  0000 R CNN
-F 1 "Pi_Extra_Power" V 6297 362 50  0000 R CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Vertical" H 6450 650 50  0001 C CNN
-F 3 "~" H 6450 650 50  0001 C CNN
-	1    6450 650 
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Connector:Conn_01x03_Female J28
-U 1 1 60AD4F38
-P 7500 1400
-F 0 "J28" H 7528 1426 50  0000 L CNN
-F 1 "Pi_Extra_GPIO" H 7528 1335 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" H 7500 1400 50  0001 C CNN
-F 3 "~" H 7500 1400 50  0001 C CNN
-	1    7500 1400
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7250 1300 7300 1300
 Wire Wire Line
@@ -525,7 +437,6 @@ Text Label 6650 3550 1    50   ~ 0
 Pi_GNDe
 Text Label 7100 3600 2    50   ~ 0
 Pi_GNDf
-NoConn ~ 6450 850 
 Text Label 6650 850  1    50   ~ 0
 Pi_3v3b
 Text Label 6550 850  1    50   ~ 0
@@ -538,30 +449,6 @@ Wire Wire Line
 	6550 850  6550 900 
 Wire Wire Line
 	6350 850  6350 900 
-Wire Wire Line
-	5000 700  4950 700 
-Wire Wire Line
-	4950 800  5000 800 
-Wire Wire Line
-	5000 900  4950 900 
-Wire Wire Line
-	4400 900  4450 900 
-Wire Wire Line
-	4450 800  4400 800 
-Wire Wire Line
-	4400 700  4450 700 
-Wire Wire Line
-	5000 700  5000 750 
-Wire Wire Line
-	5000 750  4950 750 
-Wire Wire Line
-	5000 800  5000 850 
-Wire Wire Line
-	5000 850  4950 850 
-Wire Wire Line
-	5000 900  5000 950 
-Wire Wire Line
-	5000 950  4950 950 
 Text Label 1000 850  0    50   ~ 0
 RM_GNDA
 Text Label 1000 1800 0    50   ~ 0
@@ -586,7 +473,6 @@ Entry Wire Line
 	1300 2150 1200 2250
 Wire Wire Line
 	1300 2150 1450 2150
-NoConn ~ 6250 850 
 Wire Wire Line
 	6250 900  5150 900 
 Wire Wire Line
@@ -625,93 +511,6 @@ Text GLabel 1350 2250 2    50   Input ~ 0
 Pi_GND
 Text GLabel 1350 2350 2    50   Input ~ 0
 Pi_5v
-Wire Wire Line
-	8900 1550 9000 1550
-Wire Wire Line
-	9000 1550 9000 1400
-Wire Wire Line
-	8900 1650 9050 1650
-Wire Wire Line
-	9050 1650 9050 1450
-Wire Wire Line
-	8600 1950 9150 1950
-Wire Wire Line
-	9150 1950 9150 1550
-Wire Wire Line
-	8500 1950 8500 2000
-Wire Wire Line
-	8500 2000 9200 2000
-Wire Wire Line
-	9200 2000 9200 1600
-Wire Wire Line
-	9200 1600 9250 1600
-Wire Wire Line
-	9150 1550 9250 1550
-Wire Wire Line
-	9100 1500 9250 1500
-Wire Wire Line
-	9050 1450 9250 1450
-Wire Wire Line
-	9000 1400 9250 1400
-Wire Wire Line
-	8900 1350 9250 1350
-Entry Wire Line
-	9250 1350 9350 1450
-Entry Wire Line
-	9250 1400 9350 1500
-Entry Wire Line
-	9250 1450 9350 1550
-Entry Wire Line
-	9250 1500 9350 1600
-Entry Wire Line
-	9250 1550 9350 1650
-Entry Wire Line
-	9250 1600 9350 1700
-Text HLabel 9350 1750 2    50   Input ~ 0
-USB_BUS
-Text GLabel 8950 1350 2    50   Input ~ 0
-USB_VBUS
-Text GLabel 9000 1450 2    50   Input ~ 0
-USB_D+
-Text GLabel 9050 1550 2    50   Input ~ 0
-USB_D-
-Text GLabel 9150 1750 2    50   Input ~ 0
-USB_SHIELD
-Text GLabel 9200 1850 2    50   Input ~ 0
-USB_GND
-$Comp
-L Connector:USB_B J38
-U 1 1 612E76FA
-P 8600 1550
-F 0 "J38" H 8657 2017 50  0000 C CNN
-F 1 "USB_B" H 8657 1926 50  0000 C CNN
-F 2 "Connector_USB:USB_B_TE_5787834_Vertical" H 8750 1500 50  0001 C CNN
-F 3 " ~" H 8750 1500 50  0001 C CNN
-	1    8600 1550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Mercury:PCA9685 U12B1
-U 5 1 609BF816
-P 5100 850
-F 0 "U12B1" H 5000 850 50  0000 L CNN
-F 1 "PCA9685" H 4700 950 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" H 5100 1050 50  0001 C CNN
-F 3 "" H 5100 1050 50  0001 C CNN
-	5    5100 850 
-	0    1    1    0   
-$EndComp
-$Comp
-L Mercury:PCA9685 U12A1
-U 4 1 609BDBFC
-P 4550 800
-F 0 "U12A1" H 4708 484 50  0000 L CNN
-F 1 "PCA9685" H 4708 393 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" H 4550 1000 50  0001 C CNN
-F 3 "" H 4550 1000 50  0001 C CNN
-	4    4550 800 
-	0    1    1    0   
-$EndComp
 $Comp
 L Mercury:PCA9685 U12
 U 2 1 609948C9
@@ -723,34 +522,6 @@ F 3 "" H 3800 1500 50  0001 C CNN
 	2    3800 1300
 	-1   0    0    1   
 $EndComp
-$Comp
-L Mercury:PCA9685 U12D1
-U 6 1 6141A1DE
-P 4100 1600
-F 0 "U12D1" V 4131 981 50  0000 R CNN
-F 1 "PCA9685" V 4040 981 50  0000 R CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" H 4100 1800 50  0001 C CNN
-F 3 "" H 4100 1800 50  0001 C CNN
-	6    4100 1600
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Mercury:PCA9685 U12E1
-U 7 1 6141EE79
-P 4300 1600
-F 0 "U12E1" V 3975 1237 50  0000 C CNN
-F 1 "PCA9685" V 4066 1237 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" V 4067 1237 50  0001 C CNN
-F 3 "" H 4300 1800 50  0001 C CNN
-	7    4300 1600
-	0    1    1    0   
-$EndComp
-NoConn ~ 4150 1500
-NoConn ~ 4250 1500
-NoConn ~ 4250 1600
-NoConn ~ 4150 1600
-NoConn ~ 4150 1700
-NoConn ~ 4250 1700
 Text GLabel 3500 750  2    50   Input ~ 0
 Servo_VCC
 Wire Wire Line
@@ -765,6 +536,352 @@ Wire Wire Line
 	1350 2600 1450 2600
 Entry Wire Line
 	1450 2600 1550 2500
+Text GLabel 1350 2600 2    50   Input ~ 0
+Pi_GND
+$Comp
+L Connector:Conn_01x20_Female J2
+U 1 1 608CE5E9
+P 3800 4750
+F 0 "J2" H 3692 5835 50  0000 C CNN
+F 1 "Conn_01x20_Female" H 3692 5744 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x20_P2.54mm_Vertical" H 3800 4750 50  0001 C CNN
+F 3 "~" H 3800 4750 50  0001 C CNN
+	1    3800 4750
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x20_Female J3
+U 1 1 608D9406
+P 4600 4750
+F 0 "J3" H 4628 4726 50  0000 L CNN
+F 1 "Conn_01x20_Female" H 4628 4635 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x20_P2.54mm_Vertical" H 4600 4750 50  0001 C CNN
+F 3 "~" H 4600 4750 50  0001 C CNN
+	1    4600 4750
+	1    0    0    -1  
+$EndComp
+Entry Wire Line
+	4100 3850 4200 3950
+Entry Wire Line
+	4100 3950 4200 4050
+Entry Wire Line
+	4100 4050 4200 4150
+Entry Wire Line
+	4100 4150 4200 4250
+Entry Wire Line
+	4100 4250 4200 4350
+Entry Wire Line
+	4100 4350 4200 4450
+Entry Wire Line
+	4100 4450 4200 4550
+Entry Wire Line
+	4100 4550 4200 4650
+Entry Wire Line
+	4100 4650 4200 4750
+Entry Wire Line
+	4100 4750 4200 4850
+Entry Wire Line
+	4100 4850 4200 4950
+Entry Wire Line
+	4100 4950 4200 5050
+Entry Wire Line
+	4100 5050 4200 5150
+Entry Wire Line
+	4100 5150 4200 5250
+Entry Wire Line
+	4100 5250 4200 5350
+Entry Wire Line
+	4100 5350 4200 5450
+Entry Wire Line
+	4100 5450 4200 5550
+Entry Wire Line
+	4100 5550 4200 5650
+Entry Wire Line
+	4100 5650 4200 5750
+Entry Wire Line
+	4100 5750 4200 5850
+Entry Wire Line
+	4200 5850 4300 5750
+Entry Wire Line
+	4200 5750 4300 5650
+Entry Wire Line
+	4200 5650 4300 5550
+Entry Wire Line
+	4200 5550 4300 5450
+Entry Wire Line
+	4200 5450 4300 5350
+Entry Wire Line
+	4200 5350 4300 5250
+Entry Wire Line
+	4200 5250 4300 5150
+Entry Wire Line
+	4200 5150 4300 5050
+Entry Wire Line
+	4200 5050 4300 4950
+Entry Wire Line
+	4200 4950 4300 4850
+Entry Wire Line
+	4200 4850 4300 4750
+Entry Wire Line
+	4200 4750 4300 4650
+Entry Wire Line
+	4200 4650 4300 4550
+Entry Wire Line
+	4200 4550 4300 4450
+Entry Wire Line
+	4200 4450 4300 4350
+Entry Wire Line
+	4200 4350 4300 4250
+Entry Wire Line
+	4200 4250 4300 4150
+Entry Wire Line
+	4200 4150 4300 4050
+Entry Wire Line
+	4200 4050 4300 3950
+Entry Wire Line
+	4200 3950 4300 3850
+Wire Bus Line
+	4200 3600 5000 3600
+Wire Wire Line
+	4000 3850 4100 3850
+Wire Wire Line
+	4000 3950 4100 3950
+Wire Wire Line
+	4000 4050 4100 4050
+Wire Wire Line
+	4000 4150 4100 4150
+Wire Wire Line
+	4000 4250 4100 4250
+Wire Wire Line
+	4000 4350 4100 4350
+Wire Wire Line
+	4000 4450 4100 4450
+Wire Wire Line
+	4000 4550 4100 4550
+Wire Wire Line
+	4000 4650 4100 4650
+Wire Wire Line
+	4000 4750 4100 4750
+Wire Wire Line
+	4000 4850 4100 4850
+Wire Wire Line
+	4000 4950 4100 4950
+Wire Wire Line
+	4000 5050 4100 5050
+Wire Wire Line
+	4000 5150 4100 5150
+Wire Wire Line
+	4000 5250 4100 5250
+Wire Wire Line
+	4000 5350 4100 5350
+Wire Wire Line
+	4000 5450 4100 5450
+Wire Wire Line
+	4000 5550 4100 5550
+Wire Wire Line
+	4000 5650 4100 5650
+Wire Wire Line
+	4000 5750 4100 5750
+Wire Wire Line
+	4300 4850 4400 4850
+Wire Wire Line
+	4300 4950 4400 4950
+Wire Wire Line
+	4300 5050 4400 5050
+Wire Wire Line
+	4300 5150 4400 5150
+Wire Wire Line
+	4300 5250 4400 5250
+Wire Wire Line
+	4300 5350 4400 5350
+Wire Wire Line
+	4300 5450 4400 5450
+Wire Wire Line
+	4300 5550 4400 5550
+Wire Wire Line
+	4300 5650 4400 5650
+Wire Wire Line
+	4300 5750 4400 5750
+Wire Wire Line
+	4300 3850 4400 3850
+Wire Wire Line
+	4300 3950 4400 3950
+Wire Wire Line
+	4300 4050 4400 4050
+Wire Wire Line
+	4300 4150 4400 4150
+Wire Wire Line
+	4300 4250 4400 4250
+Wire Wire Line
+	4300 4350 4400 4350
+Wire Wire Line
+	4300 4450 4400 4450
+Wire Wire Line
+	4300 4550 4400 4550
+Wire Wire Line
+	4300 4650 4400 4650
+Wire Wire Line
+	4300 4750 4400 4750
+Text Label 4050 3950 0    50   ~ 0
+Pi03
+Text Label 4050 3850 0    50   ~ 0
+Pi01
+Text Label 4050 4050 0    50   ~ 0
+Pi05
+Text Label 4050 4150 0    50   ~ 0
+Pi07
+Text Label 4050 4250 0    50   ~ 0
+Pi09
+Text Label 4050 4350 0    50   ~ 0
+Pi11
+Text Label 4050 4450 0    50   ~ 0
+Pi13
+Text Label 4050 4550 0    50   ~ 0
+Pi15
+Text Label 4050 4650 0    50   ~ 0
+Pi17
+Text Label 4050 4750 0    50   ~ 0
+Pi19
+Text Label 4050 4850 0    50   ~ 0
+Pi21
+Text Label 4050 4950 0    50   ~ 0
+Pi23
+Text Label 4050 5050 0    50   ~ 0
+Pi25
+Text Label 4050 5150 0    50   ~ 0
+Pi27
+Text Label 4050 5250 0    50   ~ 0
+Pi29
+Text Label 4050 5350 0    50   ~ 0
+Pi31
+Text Label 4050 5450 0    50   ~ 0
+Pi33
+Text Label 4050 5550 0    50   ~ 0
+Pi35
+Text Label 4050 5650 0    50   ~ 0
+Pi37
+Text Label 4050 5750 0    50   ~ 0
+Pi39
+Text Label 4350 5750 0    50   ~ 0
+Pi40
+Text Label 4350 5650 0    50   ~ 0
+Pi38
+Text Label 4350 5550 0    50   ~ 0
+Pi36
+Text Label 4350 5450 0    50   ~ 0
+Pi34
+Text Label 4350 5350 0    50   ~ 0
+Pi32
+Text Label 4350 5250 0    50   ~ 0
+Pi30
+Text Label 4350 5150 0    50   ~ 0
+Pi28
+Text Label 4350 5050 0    50   ~ 0
+Pi26
+Text Label 4350 4950 0    50   ~ 0
+Pi24
+Text Label 4350 4850 0    50   ~ 0
+Pi22
+Text Label 4350 4750 0    50   ~ 0
+Pi20
+Text Label 4350 4650 0    50   ~ 0
+Pi18
+Text Label 4350 4550 0    50   ~ 0
+Pi16
+Text Label 4350 4450 0    50   ~ 0
+Pi14
+Text Label 4350 4350 0    50   ~ 0
+Pi12
+Text Label 4350 4250 0    50   ~ 0
+Pi10
+Text Label 4350 4150 0    50   ~ 0
+Pi08
+Text Label 4350 4050 0    50   ~ 0
+Pi06
+Text Label 4350 3950 0    50   ~ 0
+Pi04
+Text Label 4350 3850 0    50   ~ 0
+Pi02
+Text Label 6050 3500 0    50   ~ 0
+Pi06
+Text Label 6150 3500 0    50   ~ 0
+Pi09
+Text Label 6250 3500 0    50   ~ 0
+Pi14
+Text Label 6350 3500 0    50   ~ 0
+Pi20
+Text Label 6450 3500 0    50   ~ 0
+Pi25
+Text Label 6550 3500 0    50   ~ 0
+Pi30
+Text Label 6650 3500 0    50   ~ 0
+Pi34
+Text Label 6750 3500 0    50   ~ 0
+Pi39
+Text Label 7250 3000 0    50   ~ 0
+Pi33
+Text Label 7250 2900 0    50   ~ 0
+Pi32
+Text Label 7250 2700 0    50   ~ 0
+Pi23
+Text Label 7250 2600 0    50   ~ 0
+Pi19
+Text Label 7250 2500 0    50   ~ 0
+Pi21
+Text Label 7250 2400 0    50   ~ 0
+Pi24
+Text Label 7250 2300 0    50   ~ 0
+Pi26
+Text Label 7250 2100 0    50   ~ 0
+Pi31
+Text Label 7250 2000 0    50   ~ 0
+Pi29
+Text Label 7250 1900 0    50   ~ 0
+Pi07
+Text Label 7250 1700 0    50   ~ 0
+Pi05
+Text Label 7250 1600 0    50   ~ 0
+Pi03
+Text Label 7250 1400 0    50   ~ 0
+Pi28
+Text Label 7250 1300 0    50   ~ 0
+Pi27
+Text Label 6650 900  0    50   ~ 0
+Pi17
+Text Label 6550 900  0    50   ~ 0
+Pi01
+Text Label 6350 900  0    50   ~ 0
+Pi04
+Text Label 6250 900  0    50   ~ 0
+Pi02
+Text Label 5650 1300 0    50   ~ 0
+Pi08
+Text Label 5650 1400 0    50   ~ 0
+Pi10
+Text Label 5650 1600 0    50   ~ 0
+Pi36
+Text Label 5650 1700 0    50   ~ 0
+Pi11
+Text Label 5650 1800 0    50   ~ 0
+Pi12
+Text Label 5650 2000 0    50   ~ 0
+Pi35
+Text Label 5650 2100 0    50   ~ 0
+Pi38
+Text Label 5650 2200 0    50   ~ 0
+Pi40
+Text Label 5650 2400 0    50   ~ 0
+Pi15
+Text Label 5650 2500 0    50   ~ 0
+Pi16
+Text Label 5650 2600 0    50   ~ 0
+Pi18
+Text Label 5650 2700 0    50   ~ 0
+Pi22
+Text Label 5650 2800 0    50   ~ 0
+Pi37
+Text Label 5650 2900 0    50   ~ 0
+Pi13
 Wire Bus Line
 	1550 2800 5350 2800
 Wire Bus Line
@@ -786,9 +903,7 @@ Wire Bus Line
 Wire Bus Line
 	7550 1550 7550 3700
 Wire Bus Line
-	9350 1450 9350 1750
-Wire Bus Line
 	1200 850  1200 2450
-Text GLabel 1350 2600 2    50   Input ~ 0
-Pi_GND
+Wire Bus Line
+	4200 3600 4200 5850
 $EndSCHEMATC

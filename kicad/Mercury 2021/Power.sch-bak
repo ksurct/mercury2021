@@ -324,19 +324,6 @@ Wire Bus Line
 	4400 6400 4400 5900
 $Comp
 L Connector:Screw_Terminal_01x02 J?
-U 1 1 60EA5FEE
-P 6050 3400
-AR Path="/60EA5FEE" Ref="J?"  Part="1" 
-AR Path="/60E98AAB/60EA5FEE" Ref="J12"  Part="1" 
-F 0 "J12" H 6130 3392 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 6130 3301 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 6050 3400 50  0001 C CNN
-F 3 "~" H 6050 3400 50  0001 C CNN
-	1    6050 3400
-	0    1    1    0   
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J?
 U 1 1 60EA5FF4
 P 6300 3400
 AR Path="/60EA5FF4" Ref="J?"  Part="1" 
@@ -376,38 +363,12 @@ F 3 "~" H 6800 3400 50  0001 C CNN
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J?
-U 1 1 60EA6006
-P 7050 3400
-AR Path="/60EA6006" Ref="J?"  Part="1" 
-AR Path="/60E98AAB/60EA6006" Ref="J35"  Part="1" 
-F 0 "J35" H 7130 3392 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 7130 3301 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 7050 3400 50  0001 C CNN
-F 3 "~" H 7050 3400 50  0001 C CNN
-	1    7050 3400
-	0    1    1    0   
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J?
-U 1 1 60EA600C
-P 6950 2100
-AR Path="/60EA600C" Ref="J?"  Part="1" 
-AR Path="/60E98AAB/60EA600C" Ref="J34"  Part="1" 
-F 0 "J34" H 6868 1775 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 6868 1866 50  0000 C CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 6950 2100 50  0001 C CNN
-F 3 "~" H 6950 2100 50  0001 C CNN
-	1    6950 2100
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J?
 U 1 1 60EA6012
 P 6700 2100
 AR Path="/60EA6012" Ref="J?"  Part="1" 
 AR Path="/60E98AAB/60EA6012" Ref="J32"  Part="1" 
 F 0 "J32" H 6618 1775 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 6618 1866 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 7050 1900 50  0000 C CNN
 F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 6700 2100 50  0001 C CNN
 F 3 "~" H 6700 2100 50  0001 C CNN
 	1    6700 2100
@@ -420,36 +381,10 @@ P 6450 2100
 AR Path="/60EA6018" Ref="J?"  Part="1" 
 AR Path="/60E98AAB/60EA6018" Ref="J30"  Part="1" 
 F 0 "J30" H 6368 1775 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 6368 1866 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 6950 1850 50  0000 C CNN
 F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 6450 2100 50  0001 C CNN
 F 3 "~" H 6450 2100 50  0001 C CNN
 	1    6450 2100
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J?
-U 1 1 60EA601E
-P 6200 2100
-AR Path="/60EA601E" Ref="J?"  Part="1" 
-AR Path="/60E98AAB/60EA601E" Ref="J13"  Part="1" 
-F 0 "J13" H 6118 1775 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 6118 1866 50  0000 C CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 6200 2100 50  0001 C CNN
-F 3 "~" H 6200 2100 50  0001 C CNN
-	1    6200 2100
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J?
-U 1 1 60EA6024
-P 5950 2100
-AR Path="/60EA6024" Ref="J?"  Part="1" 
-AR Path="/60E98AAB/60EA6024" Ref="J11"  Part="1" 
-F 0 "J11" H 5868 1775 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 5868 1866 50  0000 C CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 5950 2100 50  0001 C CNN
-F 3 "~" H 5950 2100 50  0001 C CNN
-	1    5950 2100
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
@@ -545,144 +480,12 @@ F 3 "~" H 3450 4000 50  0001 C CNN
 	1    3450 4000
 	-1   0    0    1   
 $EndComp
-$Comp
-L Device:CP C?
-U 1 1 60EA606E
-P 3600 3100
-AR Path="/60EA606E" Ref="C?"  Part="1" 
-AR Path="/60E98AAB/60EA606E" Ref="C3"  Part="1" 
-F 0 "C3" H 3718 3146 50  0000 L CNN
-F 1 "10μf" H 3718 3055 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D10.0mm_P2.50mm" H 3638 2950 50  0001 C CNN
-F 3 "~" H 3600 3100 50  0001 C CNN
-	1    3600 3100
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3200 4150 3450 4150
 Connection ~ 3450 4150
 Wire Wire Line
 	3450 4150 4000 4150
-Wire Wire Line
-	3350 2950 3600 2950
 Connection ~ 5350 3650
-$Comp
-L Connector:Screw_Terminal_01x02 J?
-U 1 1 60EA60A0
-P 3700 1750
-AR Path="/60EA60A0" Ref="J?"  Part="1" 
-AR Path="/60E98AAB/60EA60A0" Ref="J2"  Part="1" 
-F 0 "J2" H 3618 1425 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 3618 1516 50  0000 C CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 3700 1750 50  0001 C CNN
-F 3 "~" H 3700 1750 50  0001 C CNN
-	1    3700 1750
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J?
-U 1 1 60EA60A6
-P 3700 2000
-AR Path="/60EA60A6" Ref="J?"  Part="1" 
-AR Path="/60E98AAB/60EA60A6" Ref="J3"  Part="1" 
-F 0 "J3" H 3618 1675 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 3618 1766 50  0000 C CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 3700 2000 50  0001 C CNN
-F 3 "~" H 3700 2000 50  0001 C CNN
-	1    3700 2000
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J?
-U 1 1 60EA60AC
-P 3700 2250
-AR Path="/60EA60AC" Ref="J?"  Part="1" 
-AR Path="/60E98AAB/60EA60AC" Ref="J4"  Part="1" 
-F 0 "J4" H 3618 1925 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 3618 2016 50  0000 C CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 3700 2250 50  0001 C CNN
-F 3 "~" H 3700 2250 50  0001 C CNN
-	1    3700 2250
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J?
-U 1 1 60EA60B2
-P 3700 2500
-AR Path="/60EA60B2" Ref="J?"  Part="1" 
-AR Path="/60E98AAB/60EA60B2" Ref="J5"  Part="1" 
-F 0 "J5" H 3618 2175 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 3618 2266 50  0000 C CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 3700 2500 50  0001 C CNN
-F 3 "~" H 3700 2500 50  0001 C CNN
-	1    3700 2500
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J?
-U 1 1 60EA60B8
-P 3700 2750
-AR Path="/60EA60B8" Ref="J?"  Part="1" 
-AR Path="/60E98AAB/60EA60B8" Ref="J6"  Part="1" 
-F 0 "J6" H 3618 2425 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 3618 2516 50  0000 C CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 3700 2750 50  0001 C CNN
-F 3 "~" H 3700 2750 50  0001 C CNN
-	1    3700 2750
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	4050 1650 3900 1650
-Wire Wire Line
-	3900 1900 4050 1900
-Connection ~ 4050 1900
-Wire Wire Line
-	4050 1900 4050 1650
-Wire Wire Line
-	3900 2150 4050 2150
-Connection ~ 4050 2150
-Wire Wire Line
-	4050 2150 4050 1900
-Wire Wire Line
-	3900 2400 4050 2400
-Connection ~ 4050 2400
-Wire Wire Line
-	4050 2400 4050 2150
-Wire Wire Line
-	3900 2650 4050 2650
-Connection ~ 4050 2650
-Wire Wire Line
-	4050 2650 4050 2400
-Wire Wire Line
-	4400 1750 3900 1750
-Wire Wire Line
-	3900 2000 4400 2000
-Connection ~ 4400 2000
-Wire Wire Line
-	4400 2000 4400 1750
-Wire Wire Line
-	3900 2250 4400 2250
-Connection ~ 4400 2250
-Wire Wire Line
-	4400 2250 4400 2000
-Wire Wire Line
-	3900 2500 4400 2500
-Connection ~ 4400 2500
-Wire Wire Line
-	4400 2500 4400 2250
-Wire Wire Line
-	3900 2750 4400 2750
-Connection ~ 4400 2750
-Wire Wire Line
-	4400 2750 4400 2500
-Wire Wire Line
-	4400 2750 4400 2950
-Connection ~ 4400 2950
-Connection ~ 4050 3850
-Wire Wire Line
-	4050 2650 4050 3850
-Wire Wire Line
-	4050 3850 4500 3850
 Wire Wire Line
 	4500 2800 4500 3850
 Wire Wire Line
@@ -705,8 +508,6 @@ Arduino_3v3
 Connection ~ 4600 3550
 Wire Wire Line
 	4600 3550 5000 3550
-Wire Wire Line
-	4400 2950 5350 2950
 Wire Wire Line
 	4600 2450 4600 3550
 Wire Wire Line
@@ -908,14 +709,9 @@ Text GLabel 4500 3850 2    50   Input ~ 0
 GND_Rail
 Text GLabel 4150 4150 2    50   Input ~ 0
 5v_Rail
-Connection ~ 3600 2950
 Wire Wire Line
 	3600 3250 3600 3850
-Wire Wire Line
-	3600 2950 4400 2950
 Connection ~ 3600 3850
-Wire Wire Line
-	3600 3850 4050 3850
 Wire Wire Line
 	3450 3550 4600 3550
 Text GLabel 4000 5350 2    50   Input ~ 0
@@ -924,6 +720,52 @@ Text Label 4200 5400 0    50   ~ 0
 Servo_VIN
 Wire Wire Line
 	4050 5300 4000 5300
+Connection ~ 4000 5300
+Wire Wire Line
+	4000 5300 4000 5500
+Wire Wire Line
+	3600 3850 4500 3850
+Wire Wire Line
+	3350 2950 5350 2950
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 60EA601E
+P 6200 2100
+AR Path="/60EA601E" Ref="J?"  Part="1" 
+AR Path="/60E98AAB/60EA601E" Ref="J13"  Part="1" 
+F 0 "J13" H 6118 1775 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 6118 1866 50  0000 C CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 6200 2100 50  0001 C CNN
+F 3 "~" H 6200 2100 50  0001 C CNN
+	1    6200 2100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 609BEEEE
+P 6050 3400
+AR Path="/609BEEEE" Ref="J?"  Part="1" 
+AR Path="/60E98AAB/609BEEEE" Ref="J5"  Part="1" 
+F 0 "J5" H 6130 3392 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 6130 3301 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 6050 3400 50  0001 C CNN
+F 3 "~" H 6050 3400 50  0001 C CNN
+	1    6050 3400
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 609C503B
+P 5950 2100
+AR Path="/609C503B" Ref="J?"  Part="1" 
+AR Path="/60E98AAB/609C503B" Ref="J4"  Part="1" 
+F 0 "J4" H 5868 1775 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 5868 1866 50  0000 C CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 5950 2100 50  0001 C CNN
+F 3 "~" H 5950 2100 50  0001 C CNN
+	1    5950 2100
+	0    -1   -1   0   
+$EndComp
 Wire Bus Line
 	4300 5900 4300 6250
 Wire Bus Line
@@ -932,7 +774,4 @@ Wire Bus Line
 	5000 5200 5000 5500
 Wire Bus Line
 	4300 5000 4300 5900
-Connection ~ 4000 5300
-Wire Wire Line
-	4000 5300 4000 5500
 $EndSCHEMATC

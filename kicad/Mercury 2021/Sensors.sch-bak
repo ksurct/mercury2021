@@ -483,9 +483,7 @@ Arduino_A2
 Text Label 7300 3450 1    50   ~ 0
 Arduino_A3
 Text Label 7400 3450 1    50   ~ 0
-NC
-Text Label 7500 3450 1    50   ~ 0
-NC
+NCa
 Text Label 7700 3450 1    50   ~ 0
 Arduino_A8
 Text Label 7600 3450 1    50   ~ 0
@@ -971,67 +969,6 @@ Wire Wire Line
 	6000 3200 6000 3900
 Text GLabel 6450 3200 2    50   Input ~ 0
 Arduino_3v3
-Text HLabel 5200 4400 2    50   Input ~ 0
-USB_BUS
-$Comp
-L Connector:USB_A J39
-U 1 1 612C23CD
-P 4450 4200
-F 0 "J39" H 4507 4667 50  0000 C CNN
-F 1 "USB_A" H 4507 4576 50  0000 C CNN
-F 2 "Connector_USB:USB_A_Molex_105057_Vertical" H 4600 4150 50  0001 C CNN
-F 3 " ~" H 4600 4150 50  0001 C CNN
-	1    4450 4200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4750 4200 4850 4200
-Wire Wire Line
-	4850 4200 4850 4050
-Wire Wire Line
-	4750 4300 4900 4300
-Wire Wire Line
-	4900 4300 4900 4100
-Wire Wire Line
-	4450 4600 5000 4600
-Wire Wire Line
-	5000 4600 5000 4200
-Wire Wire Line
-	4350 4600 4350 4650
-Wire Wire Line
-	4350 4650 5050 4650
-Wire Wire Line
-	5050 4250 5100 4250
-Wire Wire Line
-	5000 4200 5100 4200
-Wire Wire Line
-	4950 4150 5100 4150
-Wire Wire Line
-	4900 4100 5100 4100
-Wire Wire Line
-	4850 4050 5100 4050
-Entry Wire Line
-	5100 4000 5200 4100
-Entry Wire Line
-	5100 4050 5200 4150
-Entry Wire Line
-	5100 4100 5200 4200
-Entry Wire Line
-	5100 4150 5200 4250
-Entry Wire Line
-	5100 4200 5200 4300
-Entry Wire Line
-	5100 4250 5200 4350
-Text GLabel 4800 4000 2    50   Input ~ 0
-USB_VBUS
-Text GLabel 4850 4100 2    50   Input ~ 0
-USB_D+
-Text GLabel 4900 4200 2    50   Input ~ 0
-USB_D-
-Text GLabel 5000 4400 2    50   Input ~ 0
-USB_SHIELD
-Text GLabel 5050 4500 2    50   Input ~ 0
-USB_GND
 Wire Wire Line
 	1900 2850 2850 2850
 Wire Wire Line
@@ -1068,22 +1005,18 @@ Wire Wire Line
 	5950 4200 6650 4200
 Wire Wire Line
 	5950 4000 8000 4000
-Wire Wire Line
-	5100 4000 4750 4000
-Wire Wire Line
-	5050 4250 5050 4650
-Wire Bus Line
-	5200 4100 5200 4400
 Wire Bus Line
 	9000 3000 9550 3000
+Wire Bus Line
+	7200 3100 9000 3100
 Wire Bus Line
 	9650 1850 9650 2600
 Wire Bus Line
 	9000 1850 9000 3000
 Wire Bus Line
-	7200 3100 9000 3100
+	6700 1850 9000 1850
 Wire Bus Line
 	700  1650 6700 1650
-Wire Bus Line
-	6700 1850 9000 1850
+Text Label 7500 3450 1    50   ~ 0
+NCb
 $EndSCHEMATC
