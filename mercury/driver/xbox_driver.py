@@ -13,7 +13,7 @@ class XboxDriver():
         self.clawAngle = 90
         self.command = ""
         self.controller = None
-        self.com = InternetCom("computer", "http://10.150.133.98:8000/server")
+        self.com = InternetCom("computer", "http://24.248.230.205:9999/server")
 
     def on_button_pressed(self,button):
         print('Button {0} was pressed'.format(button.name))
@@ -21,6 +21,10 @@ class XboxDriver():
             self.clawAngle = 0
         elif (button.name == "button_b"):
             self.clawAngle = 180
+        elif (button.name == "button_x"):
+            self.armAngle = 180
+        elif (button.name == "button_y"):
+            self.armAngle = 0
 
     def on_button_released(self,button):
         print('Button {0} was released'.format(button.name))
