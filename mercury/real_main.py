@@ -13,10 +13,9 @@ r.setClawServo(100)
 time_since_last_command = time.time()
 
 while(True):
-    r.getSensorData()
+    # r.getSensorData()
     # r.getEncoderData()
     # r.getMagnetData()
-    """
     if(time.time() - time_since_last_command > 2):
         r.setAllMotorSpeeds(0)
     try:
@@ -27,5 +26,4 @@ while(True):
     except:
         r.setAllMotorSpeeds(0)
         print("We are experiencing technical difficulties.")
-    """
     sleep(0.25)
