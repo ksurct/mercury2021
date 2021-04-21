@@ -5,27 +5,27 @@ class Serial(object):
     
     def __init__(self):
         self.ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-        ser.flush()
+        self.ser.flush()
         self.sensorData = ""
         self.encoderData = ""
         self.magnetData = ""
 
     def receiveData(self):
-        while (not ser.in_waiting > 0):
-            if ser.in_waiting > 0:
-                line = ser.readline().decode('utf-8').rstrip()
+        while (not self.ser.in_waiting > 0):
+            if self.ser.in_waiting > 0:
+                line = self.ser.readline().decode('utf-8').rstrip()
                 jsonLine = json.loads(line)
-                encoderData = jsonLine['encoder']
-                sensorData = jsonLine['distance']
-                magnetData = jsonLine['magnet']
+                self.encoderData = jsonLine['encoder']
+                self.sensorData = jsonLine['distance']
+                self.magnetData = jsonLine['magnet']
     
     def getSensor(self):
-        return sensorData
+        return self.sensorData
 
     def getEncoder(self):
-        return encoderData
+        return self.encoderData
 
     def getMagnet(self):
-        return magnetData
+        return self.magnetData
 
 

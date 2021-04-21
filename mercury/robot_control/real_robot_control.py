@@ -3,7 +3,7 @@ from mercury.settings.settings import settings
 from mercury.common.point import Point
 from time import sleep
 from mercury.robot_control.robot_control import RobotControl
-#from mercury.motors.ServoModel import ServoModel
+from mercury.motors.ServoModel import ServoModel
 from mercury.sensors.sensors import Sensor
 from mercury.communication.serial import Serial
 
@@ -139,13 +139,13 @@ class RealRobotControl(RobotControl):
         GPIO.setup(18,GPIO.OUT)
 
         GPIO.output(18,GPIO.HIGH)
-        serialData.receiveData
+        self.serialData.receiveData
         GPIO.output(18,GPIO.LOW)
-        serialData.receiveData
+        self.serialData.receiveData
 
-        serialSensorData = serialData.getSensor()
-        for i in range(0, _sensors.len()):
-            _sensors[i].update(serialSensorData[i])
+        serialSensorData = self.serialData.getSensor()
+        for i in range(0, len(self._sensors)):
+            self._sensors[i].update(serialSensorData[i])
             print (serialSensorData[i]) 
         return self._sensors
 
@@ -158,11 +158,11 @@ class RealRobotControl(RobotControl):
         GPIO.setup(18,GPIO.OUT)
 
         GPIO.output(18,GPIO.HIGH)
-        serialData.receiveData
+        self.serialData.receiveData
         GPIO.output(18,GPIO.LOW)
 
-        serialMagnetData = serialData.getMagnet()
-        magnetData = serialMagnetData
+        serialMagnetData = self.serialData.getMagnet()
+        self.magnetData = serialMagnetData
         print (magnetData)
         return self.magnetData
 
@@ -175,12 +175,12 @@ class RealRobotControl(RobotControl):
         GPIO.setup(18,GPIO.OUT)
 
         GPIO.output(18,GPIO.HIGH)
-        serialData.receiveData
+        self.serialData.receiveData
         GPIO.output(18,GPIO.LOW)
 
-        serialEncoderData = serialData.getEncoder()
-        for i in range(0, encoderData.len()):
-            encoderData[i] = serialEncoderData[i]
+        serialEncoderData = self.serialData.getEncoder()
+        for i in range(0, len(self.encoderData)):
+            self.encoderData[i] = serialEncoderData[i]
             print (serialEncoderData[i])
         return self.encoderData
 
