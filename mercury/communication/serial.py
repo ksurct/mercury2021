@@ -16,6 +16,7 @@ class Serial(object):
             self.encoderData = line['encoder']
             self.sensorData = line['distance']
             self.magnetData = line['magnet']
+    
     def getSensor(self):
         return self.sensorData
 
@@ -24,7 +25,6 @@ class Serial(object):
 
     def getMagnet(self):
         return self.magnetData
-
 
 # import serial
 
