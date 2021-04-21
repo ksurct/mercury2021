@@ -1,18 +1,19 @@
 from adafruit_servokit import ServoKit
-kit = ServoKit(channels = 8)
+#kit = ServoKit(channels = 8)
 
 class ServoModel():
 
     def __init__(self,name,channel,minPWM,maxPWM):
-
-        self.servo = kit.servo[channel]
-        self.name = name
-        self.minPWM = minPWM
-        self.maxPWM = maxPWM
+        pass
+        #self.servo = kit.servo[channel]
+        #self.name = name
+        #self.minPWM = minPWM
+        #self.maxPWM = maxPWM
     
     def updateAbsoluteAngle(self,angle):
-        if (angle < 181 or angle > -1): 
-            self.servo.angle = angle
+        pass
+        #if (angle < 181 or angle > -1): 
+        #    self.servo.angle = angle
         
 
 if __name__ == "__main__":

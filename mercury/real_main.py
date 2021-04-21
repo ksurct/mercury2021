@@ -14,8 +14,8 @@ time_since_last_command = time.time()
 
 while(True):
     r.getSensorData()
-    r.getEncoderData()
-    r.getMagnetData()
+    # r.getEncoderData()
+    # r.getMagnetData()
     """
     if(time.time() - time_since_last_command > 2):
         r.setAllMotorSpeeds(0)

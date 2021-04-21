@@ -3,7 +3,7 @@ from mercury.settings.settings import settings
 from mercury.common.point import Point
 from time import sleep
 from mercury.robot_control.robot_control import RobotControl
-#from mercury.motors.ServoModel import ServoModel
+from mercury.motors.ServoModel import ServoModel
 from mercury.sensors.sensors import Sensor
 from mercury.communication.serial import Serial
 
@@ -35,6 +35,10 @@ class RealRobotControl(RobotControl):
         self.sensorLF = Sensor("LF") #Left Front Sensor
         self.sensorLB = Sensor("LB") #Left Back Sensor"""
         self._sensors = [Sensor("RB"), Sensor("RF"), Sensor("FR"), Sensor("FM"), Sensor("FL"), Sensor("LF"), Sensor("LB")]
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+        #Currently set up as pin 18
+        GPIO.setup(18,GPIO.OUT)
 
         #Stores Magnet Data read from arduino (float)
         self.magnetData = 0.0
@@ -133,20 +137,17 @@ class RealRobotControl(RobotControl):
     def getSensorData(self):
         # Gets Sensor Data from Arduino (ints)
         #Setting up GPIO
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setwarnings(False)
-        #Currently set up as pin 18
-        GPIO.setup(18,GPIO.OUT)
-
-        GPIO.output(18,GPIO.HIGH)
-        serialData.receiveData
+        print("Switching_pin")
         GPIO.output(18,GPIO.LOW)
-        serialData.receiveData
+        sleep(1)
+        GPIO.output(18,GPIO.HIGH)
+        self.serialData.receiveData()
 
-        serialSensorData = serialData.getSensor()
-        for i in range(0, _sensors.len()):
-            _sensors[i].update(serialSensorData[i])
-            print (serialSensorData[i]) 
+        serialSensorData = self.serialData.getSensor()
+        for i in range(0, len(self._sensors)):
+            #self._sensors[i].update(serialSensorData[i])
+            #print (serialSensorData[i])
+            pass
         return self._sensors
 
     def getMagnetData(self):
@@ -158,12 +159,11 @@ class RealRobotControl(RobotControl):
         GPIO.setup(18,GPIO.OUT)
 
         GPIO.output(18,GPIO.HIGH)
-        serialData.receiveData
+        self.serialData.receiveData
         GPIO.output(18,GPIO.LOW)
 
-        serialMagnetData = serialData.getMagnet()
-        magnetData = serialMagnetData
-        print (magnetData)
+        serialMagnetData = self.serialData.getMagnet()
+        self.magnetData = serialMagnetData
         return self.magnetData
 
     def getEncoderData(self):
@@ -175,13 +175,14 @@ class RealRobotControl(RobotControl):
         GPIO.setup(18,GPIO.OUT)
 
         GPIO.output(18,GPIO.HIGH)
-        serialData.receiveData
+        self.serialData.receiveData
         GPIO.output(18,GPIO.LOW)
 
-        serialEncoderData = serialData.getEncoder()
-        for i in range(0, encoderData.len()):
-            encoderData[i] = serialEncoderData[i]
-            print (serialEncoderData[i])
+        serialEncoderData = self.serialData.getEncoder()
+        for i in range(0, len(self.encoderData)):
+            #self.encoderData[i] = serialEncoderData[i]
+            #print (serialEncoderData[i])
+            pass
         return self.encoderData
 
     #Sets the servo motor's angle to the given int degrees
