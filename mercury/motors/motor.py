@@ -3,10 +3,10 @@ import RPi.GPIO as GPIO
 class Motor():
     @staticmethod
     def getDefaultMotors():
-        return [Motor(18, 20, "LEFT", 1),
-        Motor(12, 21, "LEFT", 1),
-        Motor(13, 5, "RIGHT", 1),
-        Motor(19, 6, "RIGHT", 1)]
+        return [Motor(19,6, "RIGHT", -1),
+        Motor(12, 21, "RIGHT", -1),
+        Motor(13, 5, "LEFT", 1),
+        Motor(18, 20, "LEFT", 1)]
     
     # The modifier can be used to correct a motor, 
     # if it is too fast compared to others
@@ -32,7 +32,7 @@ class Motor():
 
     def setSpeed(self, speed):
         self.speed = speed
-        if (speed < 0):
+        if (speed * self.modifier < 0):
             self.setDirection(-1)
         else:
             self.setDirection(1)

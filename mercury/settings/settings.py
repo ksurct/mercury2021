@@ -43,6 +43,7 @@ class Setting():
 
 settings = AllSettings([
     Setting("instance", 'realbot', ['realbot', 'simbot', 'driver', 'playground']),
+    Setting("arduino", 'True', ['True', 'False']),
 ])
 
 settings.takeArgs(sys.argv)

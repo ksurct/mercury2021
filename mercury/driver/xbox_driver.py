@@ -13,7 +13,7 @@ class XboxDriver():
         self.clawAngle = 90
         self.command = ""
         self.controller = None
-        self.com = InternetCom("computer", "http://24.248.230.205:9999/server")
+        self.com = InternetCom("computer", "http://10.150.238.109:8000/server")
 
     def on_button_pressed(self,button):
         print('Button {0} was pressed'.format(button.name))

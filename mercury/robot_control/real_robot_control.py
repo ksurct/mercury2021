@@ -6,7 +6,7 @@ from mercury.robot_control.robot_control import RobotControl
 from mercury.motors.ServoModel import ServoModel
 from mercury.sensors.sensors import Sensor
 from mercury.communication.serial import Serial
-
+from mercury.settings.settings import settings
 #-----------------------------
 import RPi.GPIO as GPIO
 #-----------------------------
@@ -25,7 +25,9 @@ class RealRobotControl(RobotControl):
         self._probableTheta = 0
 
         #Creates a Serial Object to read data
-        self.serialData = Serial()
+        global settings
+        if (settings['arduino'] == 'False'):
+            self.serialData = Serial()
         #Sensors
         """self.sensorRB = Sensor("RB") #Right Back Sensor
         self.sensorRF = Sensor("RF") #Right Front Sensor
@@ -137,6 +139,9 @@ class RealRobotControl(RobotControl):
     def getSensorData(self):
         # Gets Sensor Data from Arduino (ints)
         #Setting up GPIO
+        global settings
+        if (settings['arduino'] == 'False'):
+            return
         print("Switching_pin")
         GPIO.output(18,GPIO.LOW)
         sleep(1)
@@ -151,6 +156,10 @@ class RealRobotControl(RobotControl):
         return self._sensors
 
     def getMagnetData(self):
+        global settings
+        if (settings['arduino'] == 'False'):
+            return
+
         # Gets Magnet Data from Arduino (float)
         #Setting up GPIO
         GPIO.setmode(GPIO.BCM)
@@ -167,6 +176,10 @@ class RealRobotControl(RobotControl):
         return self.magnetData
 
     def getEncoderData(self):
+        global settings
+        if (settings['arduino'] == 'False'):
+            return
+
         # Gets Encoder Data from Arduino
         #Setting up GPIO
         GPIO.setmode(GPIO.BCM)
