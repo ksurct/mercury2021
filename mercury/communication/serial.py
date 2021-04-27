@@ -13,6 +13,7 @@ class Serial(object):
     def receiveData(self):
         if self.ser.in_waiting > 0:
             line = json.loads(self.ser.readline().decode('utf-8').rstrip())
+            print(line)
             self.encoderData = line['encoder']
             self.sensorData = line['distance']
             self.magnetData = line['magnet']
