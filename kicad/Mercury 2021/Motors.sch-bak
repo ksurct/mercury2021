@@ -15,34 +15,6 @@ Comment4 "https://github.com/ksurct/mercury2021/issues/10"
 $EndDescr
 $Comp
 L Mercury:MDD10A U?
-U 3 1 60981FBB
-P 750 800
-AR Path="/60981FBB" Ref="U?"  Part="3" 
-AR Path="/6094441B/60981FBB" Ref="U?"  Part="3" 
-AR Path="/60979A3C/60981FBB" Ref="U11"  Part="3" 
-F 0 "U11" H 812 1075 50  0000 C CNN
-F 1 "MDD10A" H 812 984 50  0000 C CNN
-F 2 "Connector_JST:JST_EH_B5B-EH-A_1x05_P2.50mm_Vertical" H 750 1000 50  0001 C CNN
-F 3 "" H 750 1000 50  0001 C CNN
-	3    750  800 
-	1    0    0    -1  
-$EndComp
-$Comp
-L Mercury:MDD10A U?
-U 3 1 60981FCD
-P 750 1750
-AR Path="/60981FCD" Ref="U?"  Part="3" 
-AR Path="/6094441B/60981FCD" Ref="U?"  Part="3" 
-AR Path="/60979A3C/60981FCD" Ref="U13"  Part="3" 
-F 0 "U13" H 812 2025 50  0000 C CNN
-F 1 "MDD10A" H 812 1934 50  0000 C CNN
-F 2 "Connector_JST:JST_EH_B5B-EH-A_1x05_P2.50mm_Vertical" H 750 1950 50  0001 C CNN
-F 3 "" H 750 1950 50  0001 C CNN
-	3    750  1750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Mercury:MDD10A U?
 U 1 1 60981FD9
 P 2800 1550
 AR Path="/60981FD9" Ref="U?"  Part="1" 
@@ -55,36 +27,6 @@ F 3 "" H 2800 1750 50  0001 C CNN
 	1    2800 1550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2700 1900 2550 1900
-Wire Wire Line
-	2700 1800 2550 1800
-Wire Wire Line
-	2700 1700 2550 1700
-Wire Wire Line
-	2700 1600 2550 1600
-Wire Wire Line
-	2700 1500 2550 1500
-Entry Wire Line
-	2550 1900 2450 1800
-Entry Wire Line
-	2550 1800 2450 1700
-Entry Wire Line
-	2550 1700 2450 1600
-Entry Wire Line
-	2550 1600 2450 1500
-Entry Wire Line
-	2550 1500 2450 1400
-Text Label 2650 1900 2    50   ~ 0
-RM_GND
-Text Label 2650 1800 2    50   ~ 0
-RM_PWM2_GPIO12
-Text Label 2650 1700 2    50   ~ 0
-RM_DIR2_GPIO21
-Text Label 2650 1600 2    50   ~ 0
-RM_PWM1_GPIO18
-Text Label 2650 1500 2    50   ~ 0
-RM_DIR1_GPIO20
 $Comp
 L Mercury:MDD10A U?
 U 1 1 60981FEE
@@ -99,50 +41,6 @@ F 3 "" H 2800 2350 50  0001 C CNN
 	1    2800 2150
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2700 2500 2550 2500
-Wire Wire Line
-	2700 2400 2550 2400
-Wire Wire Line
-	2700 2300 2550 2300
-Wire Wire Line
-	2700 2200 2550 2200
-Wire Wire Line
-	2700 2100 2550 2100
-Entry Wire Line
-	2550 2500 2450 2400
-Entry Wire Line
-	2550 2400 2450 2300
-Entry Wire Line
-	2550 2300 2450 2200
-Entry Wire Line
-	2550 2200 2450 2100
-Entry Wire Line
-	2550 2100 2450 2000
-Text Label 2650 2100 2    50   ~ 0
-LM_DIR1_GPIO6
-Text Label 2650 2300 2    50   ~ 0
-LM_DIR2_GPIO5
-Text Label 2650 2200 2    50   ~ 0
-LM_PWM1_GPIO19
-Text Label 2650 2400 2    50   ~ 0
-LM_PWM2_GPIO13
-Text Label 2650 2500 2    50   ~ 0
-LM_GND
-Wire Bus Line
-	2450 2250 1650 2250
-Connection ~ 2450 2250
-Wire Bus Line
-	2450 1650 1650 1650
-Connection ~ 2450 1650
-Text Label 1700 1650 0    50   ~ 0
-RightMotor
-Text Label 1700 2250 0    50   ~ 0
-LeftMotor
-Entry Bus Bus
-	1550 2350 1650 2250
-Entry Bus Bus
-	1550 1750 1650 1650
 $Comp
 L Connector:Raspberry_Pi_2_3 J?
 U 1 1 60987481
@@ -152,7 +50,7 @@ AR Path="/6094441B/60987481" Ref="J?"  Part="1"
 AR Path="/60979A3C/60987481" Ref="J15"  Part="1" 
 F 0 "J15" H 6450 3681 50  0000 C CNN
 F 1 "Raspberry_Pi_2_3" H 6450 3590 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Horizontal" H 6450 2200 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 6450 2200 50  0001 C CNN
 F 3 "https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_3bplus_1p0_reduced.pdf" H 6450 2200 50  0001 C CNN
 	1    6450 2200
 	1    0    0    -1  
@@ -165,61 +63,30 @@ Wire Wire Line
 	5650 2100 5450 2100
 Wire Wire Line
 	5650 2200 5450 2200
-Entry Wire Line
-	5350 1700 5450 1800
-Entry Wire Line
-	5350 1900 5450 2000
-Entry Wire Line
-	5350 2000 5450 2100
-Entry Wire Line
-	5350 2100 5450 2200
 Wire Wire Line
 	7250 2000 7450 2000
 Wire Wire Line
 	7250 2100 7450 2100
-Wire Wire Line
-	7250 2900 7450 2900
-Wire Wire Line
-	7250 3000 7450 3000
-Entry Wire Line
-	7450 2900 7550 2800
 Entry Wire Line
 	7550 2900 7450 3000
 Entry Wire Line
 	7550 1900 7450 2000
 Entry Wire Line
 	7550 2000 7450 2100
-Entry Wire Line
-	6050 3600 6150 3700
 Wire Wire Line
 	6050 3500 6050 3600
 Text Label 7300 2100 0    50   ~ 0
 LM_DIR1_GPIO6
 Text Label 7300 2000 0    50   ~ 0
 LM_DIR2_GPIO5
-Text Label 5500 2000 2    50   ~ 0
-LM_PWM1_GPIO19
-Text Label 7300 3000 0    50   ~ 0
-LM_PWM2_GPIO13
-Text Label 6050 3550 3    50   ~ 0
+Text Label 6050 3600 3    50   ~ 0
 LM_GND
 Text Label 5450 1800 2    50   ~ 0
 RM_PWM1_GPIO18
-Text Label 5500 2100 2    50   ~ 0
-RM_DIR1_GPIO20
-Text Label 5500 2200 2    50   ~ 0
-RM_DIR2_GPIO21
-Text Label 7300 2900 0    50   ~ 0
-RM_PWM2_GPIO12
-Entry Wire Line
-	6150 3600 6250 3700
-Text Label 6150 3550 3    50   ~ 0
+Text Label 6150 3600 3    50   ~ 0
 RM_GND
 Wire Wire Line
 	6150 3600 6150 3500
-Connection ~ 5350 2800
-Wire Bus Line
-	5350 2800 5350 3700
 Entry Wire Line
 	3450 650  3350 750 
 Entry Wire Line
@@ -250,22 +117,6 @@ Wire Wire Line
 	3600 1050 3450 1050
 Wire Wire Line
 	3450 1150 3600 1150
-Entry Wire Line
-	6250 3600 6350 3700
-$Comp
-L Mercury:PCA9685 U?
-U 3 1 6098200C
-P 750 1250
-AR Path="/6098200C" Ref="U?"  Part="3" 
-AR Path="/609567C6/6098200C" Ref="U?"  Part="3" 
-AR Path="/60979A3C/6098200C" Ref="U12C1"  Part="3" 
-F 0 "U12C1" V 1000 1150 50  0000 L CNN
-F 1 "PCA9685" V 900 1100 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 750 1450 50  0001 C CNN
-F 3 "" H 750 1450 50  0001 C CNN
-	3    750  1250
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	6250 3500 6250 3600
 Entry Wire Line
@@ -285,8 +136,6 @@ Wire Wire Line
 	7400 1700 7250 1700
 Text Label 3500 1150 2    50   ~ 0
 Servo_CTL_GND
-Text Label 6250 3550 3    50   ~ 0
-Servo_CTL_GND
 Text Label 3500 1050 2    50   ~ 0
 Servo_OE
 Text Label 3500 950  2    50   ~ 0
@@ -301,20 +150,6 @@ Text Label 7350 1600 0    50   ~ 0
 Servo_SDA
 Text Label 7350 1700 0    50   ~ 0
 Servo_SCL
-Entry Wire Line
-	7550 3400 7650 3500
-Entry Wire Line
-	7550 3300 7650 3400
-Wire Wire Line
-	7650 3400 7800 3400
-Wire Wire Line
-	7650 3500 7800 3500
-NoConn ~ 7800 3400
-NoConn ~ 7800 3500
-Text Label 7700 3400 0    50   ~ 0
-Servo_CE
-Text Label 7700 3500 0    50   ~ 0
-Servo_V+
 Entry Wire Line
 	1100 750  1200 850 
 Entry Wire Line
@@ -339,13 +174,13 @@ Wire Wire Line
 	950  1700 1100 1700
 Wire Wire Line
 	950  1800 1100 1800
-Text Label 1000 750  0    50   ~ 0
+Text Label 950  750  0    50   ~ 0
 RM_VIN
-Text Label 1000 1200 0    50   ~ 0
+Text Label 950  1200 0    50   ~ 0
 Servo_GND
-Text Label 1000 1300 0    50   ~ 0
+Text Label 950  1300 0    50   ~ 0
 Servo_VIN
-Text Label 1000 1700 0    50   ~ 0
+Text Label 950  1700 0    50   ~ 0
 LM_VIN
 Text HLabel 1200 2100 0    50   Input ~ 0
 MotorPower
@@ -449,9 +284,9 @@ Wire Wire Line
 	6550 850  6550 900 
 Wire Wire Line
 	6350 850  6350 900 
-Text Label 1000 850  0    50   ~ 0
+Text Label 950  850  0    50   ~ 0
 RM_GNDA
-Text Label 1000 1800 0    50   ~ 0
+Text Label 950  1800 0    50   ~ 0
 LM_GNDA
 Text GLabel 1000 750  2    50   Input ~ 0
 RM_VIN
@@ -465,37 +300,19 @@ Text GLabel 1000 1700 2    50   Input ~ 0
 LM_VIN
 Text GLabel 1000 1800 2    50   Input ~ 0
 LM_GND_MAIN
-Entry Wire Line
-	1550 2250 1450 2150
-Text Label 1400 2150 2    50   ~ 0
+Text Label 1450 2150 2    50   ~ 0
 Servo_VCC
 Entry Wire Line
 	1300 2150 1200 2250
 Wire Wire Line
 	1300 2150 1450 2150
 Wire Wire Line
-	6250 900  5150 900 
-Wire Wire Line
-	5150 900  5150 2450
-Entry Wire Line
-	5250 2500 5350 2600
-Wire Wire Line
-	5150 2450 5250 2450
-Wire Wire Line
-	5250 2450 5250 2500
-Wire Wire Line
 	6750 3500 7100 3500
 Wire Wire Line
 	7100 3500 7100 3600
 Entry Wire Line
-	7100 3600 7200 3700
-Entry Wire Line
-	1550 2350 1450 2250
-Entry Wire Line
 	1300 2250 1200 2350
-Entry Wire Line
-	1550 2450 1450 2350
-Text Label 1400 2350 2    50   ~ 0
+Text Label 1450 2350 2    50   ~ 0
 Pi_5vin
 Entry Wire Line
 	1300 2350 1200 2450
@@ -503,7 +320,7 @@ Wire Wire Line
 	1300 2350 1450 2350
 Wire Wire Line
 	1300 2250 1450 2250
-Text Label 1400 2250 2    50   ~ 0
+Text Label 1450 2250 2    50   ~ 0
 Pi_GND
 Text GLabel 1350 2150 2    50   Input ~ 0
 Servo_VCC
@@ -528,15 +345,13 @@ Wire Wire Line
 	7300 1500 7300 1900
 Wire Wire Line
 	7300 1900 7250 1900
-Text Label 6250 900  2    50   ~ 0
+Text Label 6250 850  2    50   ~ 0
 Pi_5vin
-Text Label 1450 2600 3    50   ~ 0
+Text Label 1400 2600 3    50   ~ 0
 Pi_GNDf
 Wire Wire Line
-	1350 2600 1450 2600
-Entry Wire Line
-	1450 2600 1550 2500
-Text GLabel 1350 2600 2    50   Input ~ 0
+	1300 2600 1400 2600
+Text GLabel 1300 2600 2    50   Input ~ 0
 Pi_GND
 $Comp
 L Connector:Conn_01x20_Female J2
@@ -818,10 +633,6 @@ Text Label 6650 3500 0    50   ~ 0
 Pi34
 Text Label 6750 3500 0    50   ~ 0
 Pi39
-Text Label 7250 3000 0    50   ~ 0
-Pi33
-Text Label 7250 2900 0    50   ~ 0
-Pi32
 Text Label 7250 2700 0    50   ~ 0
 Pi23
 Text Label 7250 2600 0    50   ~ 0
@@ -882,28 +693,76 @@ Text Label 5650 2800 0    50   ~ 0
 Pi37
 Text Label 5650 2900 0    50   ~ 0
 Pi13
-Wire Bus Line
-	1550 2800 5350 2800
-Wire Bus Line
-	2450 2250 2450 2400
-Wire Bus Line
-	2450 1650 2450 1800
-Wire Bus Line
-	2450 1400 2450 1650
-Wire Bus Line
-	2450 2000 2450 2250
-Wire Bus Line
-	5350 3700 7550 3700
-Wire Bus Line
-	5350 1700 5350 2800
-Wire Bus Line
-	1550 1750 1550 2800
+Entry Wire Line
+	7450 2900 7550 2800
+Text Label 7450 2900 0    50   ~ 0
+RM_PWM2_GPIO12
+Text Label 7450 3000 0    50   ~ 0
+LM_PWM2_GPIO13
+Text Label 7350 2900 0    50   ~ 0
+Pi32
+Text Label 7350 3000 0    50   ~ 0
+Pi33
+Text Label 2600 1800 2    50   ~ 0
+RM_PWM2_GPIO12
+Text Label 2600 1900 2    50   ~ 0
+RM_GND
+Text Label 2600 1700 2    50   ~ 0
+RM_DIR2_GPIO21
+Text Label 2600 1600 2    50   ~ 0
+RM_PWM1_GPIO18
+Text Label 2600 1500 2    50   ~ 0
+RM_DIR1_GPIO20
+Text Label 2600 2500 2    50   ~ 0
+LM_GND
+Text Label 2600 2400 2    50   ~ 0
+LM_PWM2_GPIO13
+Text Label 2600 2300 2    50   ~ 0
+LM_DIR2_GPIO5
+Text Label 2600 2200 2    50   ~ 0
+LM_PWM1_GPIO19
+Text Label 2600 2100 2    50   ~ 0
+LM_DIR1_GPIO6
+Text Label 6250 3600 3    50   ~ 0
+Servo_CTL_GND
+Wire Wire Line
+	7250 2900 7450 2900
+Wire Wire Line
+	7250 3000 7450 3000
+Text Label 5450 2000 2    50   ~ 0
+LM_PWM1_GPIO19
+Text Label 5450 2200 2    50   ~ 0
+RM_DIR2_GPIO21
+Text Label 5450 2100 2    50   ~ 0
+RM_DIR1_GPIO20
+Wire Wire Line
+	2700 1500 2600 1500
+Wire Wire Line
+	2700 1600 2600 1600
+Wire Wire Line
+	2700 1700 2600 1700
+Wire Wire Line
+	2700 1800 2600 1800
+Wire Wire Line
+	2700 1900 2600 1900
+Wire Wire Line
+	2700 2100 2600 2100
+Wire Wire Line
+	2700 2200 2600 2200
+Wire Wire Line
+	2700 2300 2600 2300
+Wire Wire Line
+	2700 2400 2600 2400
+Wire Wire Line
+	2700 2500 2600 2500
+Wire Wire Line
+	6250 850  6250 900 
+Entry Wire Line
+	1200 2500 1300 2600
 Wire Bus Line
 	3350 750  3350 1400
 Wire Bus Line
-	7550 1550 7550 3700
-Wire Bus Line
-	1200 850  1200 2450
+	1200 850  1200 2500
 Wire Bus Line
 	4200 3600 4200 5850
 $EndSCHEMATC

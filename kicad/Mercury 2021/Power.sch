@@ -97,8 +97,6 @@ F 3 "~" H 3450 3700 50  0001 C CNN
 $EndComp
 Connection ~ 3450 3550
 Connection ~ 3450 3850
-Wire Wire Line
-	3450 3850 3600 3850
 $Comp
 L Connector:Screw_Terminal_01x02 J?
 U 1 1 60EA5F18
@@ -710,9 +708,6 @@ GND_Rail
 Text GLabel 4150 4150 2    50   Input ~ 0
 5v_Rail
 Wire Wire Line
-	3600 3250 3600 3850
-Connection ~ 3600 3850
-Wire Wire Line
 	3450 3550 4600 3550
 Text GLabel 4000 5350 2    50   Input ~ 0
 Servo_VCC
@@ -723,8 +718,6 @@ Wire Wire Line
 Connection ~ 4000 5300
 Wire Wire Line
 	4000 5300 4000 5500
-Wire Wire Line
-	3600 3850 4500 3850
 Wire Wire Line
 	3350 2950 5350 2950
 $Comp
@@ -774,4 +767,6 @@ Wire Bus Line
 	5000 5200 5000 5500
 Wire Bus Line
 	4300 5000 4300 5900
+Wire Wire Line
+	3450 3850 4500 3850
 $EndSCHEMATC
