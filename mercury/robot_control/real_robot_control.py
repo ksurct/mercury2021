@@ -26,8 +26,12 @@ class RealRobotControl(RobotControl):
 
         #Creates a Serial Object to read data
         global settings
-        if (settings['arduino'] == 'False'):
+        try:
             self.serialData = Serial()
+            self.arduino = True
+        except:
+            print("arduino not connected")
+            self.arduino = False
         #Sensors
         """self.sensorRB = Sensor("RB") #Right Back Sensor
         self.sensorRF = Sensor("RF") #Right Front Sensor
@@ -40,7 +44,7 @@ class RealRobotControl(RobotControl):
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
         #Currently set up as pin 18
-        GPIO.setup(18,GPIO.OUT)
+        GPIO.setup(17,GPIO.OUT)
 
         #Stores Magnet Data read from arduino (float)
         self.magnetData = 0.0
@@ -140,12 +144,12 @@ class RealRobotControl(RobotControl):
         # Gets Sensor Data from Arduino (ints)
         #Setting up GPIO
         global settings
-        if (settings['arduino'] == 'False'):
+        if (self.arduino == False):
             return
         print("Switching_pin")
-        GPIO.output(18,GPIO.LOW)
-        sleep(1)
-        GPIO.output(18,GPIO.HIGH)
+        GPIO.output(17,GPIO.LOW)
+        sleep(0.01)
+        GPIO.output(17,GPIO.HIGH)
         self.serialData.receiveData()
 
         serialSensorData = self.serialData.getSensor()
