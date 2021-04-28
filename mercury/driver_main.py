@@ -48,7 +48,7 @@ def on_draw():
         
 
 @window.event
-def on_key_press(key, mod):
+def on_key_press(key, marod):
     keyP = chr(key)
     instruction = ""
     if(keyP == 'm'):
