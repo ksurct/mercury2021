@@ -22,7 +22,7 @@ AR Path="/6094441B/60981FD9" Ref="U?"  Part="1"
 AR Path="/60979A3C/60981FD9" Ref="U11"  Part="1" 
 F 0 "U11" H 3119 1451 50  0000 L CNN
 F 1 "MDD10A" H 3119 1360 50  0000 L CNN
-F 2 "Connector_JST:JST_EH_B5B-EH-A_1x05_P2.50mm_Vertical" H 2800 1750 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Vertical" H 2800 1750 50  0001 C CNN
 F 3 "" H 2800 1750 50  0001 C CNN
 	1    2800 1550
 	1    0    0    -1  
@@ -36,7 +36,7 @@ AR Path="/6094441B/60981FEE" Ref="U?"  Part="1"
 AR Path="/60979A3C/60981FEE" Ref="U13"  Part="1" 
 F 0 "U13" H 3119 2051 50  0000 L CNN
 F 1 "MDD10A" H 3119 1960 50  0000 L CNN
-F 2 "Connector_JST:JST_EH_B5B-EH-A_1x05_P2.50mm_Vertical" H 2800 2350 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Vertical" H 2800 2350 50  0001 C CNN
 F 3 "" H 2800 2350 50  0001 C CNN
 	1    2800 2150
 	1    0    0    -1  
@@ -99,12 +99,6 @@ Entry Wire Line
 	3450 1050 3350 1150
 Entry Wire Line
 	3450 1150 3350 1250
-Wire Bus Line
-	3350 1400 3650 1400
-Entry Bus Bus
-	3650 2700 3750 2800
-Wire Bus Line
-	3650 1400 3650 2700
 Wire Wire Line
 	3600 650  3450 650 
 Wire Wire Line

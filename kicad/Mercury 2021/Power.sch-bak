@@ -759,6 +759,8 @@ F 3 "~" H 5950 2100 50  0001 C CNN
 	1    5950 2100
 	0    -1   -1   0   
 $EndComp
+Wire Wire Line
+	3450 3850 4500 3850
 Wire Bus Line
 	4300 5900 4300 6250
 Wire Bus Line
@@ -767,6 +769,8 @@ Wire Bus Line
 	5000 5200 5000 5500
 Wire Bus Line
 	4300 5000 4300 5900
-Wire Wire Line
-	3450 3850 4500 3850
+Text GLabel 4000 4000 2    50   Input ~ 0
+Arduino_VIN
+Text GLabel 4300 3850 1    50   Input ~ 0
+Arduino_GND
 $EndSCHEMATC

@@ -99,12 +99,6 @@ Entry Wire Line
 	3450 1050 3350 1150
 Entry Wire Line
 	3450 1150 3350 1250
-Wire Bus Line
-	3350 1400 3650 1400
-Entry Bus Bus
-	3650 2700 3750 2800
-Wire Bus Line
-	3650 1400 3650 2700
 Wire Wire Line
 	3600 650  3450 650 
 Wire Wire Line

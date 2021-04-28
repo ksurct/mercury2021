@@ -385,8 +385,6 @@ Text Label 5000 2150 1    50   ~ 0
 GND7
 Text Label 6300 2150 1    50   ~ 0
 VDD7
-Wire Bus Line
-	9000 3100 9000 3500
 Connection ~ 9000 3100
 Text HLabel 9000 3500 0    50   Input ~ 0
 SensorPower
@@ -490,8 +488,6 @@ Text Label 7600 3450 1    50   ~ 0
 Arduino_A7
 Wire Wire Line
 	6000 3800 5950 3800
-Wire Wire Line
-	5950 4100 6000 4100
 Text Label 5950 4100 0    50   ~ 0
 Arduino_VIN
 Text Label 5950 4000 0    50   ~ 0
@@ -1004,11 +1000,38 @@ Wire Wire Line
 Wire Wire Line
 	5950 4200 6650 4200
 Wire Wire Line
-	5950 4000 8000 4000
+	5950 4000 7700 4000
 Text Label 7500 3450 1    50   ~ 0
 NCb
+Wire Wire Line
+	6550 4100 6550 3400
+Wire Wire Line
+	6550 3400 8850 3400
+Wire Wire Line
+	5950 4100 6000 4100
+Connection ~ 6000 4100
+Wire Wire Line
+	6000 4100 6550 4100
+Entry Wire Line
+	8900 3300 9000 3400
+Wire Wire Line
+	8900 3300 8850 3300
+Wire Wire Line
+	8850 3300 8850 3400
+Text GLabel 8900 3300 0    50   Input ~ 0
+Arduino_VIN
+Entry Wire Line
+	9000 3300 9100 3400
+Wire Wire Line
+	9100 3400 9100 3900
+Wire Wire Line
+	9100 3900 7700 3900
+Wire Wire Line
+	7700 3900 7700 4000
 Wire Bus Line
 	9000 3000 9550 3000
+Wire Bus Line
+	9000 3100 9000 3500
 Wire Bus Line
 	7200 3100 9000 3100
 Wire Bus Line
@@ -1019,4 +1042,9 @@ Wire Bus Line
 	6700 1850 9000 1850
 Wire Bus Line
 	700  1650 6700 1650
+Connection ~ 7700 4000
+Wire Wire Line
+	7700 4000 8000 4000
+Text GLabel 9100 3400 0    50   Input ~ 0
+GND_Rail
 $EndSCHEMATC
