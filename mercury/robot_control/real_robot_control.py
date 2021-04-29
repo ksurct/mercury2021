@@ -152,11 +152,11 @@ class RealRobotControl(RobotControl):
         GPIO.output(17,GPIO.HIGH)
         self.serialData.receiveData()
 
-        self._sensors = self.serialData.getSensor()
-        for i in range(0, len(self._sensors)):
+        #self._sensors  = self.serialData.getSensor()
+        #for i in range(0, len(self._sensors)):
             #self._sensors[i].update(serialSensorData[i])
             #print (serialSensorData[i])
-            pass
+           # pass
         return self._sensors
 
     def getMagnetData(self):
