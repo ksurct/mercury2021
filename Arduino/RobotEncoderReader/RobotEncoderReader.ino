@@ -1,8 +1,11 @@
+// encoderCurrentPosition, EncoderOldPosition, EncoderCurrentTime, EncoderOldTime, EncoderSpeed
+int array EncoderA[5]
+int array EncoderB[5]
+int array EncoderC[5]
+int array EncoderD[5]
 
-volatile int encoderPositionA;
-volatile int encoderPositionB;
-volatile int encoderPositionC;
-volatile int encoderPositionD;
+#define int EncoderTicks = 420;
+// single-channel output: 420 counts per main shaft revolution for 1:60 geared motor, 7 pulses per rear shaft revolution
 
 void setup() {
   Serial.begin(9600);
@@ -20,6 +23,7 @@ void setup() {
   //front right (encoderD)
   pinMode(8, INPUT);
   pinMode(9, INPUT);
+  // Interupts:
   attachInterrupt(digitalPinToInterrupt(2), EncoderMonitorA, CHANGE);
   attachInterrupt(digitalPinToInterrupt(4), EncoderMonitorB, CHANGE);
   attachInterrupt(digitalPinToInterrupt(6), EncoderMonitorC, CHANGE);
@@ -27,44 +31,82 @@ void setup() {
 }
 
 void loop() {
-    Serial.print(encoderPositionA);
-    Serial.print(encoderPositionB);
-    Serial.print(encoderPositionC);
-    Serial.println(encoderPositionD);
+    Serial.print("EncoderAPos:");
+    Serial.print(EncoderA[0]);
+    Serial.print(", ");
+    Serial.print("EncoderASpeed:");
+    Serial.print(EncoderA[4]);
+    Serial.print(", ");
+    Serial.print("EncoderBPos:");
+    Serial.print(EncoderB[0]);
+    Serial.print(", ");
+    Serial.print("EncoderBSpeed:");
+    Serial.print(EncoderB[4]);
+    Serial.print(", ");
+    Serial.print("EncoderCPos:");
+    Serial.print(EncoderC[0]);
+    Serial.print(", ");
+    Serial.print("EncoderASpeed:");
+    Serial.print(EncoderC[4]);
+    Serial.print(", ");
+    Serial.print("EncoderDPos:");
+    Serial.print(EncoderD[0]);
+    Serial.print(", ");
+    Serial.print("EncoderASpeed:");
+    Serial.print(EncoderD[4]);
+    Serial.print(", ");
+    Serial.println(); // nice and semtrical now -ω-
 }
 
 void EncoderMonitorA() {
   if (digitalRead(2) == digitalRead(3)) { //if input A = input B...
-    encoderPositionA++; //add to the encoderPosition
+    EncoderA[0]++; //add to the encoderPosition
   }
   else {
-    encoderPositionA--; //if not, subtract from the encoderPosition
+    EncoderA[0]--; //if not, subtract from the encoderPosition
   }
 }
 
 void EncoderMonitorB() {
   if (digitalRead(4) == digitalRead(5)) {
-    encoderPositionB++;
+    EncoderB[0]++;
   }
   else {
-    encoderPositionB--;
+    EncoderB[0]--;
   }
 }
 
 void EncoderMonitorC() {
   if (digitalRead(6) == digitalRead(7)) {
-    encoderPositionC++;
+    EncoderC[0]++;
   }
   else {
-    encoderPositionC--;
+    EncoderC[0]--;
   }
 }
 
 void EncoderMonitorD() {
   if (digitalRead(8) == digitalRead(9)) {
-    encoderPositionD++;
+    EncoderD[0]++;
   }
   else {
-    encoderPositionD--;
+    EncoderD[0]--;
   }
+}
+// encoderCurrentPosition, EncoderOldPosition, EncoderCurrentTime, EncoderOldTime, EncoderSpeed
+int EncoderSpeedA() {
+  EncoderA[2] = millis();
+  EncoderA[4] = (((((EncoderA[0]-EncoderA[1])*1000.0)/(EncoderA[2]-EncoderA[3]))*(2.0*PI))/EncoderTicks);
+}
+int EncoderSpeedB() {
+  EncoderA[2] = millis();
+  EncoderA[4] = (((((EncoderA[0]-EncoderA[1])*1000.0)/(EncoderA[2]-EncoderA[3]))*(2.0*PI))/EncoderTicks);
+}
+int EncoderSpeedC() {
+  EncoderA[2] = millis();
+  EncoderA[4] = (((((EncoderA[0]-EncoderA[1])*1000.0)/(EncoderA[2]-EncoderA[3]))*(2.0*PI))/EncoderTicks);
+}
+int EncoderSpeedD() {
+  EncoderA[2] = millis();
+  EncoderA[4] = (((((EncoderA[0]-EncoderA[1])*1000.0)/(EncoderA[2]-EncoderA[3]))*(2.0*PI))/EncoderTicks);
 }
