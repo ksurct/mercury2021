@@ -1,10 +1,11 @@
 // encoderCurrentPosition, EncoderOldPosition, EncoderCurrentTime, EncoderOldTime, EncoderSpeed
-int array EncoderA[5]
-int array EncoderB[5]
-int array EncoderC[5]
-int array EncoderD[5]
+int EncoderA[4];
+int EncoderB[4];
+int EncoderC[4];
+int EncoderD[4];
 
-#define int EncoderTicks = 420;
+#define EncoderTicks 420
+#define Cirumfrence ((9.5/2)*PI*2) // wheel diameter is about 9.5cm
 // single-channel output: 420 counts per main shaft revolution for 1:60 geared motor, 7 pulses per rear shaft revolution
 
 void setup() {
@@ -12,22 +13,22 @@ void setup() {
   Serial.println("Basic Encoder Test:");
   //set up interrupts
   //back right (encoderA)
-  pinMode(2, INPUT);
-  pinMode(3, INPUT);
+  pinMode(2, INPUT_PULLUP);
+  pinMode(3, INPUT_PULLUP);
   //back left (encoderB)
-  pinMode(4, INPUT);
-  pinMode(5, INPUT);
+  pinMode(4, INPUT_PULLUP);
+  pinMode(5, INPUT_PULLUP);
   //front left (encoderC)
-  pinMode(6, INPUT);
-  pinMode(7, INPUT);
+  pinMode(6, INPUT_PULLUP);
+  pinMode(7, INPUT_PULLUP);
   //front right (encoderD)
-  pinMode(8, INPUT);
-  pinMode(9, INPUT);
+  pinMode(8, INPUT_PULLUP);
+  pinMode(9, INPUT_PULLUP);
   // Interupts:
-  attachInterrupt(digitalPinToInterrupt(2), EncoderMonitorA, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(4), EncoderMonitorB, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(6), EncoderMonitorC, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(8), EncoderMonitorD, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(2+1), EncoderMonitorA, RISING);
+  attachInterrupt(digitalPinToInterrupt(4+1), EncoderMonitorB, RISING);
+  attachInterrupt(digitalPinToInterrupt(6+1), EncoderMonitorC, RISING);
+  attachInterrupt(digitalPinToInterrupt(8+1), EncoderMonitorD, RISING);
 }
 
 void loop() {
@@ -35,31 +36,35 @@ void loop() {
     Serial.print(EncoderA[0]);
     Serial.print(", ");
     Serial.print("EncoderASpeed:");
+    EncoderSpeedA();
     Serial.print(EncoderA[4]);
     Serial.print(", ");
     Serial.print("EncoderBPos:");
     Serial.print(EncoderB[0]);
     Serial.print(", ");
     Serial.print("EncoderBSpeed:");
+    EncoderSpeedB();
     Serial.print(EncoderB[4]);
     Serial.print(", ");
     Serial.print("EncoderCPos:");
     Serial.print(EncoderC[0]);
     Serial.print(", ");
-    Serial.print("EncoderASpeed:");
+    Serial.print("EncoderCSpeed:");
+    EncoderSpeedC();
     Serial.print(EncoderC[4]);
     Serial.print(", ");
     Serial.print("EncoderDPos:");
     Serial.print(EncoderD[0]);
     Serial.print(", ");
-    Serial.print("EncoderASpeed:");
+    Serial.print("EncoderDSpeed:");
+    EncoderSpeedD();
     Serial.print(EncoderD[4]);
     Serial.print(", ");
     Serial.println(); // nice and semtrical now -ω-
 }
 
 void EncoderMonitorA() {
-  if (digitalRead(2) == digitalRead(3)) { //if input A = input B...
+  if (digitalRead(2+1) == digitalRead(3+1)) { //if input A = input B...
     EncoderA[0]++; //add to the encoderPosition
   }
   else {
@@ -68,7 +73,7 @@ void EncoderMonitorA() {
 }
 
 void EncoderMonitorB() {
-  if (digitalRead(4) == digitalRead(5)) {
+  if (digitalRead(4+1) == digitalRead(5+1)) {
     EncoderB[0]++;
   }
   else {
@@ -77,7 +82,7 @@ void EncoderMonitorB() {
 }
 
 void EncoderMonitorC() {
-  if (digitalRead(6) == digitalRead(7)) {
+  if (digitalRead(6+1) == digitalRead(7+1)) {
     EncoderC[0]++;
   }
   else {
@@ -86,7 +91,7 @@ void EncoderMonitorC() {
 }
 
 void EncoderMonitorD() {
-  if (digitalRead(8) == digitalRead(9)) {
+  if (digitalRead(8+1) == digitalRead(9+1)) {
     EncoderD[0]++;
   }
   else {
@@ -94,19 +99,28 @@ void EncoderMonitorD() {
   }
 }
 // encoderCurrentPosition, EncoderOldPosition, EncoderCurrentTime, EncoderOldTime, EncoderSpeed
-int EncoderSpeedA() {
+void EncoderSpeedA() {
   EncoderA[2] = millis();
-  EncoderA[4] = (((((EncoderA[0]-EncoderA[1])*1000.0)/(EncoderA[2]-EncoderA[3]))*(2.0*PI))/EncoderTicks);
+  EncoderA[4] = (((((((EncoderA[0]-EncoderA[1])/EncoderTicks)*Cirumfrence)/100)/(EncoderA[2]-EncoderA[3])));
+  EncoderA[3] = EncoderA[2];
+  EncoderA[1] = EncoderA[0];
+  int DistanceA = 0;
 }
-int EncoderSpeedB() {
-  EncoderA[2] = millis();
-  EncoderA[4] = (((((EncoderA[0]-EncoderA[1])*1000.0)/(EncoderA[2]-EncoderA[3]))*(2.0*PI))/EncoderTicks);
+void EncoderSpeedB() {
+  EncoderB[2] = millis();
+  EncoderB[4] = (((((((EncoderA[0]-EncoderA[1])/EncoderTicks)*Cirumfrence)/100)/(EncoderB[2]-EncoderB[3]))));
+  EncoderB[3] = EncoderB[2];
+  EncoderB[1] = EncoderB[0];
 }
-int EncoderSpeedC() {
-  EncoderA[2] = millis();
-  EncoderA[4] = (((((EncoderA[0]-EncoderA[1])*1000.0)/(EncoderA[2]-EncoderA[3]))*(2.0*PI))/EncoderTicks);
+void EncoderSpeedC() {
+  EncoderC[2] = millis();
+  EncoderC[4] = (((((((EncoderA[0]-EncoderA[1])/EncoderTicks)*Cirumfrence)/100)/(EncoderC[2]-EncoderC[3]));
+  EncoderC[3] = EncoderC[2];
+  EncoderC[1] = EncoderC[0];
 }
-int EncoderSpeedD() {
-  EncoderA[2] = millis();
-  EncoderA[4] = (((((EncoderA[0]-EncoderA[1])*1000.0)/(EncoderA[2]-EncoderA[3]))*(2.0*PI))/EncoderTicks);
+void EncoderSpeedD() {
+  EncoderD[2] = millis();
+  EncoderD[4] = ((((((EncoderA[0]-EncoderA[1])/EncoderTicks)*Cirumfrence)/100)/(EncoderD[2]-EncoderD[3]))/);
+  EncoderD[3] = EncoderD[2];
+  EncoderD[1] = EncoderD[0];
 }
