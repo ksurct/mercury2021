@@ -3,7 +3,10 @@ float EncoderA[5];
 float EncoderB[5];
 float EncoderC[5];
 float EncoderD[5];
+boolean trigger;
 
+String json;
+#define HallEffect A0
 #define EncoderA1 3   // RR
 #define EncoderA2 4   // RR
 #define EncoderB1 5   // RL
@@ -15,66 +18,75 @@ float EncoderD[5];
 
 #define EncoderTicks 420
 float Circumference = ((9.5*100/2)*PI*2); // wheel diameter is about 9.5cm
-// single-channel output: 420 counts per main shaft revolution for 1:60 geared motor, 7 pulses per rear shaft revolution
+#include "Adafruit_VL53L0X.h"
+#include "Wire.h"
+
+#define TCAADDR 0x70
+
+#define SENSOR_NUM 2
 
 void setup() {
-  Serial.begin(9600);
-//  Serial.println("Basic Encoder Test:");
-  //set up interrupts
-  //back right (encoderA)
+  Serial.begin(115200);
   pinMode(EncoderA1, INPUT_PULLUP);
   pinMode(EncoderA2, INPUT_PULLUP);
-  //back left (encoderB)
   pinMode(EncoderB1, INPUT_PULLUP);
   pinMode(EncoderB2, INPUT_PULLUP);
-  //front left (encoderC)
   pinMode(EncoderC1, INPUT_PULLUP);
   pinMode(EncoderC2, INPUT_PULLUP);
-  //front right (encoderD)
   pinMode(EncoderD1, INPUT_PULLUP);
   pinMode(EncoderD2, INPUT_PULLUP);
-  // Interupts:
   attachInterrupt(digitalPinToInterrupt(EncoderA1), EncoderMonitorA, RISING);
   attachInterrupt(digitalPinToInterrupt(EncoderB1), EncoderMonitorB, RISING);
   attachInterrupt(digitalPinToInterrupt(EncoderC1), EncoderMonitorC, RISING);
   attachInterrupt(digitalPinToInterrupt(EncoderD1), EncoderMonitorD, RISING);
+  Wire.begin();
+  while (! Serial) {
+    delay(1);
+  }
+  Serial.println("Adafruit VL53L0X test");
+  for(int i = 0; i < SENSOR_NUM; i++)
+  {
+    tcaselect(i);
+    if (!lox.begin()) {
+      Serial.print(F("Failed to boot VL53L0X at ")); Serial.println(i);
+      while(1);
+    }
+    // power
+    Serial.print("Sensor ready at "); Serial.println(i);
+  }
 }
 
-void loop() {
-    Serial.print("EncoderAPos:");
-    Serial.print(EncoderA[0]);
-    Serial.print(", ");
-    Serial.print("EncoderASpeed:");
-    EncoderSpeedA();
-    Serial.print(EncoderA[4]);
-    Serial.print(", ");
-    
-    Serial.print("EncoderBPos:");
-    Serial.print(EncoderB[0]);
-    Serial.print(", ");
-    Serial.print("EncoderBSpeed:");
-    EncoderSpeedB();
-    Serial.print(EncoderB[4]);
-    Serial.print(", ");
-    
-    Serial.print("EncoderCPos:");
-    Serial.print(EncoderC[0]);
-    Serial.print(", ");
-    Serial.print("EncoderCSpeed:");
-    EncoderSpeedC();
-    Serial.print(EncoderC[4]);
-    Serial.print(", ");
-        
-    Serial.print("EncoderDPos:");
-    Serial.print(EncoderD[0]);
-    Serial.print(", ");
-    Serial.print("EncoderDSpeed:");
-    EncoderSpeedD();
-    Serial.print(EncoderD[4]);
-    Serial.print(", ");
+// GOAL: "{\"Encoders:\" \{\"Encoder A: \"EncoderA[4]\","Encoder B: \"EncoderB[4]\", "Encoder C: \"EncoderC[4]\", "Encoder D: \"EncoderD[4]\",\"\}}"
+void loop(){
+  analogRead(HallEffect);
+  EncoderSpeedA();
+  EncoderSpeedB();
+  EncoderSpeedC();
+  EncoderSpeedD();
 
-    Serial.println(); // nice and semtrical now -ω-
+
+  // for(int i = 0; i < SENSOR_NUM; i++)
+  // {
+  //   VL53L0X_RangingMeasurementData_t measure;
+  //   tcaselect(i);
+  //   Serial.print("Sensor "); Serial.print(i); Serial.print(": ");
+  //   lox.rangingTest(&measure, false); // pass in 'true' to get debug data printout!
+  //
+  //   if (measure.RangeStatus != 4) {  // phase failures have incorrect data
+  //     Serial.println(measure.RangeMilliMeter);
+  //   } else {
+  //     Serial.println(" out of range ");
+  //   }
+  // }
+  if(trigger)
+  {
+    Serial.println(json);
+  }
+  else{
+    trigger = "";
+  }
 }
+
 
 void EncoderMonitorA() {
   if (digitalRead(EncoderA1) == digitalRead(EncoderA2)) { //if input A = input B...
@@ -84,7 +96,6 @@ void EncoderMonitorA() {
     EncoderA[0]--; //if not, subtract from the encoderPosition
   }
 }
-
 void EncoderMonitorB() {
   if (digitalRead(EncoderB1) == digitalRead(EncoderB2)) {
     EncoderB[0]++;
@@ -93,7 +104,6 @@ void EncoderMonitorB() {
     EncoderB[0]--;
   }
 }
-
 void EncoderMonitorC() {
   if (digitalRead(EncoderC1) == digitalRead(EncoderC2)) {
     EncoderC[0]++;
@@ -102,7 +112,6 @@ void EncoderMonitorC() {
     EncoderC[0]--;
   }
 }
-
 void EncoderMonitorD() {
   if (digitalRead(EncoderD1) == digitalRead(EncoderD2)) {
     EncoderD[0]++;
@@ -111,13 +120,6 @@ void EncoderMonitorD() {
     EncoderD[0]--;
   }
 }
-// encoderCurrentPosition, EncoderOldPosition, EncoderCurrentTime, EncoderOldTime, EncoderSpeed
-//   Change in ticks = (EncoderX[0]-EncoderX[1])
-//   Rotations = (Change in ticks)/EncoderTicks
-//   Change in distance = Rotations*Cirumfrence
-//   Change in time = (EncoderX[2]-EncoderX[4])
-//   Speed = Change in distance/Change in time
-  
 void EncoderSpeedA() {
   EncoderA[2] = millis();
   EncoderA[4] = (((((EncoderA[0]-EncoderA[1])/EncoderTicks)*Circumference ))/(EncoderA[2]-EncoderA[3]));
@@ -141,4 +143,12 @@ void EncoderSpeedD() {
   EncoderD[4] = (((((EncoderD[0]-EncoderD[1])/EncoderTicks)*Circumference ))/(EncoderD[2]-EncoderD[3]));
   EncoderD[3] = EncoderD[2];
   EncoderD[1] = EncoderD[0];
+}
+
+void tcaselect(uint8_t i) {
+  if (i > 7) return;
+
+  Wire.beginTransmission(TCAADDR);
+  Wire.write(1 << i);
+  Wire.endTransmission();
 }

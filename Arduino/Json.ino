@@ -42,18 +42,18 @@ void setup() {
 
 void loop() {
   state = digitalRead(enPin);
-  
+
   switch(curSt) {
     case high:
       if(state == LOW){
         curSt = wait;
-        lastTime = millis();  
+        lastTime = millis();
       }
       break;
      case low:
       if(state == HIGH){
         curSt = wait;
-        lastTime = millis();        
+        lastTime = millis();
       }
       break;
      case wait:
@@ -65,7 +65,7 @@ void loop() {
           else
             curSt = low;
         }
-      } else 
+      } else
         curSt = lastSt;
       break;
      case triggered:
@@ -73,6 +73,6 @@ void loop() {
       Serial.println();
       curSt = high;
       break;
-      
+
   }
 }
