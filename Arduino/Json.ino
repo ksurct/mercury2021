@@ -13,7 +13,6 @@ enum stat {
 
 stat curSt = high;
 stat lastSt = high;
-StaticJsonDocument<200> doc;
 
 void setup() {
   // put your setup code here, to run once:
