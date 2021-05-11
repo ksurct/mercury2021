@@ -3,20 +3,26 @@
 #include "src/HallEffect.hpp"
 #include "src/Json.hpp"
 #include "src/Sensors.hpp"
-
+#define SIGNAL_PIN 2
+#define DBG_SEND_JSON_ON_INTERVAL true
+void signalISR() {
+    Serial.println("Test");
+    json::Data::data.sendJson();
+}
 
 void setup() {
     Serial.begin(115200);
+    pinMode(SIGNAL_PIN, INPUT_PULLDOWN);
+    attachInterrupt(digitalPinToInterrupt(SIGNAL_PIN), signalISR, RISING);
     sensors::initSensors();
     encoders::initInterrupts();
     hallEffect::initHallEffect();
 }
 
-const uint32_t UPDATE_INTERVAL = 750;
+const unsigned long long UPDATE_INTERVAL = 500;
 unsigned long long timer = millis();
 void loop() {
     if (millis() - timer >= UPDATE_INTERVAL) {
-        Serial.print("\nInterval:\n");
         // read and aggregate sensor data.
         sensors::readSensors();
 
@@ -25,13 +31,9 @@ void loop() {
 
         // Get encoder speeds
         encoders::getEncoderSpeeds();
-
-        json::Data::data.sendJson();
-        timer += UPDATE_INTERVAL;
-        delay(750);
+        if (DBG_SEND_JSON_ON_INTERVAL) {
+            json::Data::data.sendJson();
+        }
+        timer = millis();
     }
-    // // check pin 13 for high 
-    // if (digitalRead(13) == HIGH) {
-    //     json::Data::data.sendJson();
-    // }
 }
